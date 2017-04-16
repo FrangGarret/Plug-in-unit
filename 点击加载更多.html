@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>点击加载更多-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<style>
+</style>
+</head>
+<body>
+<div id="box"></div>
+<button id="btn">加载更多</button><script>
+var data = ["武汉", "上海", "广州", "aaa", "ccc", "ddd", "eee", "777", "888", "999", "10", "11"];
+
+var nums = 4;
+var curr = 1;
+var render = function(curr) {
+    var str = '',
+        last = curr * nums - 1;
+    last = last >= data.length ? (data.length - 1) : last;
+    for (var i = (curr * nums - nums); i <= last; i++) {
+        str += '<li>' + data[i] + '</li>';
+    }
+    return str;
+};
+var boxDom = document.getElementById("box");
+boxDom.innerHTML = render(curr);
+document.getElementById("btn").onclick = function() {
+    curr++;
+    boxDom.innerHTML += render(curr);
+    if (curr > 3) {
+        curr = 3;
+        alert("没有更多了");
+    }
+}</script>
+</body>
+</html>
