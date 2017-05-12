@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>多级复选框checkbox-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<style>
+</style>
+</head>
+<body>
+<ul id="gen">
+</ul><script>
+$(function() {
+    var j = [{
+            id: 1,
+            name: "a", //爷爷
+            child: [{
+                    id: "1-1",
+                    name: "a-1", //爸爸
+                    child: [{
+                            id: "1-1-1",
+                            name: "a-1-1"
+                        }, //儿子
+                        {
+                            id: "1-1-2",
+                            name: "a-1-2"
+                        }
+                    ]
+                }, //儿子
+                {
+                    id: "1-2",
+                    name: "a-2"
+                }
+            ]
+        }, //叔叔
+        {
+            id: 2,
+            name: "b"
+        }, //二爷爷
+        {
+            id: 3,
+            name: "c"
+        }
+    ]; //三爷爷
+    digui(j);
+
+    function digui(obj, fatherid) {
+        var a = "gen"
+        if (fatherid != null) a = fatherid;
+        $.each(obj, function(index, childobj) {
+            $("#" + a).append('<ul id="' + childobj.id + '"><input type="checkbox" value=""					index="' + childobj.id + '">' + childobj.name + '</ul>');
+            if (childobj.child != undefined) {
+                digui(childobj.child, childobj.id);
+            }
+        });
+    }
+});
+
+//判断关系确定checked
+$(function() {
+    $(":checkbox").click(function() {
+        //判断儿子
+        var index = $(this).attr("index");
+        //根据index开头的判断           
+        $(":checkbox[index^=" + index + "]").attr("checked", $(this).is(":checked"));
+        //将index减少2判断父亲叔叔              
+        var index1 = index.substring(0, index.length - 2);
+        $(":checkbox[index=" + index1 + "]").attr("checked", false);
+        var check1 = false;
+        $(":checkbox[index^=" + index1 + "]").each(function(i) {
+            if ($(this).is(":checked")) {
+                check1 = true;
+            }
+        });
+        $(":checkbox[index=" + index1 + "]").attr("checked", check1);
+        //将index继续减少2判断爷爷 
+        var index2 = index.substring(0, index1.length - 2);
+        var check2 = false;
+        $(":checkbox[index=" + index2 + "]").attr("checked", check2);
+        $(":checkbox[index^=" + index2 + "]").each(function(i) {
+            if ($(this).is(":checked")) {
+                check2 = true;
+            }
+        });
+        $(":checkbox[index=" + index2 + "]").attr("checked", check2);
+    });
+});</script>
+</body>
+</html>
