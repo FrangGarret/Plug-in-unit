@@ -7733,7 +7733,7 @@ var CMUtiles = CMUtiles || function() {
 
 	function n(a, b) {
 		return function() {
-			return a.apply(b, arguments)
+			//return a.apply(b, arguments)
 		}
 	}
 
@@ -10516,8 +10516,10 @@ UI.item = function(a) {
 	this.isLoading = this.isUsed = 0;
 	this.line = new UI.line(a);
 	var d = this;
+	//单击某个元素进行跳转
 	$(this.dom).on("click", function(a) {
-		hasher.setHash(Address.URL_VIEW + "/" + d.url)
+		//hasher.setHash(Address.URL_VIEW + "/" + d.url)
+		console.log(hasher.setHash(Address.URL_VIEW + "/" + d.url))
 	});
 	if("pc" == CMDetect.DEVICE) $(this.dom).on("mouseenter", function(a) {
 		List.thumbOver(d.index)
