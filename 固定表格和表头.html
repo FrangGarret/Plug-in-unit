@@ -1,0 +1,287 @@
+﻿<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>固定表格列和表格头部内容可进行拖拽哦-jq22.com</title>
+		<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+		<style>
+			/* 左边表格外包裹 */
+			
+			#left-table-wrap {
+				width: 100px;
+				float: left;
+			}
+			/* 左侧上部表格区样式 */
+			
+			#left-top-table {
+				position: relative;
+				z-index: 9;
+				width: 100%;
+			}
+			/* 右侧标题行外包裹 */
+			
+			#right-title-wrap {
+				width: 400px;
+				height: 25px;
+				overflow: hidden
+			}
+			/* 左侧下部表格区样式 */
+			
+			#left-bottom-table {
+				position: relative;
+				width: 100%;
+				/* 设置出现滚动条的高度 */
+				height: 200px;
+				overflow: hidden;
+			}
+			/* 左侧上部表格和下部表格样式 */
+			
+			#l-t-table,
+			#l-b-table {
+				width: 100%;
+			}
+			/* 左侧下部表格设置定位 */
+			
+			#l-b-table {
+				position: absolute;
+			}
+			/* 左侧上部表格的 th 设置颜色和字体居中样式 */
+			
+			#l-t-table th {
+				background: yellow;
+				text-align: center;
+			}
+			/* 左侧下部表格的 th 设置颜色和字体居中样式 */
+			
+			#l-b-table th {
+				text-align: center;
+				background: #BDE2F3;
+			}
+			/* 右侧表格外包裹 */
+			
+			#right-table-wrap {
+				float: left;
+			}
+			/* 右侧上部表格区样式 */
+			
+			#right-top-table {
+				position: relative;
+			}
+			/* 右侧低部表格区样式 */
+			
+			#right-bottom-table {
+				position: relative;
+				/*设置出现滚动条的宽度*/
+				width: 400px;
+				/*设置出现滚动条的高度*/
+				height: 200px;
+				overflow: hidden;
+			}
+			/* 右侧上部表格样式 */
+			
+			#r-t-table {
+				position: absolute;
+				/* 这里的宽度要和上面的标题行要宽度一样 */
+				width: 880px;
+			}
+			/* 右侧下部表格样式 */
+			
+			#r-b-table {
+				position: absolute;
+				/* width 和 max-width 一起写，手机浏览器打开也能固定长度 */
+				width: 880px;
+				max-width: 880px;
+				/* 字体不换行 */
+				white-space: nowrap;
+			}
+			/* 右侧上部表格的 th 设置宽度和字体居中样式 */
+			
+			#r-t-table th {
+				text-align: center;
+				width: 10%;
+			}
+			/* 右侧下部表格的 td 设置宽度和字体居中样式 */
+			
+			#r-b-table td {
+				width: 10%;
+				text-align: center;
+			}
+			/* 为表格的边框设置为单线框 */
+			
+			#l-t-table,
+			#l-b-table,
+			#r-t-table,
+			#r-b-table {
+				border-collapse: collapse;
+			}
+			/* 设置表格边框的边框颜色 */
+			
+			#l-t-table,
+			#l-b-table,
+			#l-t-table th,
+			#l-b-table th,
+			#r-t-table,
+			#r-b-table,
+			#r-t-table th,
+			#r-b-table td {
+				border: 1px solid red;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="overflow: hidden;">
+			<!-- 左侧表格外包裹区 -->
+			<div id="left-table-wrap">
+				<!-- 左侧上部表格区 -->
+				<div id="left-top-table">
+					<!-- 左侧上部表格 -->
+					<table id="l-t-table">
+						<tr>
+							<th>固定标题</th>
+						</tr>
+					</table>
+				</div>
+				<!-- 左侧下部表格区 -->
+				<div id="left-bottom-table">
+					<!-- 左侧下部表格 -->
+					<table id="l-b-table"></table>
+				</div>
+			</div>
+			<!-- 右侧表格包裹区 -->
+			<div id="right-table-wrap">
+				<div id="right-title-wrap">
+					<!-- 右侧上部表格区 -->
+					<div id="right-top-table">
+
+						<!-- 右侧上部表格 -->
+						<table id="r-t-table">
+							<tr>
+								<th>标题行一</th>
+								<th>标题行二</th>
+								<th>标题行三</th>
+								<th>标题行四</th>
+								<th>标题行五</th>
+								<th>标题行六</th>
+								<th>标题行七</th>
+								<th>标题行八</th>
+								<th>标题行九</th>
+								<th>标题行十</th>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+				<!-- 右侧底部表格区 -->
+				<div id="right-bottom-table">
+					<!-- 右侧底部表格 -->
+					<table id="r-b-table"></table>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function() {
+
+				// 制造假数据
+				for(var i = 0, length = 24; i < length; i++) {
+					$("#l-b-table").append("<tr><th>标题列</th></tr>");
+					$("#r-b-table").append("<tr><td>" + i + "</td><td>" + i + "</td><td>" + i + "</td><td>" + i + "</td><td>" + i + "</td><td>" + i + "</td><td>" + i + "</td><td>" + i + "</td><td>" + i + "</td><td>" + i + "</td></tr>");
+				}
+				tableLocktitle()
+				function tableLocktitle() {
+					// 初始化表格样式设置
+					var $RBTableTr = $('#r-b-table tr');
+					var $RBTable = $('#r-b-table');
+					var $RTTable = $('#r-t-table');
+					var $RTTableTh = $('#r-t-table th');
+					var $lBTable = $('#l-b-table');
+					var $lBTableTh = $('#l-b-table th')
+
+					$RBTableTr.each(function(index, item) {
+						$(item).children().eq(0).css('border-left', 'none');
+					});
+					$RBTableTr.eq('0').children().css('border-top', 'none');
+					$RBTable.css({
+						'border-top': 'none',
+						'border-left': 'none'
+					});
+
+					$RTTable.css('border-left', 'none');
+					$RTTableTh.eq(0).css('border-left', 'none');
+
+					$RBTable.css('border-top', 'none');
+					$RTTableTh.eq(0).css('border-top', 'none');
+
+					$lBTable.css('border-top', 'none');
+					$lBTableTh.eq(0).css('border-top', 'none');
+
+					// 获取拖拽元素包裹区
+					var dragNodeWrap = document.getElementById('right-bottom-table');
+					// 获取拖拽元素
+					var dragNode = document.getElementById('r-b-table');
+
+					// 拖拽元素的 left 的值
+					var dragNodeLeft = 0;
+					// 拖拽元素的 top 的值
+					var dragNodeTop = 0;
+
+					dragNode.onmousedown = function(event) {
+
+						/*
+						 *  event.clientX       鼠标距视口的距离
+						 *  this.offsetLeft     元素距父级的距离 (父级有定位的情况下)
+						 */
+						var event = event || window.event;
+
+						// nodeInterval     为鼠标的距拖拽元素 X 轴坐标距离
+						var nodeIntervalX = event.clientX - this.offsetLeft;
+						// nodeIntervalY     为鼠标的距拖拽元素 Y 轴坐标距离
+						var nodeIntervalY = event.clientY - this.offsetTop;
+
+						// that    为拖拽元素
+						var that = this;
+						// 拖动一定写到 down 里面才可以
+						document.onmousemove = function(event) {
+							var event = event || window.event;
+
+							// dragNodeLeft     为拖拽元素到父级元素 X 轴坐标的值
+							dragNodeLeft = event.clientX - nodeIntervalX;
+							// dragNodeTop     为拖拽元素到父级元素 Y 轴坐标的值
+							dragNodeTop = event.clientY - nodeIntervalY;
+
+							if(dragNodeLeft > 0) {
+								dragNodeLeft = 0
+							} else if(dragNodeLeft < dragNodeWrap.offsetWidth - dragNode.offsetWidth) {
+								dragNodeLeft = dragNodeWrap.offsetWidth - dragNode.offsetWidth;
+							}
+
+							if(dragNodeTop > 0) {
+								dragNodeTop = 0
+							} else if(dragNodeTop < dragNodeWrap.offsetHeight - dragNode.offsetHeight) {
+								dragNodeTop = dragNodeWrap.offsetHeight - dragNode.offsetHeight;
+							}
+							that.style.left = dragNodeLeft + "px";
+							that.style.top = dragNodeTop + "px";
+
+							var lBTbale = document.getElementById('l-b-table');
+							var rTTbale = document.getElementById('right-top-table');
+							rTTbale.style.left = dragNodeLeft + "px";
+							lBTbale.style.top = dragNodeTop + "px";
+
+							//防止选择内容
+							window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+						}
+
+					};
+					document.onmouseup = function() {
+						document.onmousemove = null; //弹起鼠标不做任何操作
+					}
+				}
+
+			})
+		</script>
+	</body>
+
+</html>
