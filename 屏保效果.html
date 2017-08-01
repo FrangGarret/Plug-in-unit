@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		 <p>3秒无操作后显示时间：</p>
+ 		<p id="GPS_baoquan"></p>
+	</body>
+</html>
+<script type="text/javascript">
+ var GPS_baoquan ;
+ var t=setTimeout("GBS_baoquan_delay()",3000);
+ function GBS_baoquan_delay(){
+  GPS_baoquan.innerText= new Date();
+  clearTimeout(t);
+ }
+ //鼠标移动，重置延时任务
+ function GPS_baoquan_Reset(){
+  
+  GPS_baoquan.innerText = "";
+  clearTimeout(t);
+  t=setTimeout("GBS_baoquan_delay()",3000);
+ }
+ 
+ function loading(){
+  GPS_baoquan = document.getElementById("GPS_baoquan");
+  document.onmousemove = GPS_baoquan_Reset;
+  document.onkeydown=GPS_baoquan_Reset;
+ }
+ window.onload = loading;
+ </script>
