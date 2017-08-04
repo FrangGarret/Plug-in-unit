@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<script type="text/javascript">
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+			});
+		</script>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		
+		img {
+			display: block;
+			width: 100%;
+		}
+		
+		.warp {
+			width: 100%;
+			margin: 0 auto;
+		}
+		
+		body {
+			background: transparent;
+		}
+		
+		.topbar {
+			width: 100%;
+			position: fixed;
+			height: 64px;
+			text-align: center;
+			z-index: 10;
+		}
+		
+		.topbar_bg {
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 0;
+		}
+		
+		.time {
+			color: #fff;
+			display: inline-block;
+			z-index: 10;
+			position: relative;
+			font-family: "微软雅黑";
+			font-size: 12px;
+			font-weight: 600;
+		}
+		
+		.tongxin,
+		.dianliang {
+			color: #fff;
+			z-index: 10;
+			position: absolute;
+			font-size: 12px;
+			right: 40px;
+			top: 2px;
+			font-family: "微软雅黑";
+			text-align: left;
+		}
+		
+		.tongxin {
+			left: 46px;
+			width: 100px;
+		}
+		
+		.xiangce_bg {
+			width: 100%;
+			height: 256px;
+			background: url(img/xiangce_bg.png);
+			background-size: cover;
+			position: relative;
+			margin-bottom: 50px;
+		}
+		
+		.touxiang {
+			width: 70px;
+			height: 70px;
+			position: absolute;
+			border: 1px solid #f1f1f1;
+			padding: 1px;
+			right: 10px;
+			bottom: -24px;
+			background: #fff;
+		}
+		
+		.con_ {
+			border-bottom: 1px solid #f1f1f1;
+			padding: 0 12px;
+			padding-top: 13px;
+			padding-bottom: 10px;
+			overflow: hidden;
+			margin-bottom: 10px;
+		}
+		
+		.little_photo {
+			width: 42px;
+			height: 42px;
+			float: left;
+		}
+		
+		.names {
+			position: absolute;
+			right: 104px;
+			bottom: 12px;
+			color: #fff;
+			font-size: 16px;
+			font-family: "微软雅黑";
+			text-shadow: 1px 1px 1px #000;
+			font-weight: 600;
+		}
+		.bottom_warp{
+			padding-top: 64px;
+		}
+		.text_ {
+			float: right;
+			width: 290px;
+			font-size: 14px;
+			font-family: "微软雅黑";
+		}
+		
+		.my_names {
+			color: #576b95;
+			font-weight: 600;
+		}
+		.little_time{
+			font-size: 11px;
+			color: #737373;
+			margin-top: 10px;
+			margin-left: 2px;
+		}
+		.pinglun_img{
+			width: 18px;
+			float: right;
+			margin-right: 2px;
+		}
+		.delete{
+			color: #576b95;
+			margin-left: 10px;
+		}
+	</style>
+
+	<body>
+		<div class="warp">
+			<div class="topbar">
+				<img src="img/topbar_bg.jpg" class="topbar_bg" />
+				<span class="time time_gai">12:25</span>
+				<span class="tongxin tongxinshang_gai">中国移动</span>
+				<span class="dianliang dianliang__gai">96%</span>
+			</div>
+			<div class="bottom_warp">
+				<div class="xiangce_bg">
+					<div class="touxiang"><img class="num_1" src="img/photo.png" /></div>
+					<span class="names names_gai">AAA--make</span>
+				</div>
+				<div class="con_">
+					<div class="little_photo"><img class="num_1" src="img/photo.png" /></div>
+					<div class="text_">
+						<p class="my_names names_gai">AAA--make</p>
+						<p>手工金裕皖，纯良自然香！今日手牌11</p>
+						<img src="img/con_.jpg" />
+						<p class="little_time"><span class="names_gai_time">2分钟前</span> <span class="delete">删除</span> <img class="pinglun_img" src="img/pinglun.jpg"/></p>
+					</div> 
+				</div>
+				<div class="con_">
+					<div class="little_photo"><img class="num_2" src="img/lili.jpg" /></div>
+					<div class="text_">
+						<p class="my_names names_2_gai">大圣！！@#$</p>
+						<p class="names_2_gai_text">上海的天气真热！</p>
+						<p class="little_time"><span class="names_2_gai_time">5分钟前</span> <img class="pinglun_img" src="img/pinglun.jpg"/></p>
+					</div> 
+				</div>
+				
+				<div class="con_">
+					<div class="little_photo"><img class="num_3" src="img/33.jpg" /></div>
+					<div class="text_">
+						<p class="my_names names_3_gai">什么东西</p>
+						<p class="names_3_gai_text">生容易、活容易！生活不容易</p>
+						<p class="little_time"><span class="names_3_gai_time">names_3_gai_time</span> <img class="pinglun_img" src="img/pinglun.jpg"/></p>
+					</div> 
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$('.time_gai').text('14:25')//修改时间
+	$('.tongxinshang_gai').text('中国移联通')//运行商
+	$('.dianliang__gai').text('100%')
+	$('.names_gai').text('承诺不')
+	$('.names_gai_time').text('3分钟前')
+	$('.names_2_gai').text('老梁说是')
+	$('.names_2_gai_text').text('二话不说就是干！')
+	$('.names_2_gai_time').text('11分钟前')
+	$('.names_3_gai').text('女子不信邪')
+	$('.names_3_gai_text').text('今天下班能早点吗？！！！什么老板，又要加班！！')
+	$('.names_3_gai_time').text('15分钟前')
+	$('.xiangce_bg').css({
+		'background':'url(img/xiangce_bg.png)',
+		'backgroundSize':'cover'
+	})
+	$('.num_1').attr('src','img/888.jpg')
+	$('.num_2').attr('src','img/999.jpg')
+	$('.num_3').attr('src','img/1111.jpg')
+</script>
+
+
+
+
+
