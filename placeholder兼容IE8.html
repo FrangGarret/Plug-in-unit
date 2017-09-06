@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>兼容ie8的palceholder.js-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<style>
+input {
+	width:200px;
+	height:30px;
+	margin-bottom:10px;
+	padding-left:5px;
+	display:block;
+	color:graytext;
+}
+</style>
+</head>
+<body>
+<input id="search" placeholder="请输入关键词" type="text" value="">
+<button onclick="search()">搜索</button>
+<br>
+<input class="email" placeholder="请输入邮箱" type="text" value="">
+<br>
+<input class="mobile" placeholder="请输入手机" type="text" value="">
+
+<script>
+    function search() {
+        var o = document.getElementById("search");
+        var key = o.value;
+        alert("搜索：" + key);
+    }
+</script>
+
+<script>
+function funPlaceholder(element) {
+    //检测是否需要模拟placeholder
+    var placeholder = '';
+    if (element && !("placeholder" in document.createElement("input")) && (placeholder = element.getAttribute("placeholder"))) {
+        //当前文本控件是否有id, 没有则创建
+        var idLabel = element.id;
+        if (!idLabel) {
+            idLabel = "placeholder_" + new Date().getTime();
+            element.id = idLabel;
+        }
+        //创建label元素
+        var eleLabel = document.createElement("label");
+        eleLabel.htmlFor = idLabel;
+        eleLabel.style.position = "absolute";
+        //根据文本框实际尺寸修改这里的margin值
+        eleLabel.style.margin = "6px 0 0 5px";
+        eleLabel.style.color = "graytext";
+        eleLabel.style.cursor = "text";
+        //插入创建的label元素节点
+        element.parentNode.insertBefore(eleLabel, element);
+        //事件
+        element.onfocus = function() {
+            eleLabel.innerHTML = "";
+        };
+        element.onblur = function() {
+            if (this.value === "") {
+                eleLabel.innerHTML = placeholder;
+            }
+        };
+        //样式初始化
+        if (element.value === "") {
+            eleLabel.innerHTML = placeholder;
+        }
+    }
+}
+$.fn.placeholder = function() {
+    return this.each(function() {
+        funPlaceholder(this);
+    });
+}
+$(function() {
+    $('input[placeholder]').placeholder();
+});
+</script>
+
+</body>
+</html>
