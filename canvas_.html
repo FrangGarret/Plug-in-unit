@@ -39,10 +39,10 @@
 			var canvas, board, img;
 			canvas = document.getElementById('myCanvas');
 			img = document.getElementById('img');
-
-			canvas.height = document.body.clientHeight;
+			console.log(document.body.clientHeight)
+			canvas.height =400;
 			canvas.width = document.body.clientWidth;
-
+			
 			board = canvas.getContext('2d');
 
 			var mousePress = false;
