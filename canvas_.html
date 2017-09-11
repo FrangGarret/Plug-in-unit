@@ -6,9 +6,14 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
 			#myCanvas {
 				background-color: #ECECEC;
 				border: 1px solid #BFBFBF;
+				box-sizing: border-box;
 			}
 			
 			button {
@@ -22,7 +27,7 @@
 				cursor: pointer;
 			}
 			img{
-				border: 1px solid #ccc;
+				box-sizing: border-box;
 			}
 		</style>
 	</head>
@@ -44,7 +49,9 @@
 			img = document.getElementById('img');
 			console.log(document.body.clientHeight)
 			canvas.height =400;
-			canvas.width = document.body.clientWidth;
+			canvas.width = document.body.clientWidth-22;
+			canvas.style.position='relative';
+			canvas.style.left='10px'
 			
 			board = canvas.getContext('2d');
 
@@ -113,6 +120,7 @@
 				//			 document.getElementById("textId").innerHTML = dataUrl; 
 				// dataUrl = dataUrl.replace("image/png","image/octet-stream");
 				img.src = dataUrl;
+				img.style.width='95%'
 			}
 
 			function clean() {
