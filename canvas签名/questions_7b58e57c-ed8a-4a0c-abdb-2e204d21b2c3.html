@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"></meta>
+		<title>问卷调查</title>
+		<!--<link href="global.css" rel="stylesheet"></link>-->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			#myCanvas {
+				background-color: #ECECEC;
+				border: 1px solid #BFBFBF;
+				box-sizing: border-box;
+			}
+			
+			button {
+				width: 150px;
+				height: 30px;
+				background: #00d5f9;
+				-webkit-appearance: none;
+				border: none;
+				color: #fff;
+				border-radius: 3px;
+				cursor: pointer;
+				display: inline-block;
+				margin:5px;
+			}
+			
+			.questions_img {
+				box-sizing: border-box;
+			}
+			.questions_h3{
+				text-align: center;
+				padding:15px;
+				font-size: 22px;
+			}
+			.questions_section_title{
+				padding: 5px 10px;
+			}
+			.questions_section_input{
+				padding: 5px 0 5px 15px;
+			}
+			.questions_section{
+				margin-top: 10px;
+			}
+			.questions_btns_warp,.btns_warp{
+				text-align: center;
+			}
+			.questions_btns_warp button{
+				display: inline-block;
+			}
+			canvas{
+				position: relative;
+				left:50%;
+				transform: translateX(-50%);
+			}
+			.questions_enter{
+				margin: 0;
+				width: 86px;
+			}
+			.pic_title{
+				padding: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h3 class="questions_h3">问卷调查</h3>
+		<div class="questions_section">
+			<p class="questions_section_title">WC-01-01-01您最近是否通过我公司保险营销员张莹莹，购买了我公司名称为传世经典乐享2017终身寿险（分红型）的保险产品？</p>
+			<p class="questions_section_input">
+				<label><input name="{question.questionno}" type="radio" value="1" />是</label> <label><input name="{question.questionno}" type="radio" value="0" />否</label>
+			</p>
+		</div>
+		<div class="questions_section">
+			<p class="questions_section_title">WC-02-01-01请问您是否收到保险合同或阅读过电子保险合同？</p>
+			<p class="questions_section_input">
+				<label><input name="{question.questionno}" type="radio" value="1" />是</label> <label><input name="{question.questionno}" type="radio" value="0" />否</label>
+			</p>
+		</div>
+		<div class="questions_section">
+			<p class="questions_section_title">WC-02-02-01保险合同回执、投保单、《人身保险投保提示书》上的投保人签名都是您亲笔签署的？</p>
+			<p class="questions_section_input">
+				<label><input name="{question.questionno}" type="radio" value="1" />是</label> <label><input name="{question.questionno}" type="radio" value="0" />否</label>
+			</p>
+		</div>
+
+		<div class="questions_section">
+			<p class="questions_section_title">
+				WC-02-03-01投保单上的被保险人签名是否是反映给本人签署的？
+			</p>
+			<p class="questions_section_input">
+				<label><input name="{question.questionno}" type="radio" value="1" />是</label> <label><input name="{question.questionno}" type="radio" value="0" />否</label>
+			</p>
+		</div>
+		<div class="questions_section">
+			<p class="questions_section_title">WC-02-04-01投保单上的风险提示语是由您亲笔抄录的吗？</p>
+			<p class="questions_section_input">
+				<label><input name="{question.questionno}" type="radio" value="1" />是</label> <label><input name="{question.questionno}" type="radio" value="0" />否</label>
+			</p>
+		</div>
+
+		<div class="questions_section">
+			<p class="questions_section_title">
+				WC-03-01-02销售人员是否请您阅读并了解过保险条款和《产品说明书》/《保险建议书》、《人身保险投保提示书》、《分红示例表》？
+			</p>
+			<p class="questions_section_input">
+				<label><input name="{question.questionno}" type="radio" value="1" />是</label> <label><input name="{question.questionno}" type="radio" value="0" />否</label>
+			</p>
+		</div>
+		<div class="questions_section">
+			<p class="questions_section_title">
+				WC-04-01-01从您签收正式保险合同之日起有10天的犹豫期，在犹豫期内您可以无条件解除保险合同，犹豫期后解除保险合同您会有一定的损失。您是否了解以上内容？
+			</p>
+			<p class="questions_section_input">
+				<label><input name="{question.questionno}" type="radio" value="1" />是</label> <label><input name="{question.questionno}" type="radio" value="0" />否</label>
+			</p>
+		</div>
+		<div class="questions_section">
+			<p class="questions_section_title">
+				WC-05-01-01您是否清楚你所购买的保险产品的保险责任、责任免除等相关内容？
+			</p>
+			<p class="questions_section_input">
+				<label><input name="{question.questionno}" type="radio" value="1" />是</label> <label><input name="{question.questionno}" type="radio" value="0" />否</label>
+			</p>
+		</div>
+
+		<div class="questions_section">
+			<p class="questions_section_title">
+				WC-06-01-02您所购买的传世经典乐享2017终身寿险（分红型），保险期限是终身，是分期缴费的，缴费期限是5年，您需要每年缴一次费，首期保费为5.552E7元。您是否已经了解以上内容以及退保的相关程序？
+			</p>
+			<p class="questions_section_input">
+				<label><input name="{question.questionno}" type="radio" value="1" />是</label> <label><input name="{question.questionno}" type="radio" value="0" />否</label>
+			</p>
+		</div>
+
+		<div class="questions_section">
+			<p class="questions_section_title">
+				WC-09-01-01我们的《保险建议书》/《产品说明书》上的高、中、低档分红演示是基于公司精算假设的，不代表未来的实际收益。保险公司的红利分配是不确定的，它取决于公司的实际经营状况。您是否了解以上内容？
+			</p>
+			<p class="questions_section_input">
+				<label><input name="{question.questionno}" type="radio" value="1" />是</label> <label><input name="{question.questionno}" type="radio" value="0" />否</label>
+			</p>
+		</div>
+	
+
+		<!--<img src="sign.jpg" />-->
+
+	</body>
+
+</html>
+<script src="jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="jq-signature.js" type="text/javascript" charset="utf-8"></script>
+<script src="WritingPad.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var wp = new WritingPad();
+</script>

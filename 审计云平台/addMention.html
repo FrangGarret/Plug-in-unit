@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>审计云平台</title>
+</head>
+<body>
+    <div class="right_tab clearfix">
+       <ul class="tab_list">
+           <li class="cur">我的提数</li>
+       </ul>
+        <div class="unfold">收起<span></span></div>
+    </div>
+    <div class="tab_wrap">
+        <div class="my_tishu">
+            <ul class="ul_form clearfix">
+                <li class="li_form">
+                    <div class="form_label">分公司:</div>
+                    <div class="form_value">
+                        <input class="input_tip" placeholder="苏州分公司" type="text"/>
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">部门组:</div>
+                    <div class="form_value">
+                        <div class="group_select">
+                            <select class="select">
+                                <option></option>
+                                <option>保险部门</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">投保人:</div>
+                    <div class="form_value">
+                        <div class="group_select">
+                            <select class="select">
+                                <option>全部</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">签单日期:</div>
+                    <div class="form_value">
+                        <input class="input input_date" type="date" value="">
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">录入日期:</div>
+                    <div class="form_value">
+                        <input class="input input_date" type="date"  value="">
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">核保日期:</div>
+                    <div class="form_value">
+                        <input class="input input_date" type="date" value="">
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">起保日期:</div>
+                    <div class="form_value">
+                        <input class="input input_date" type="date" value="">
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">终止日期:</div>
+                    <div class="form_value">
+                        <input class="input input_date" type="date" value="">
+                    </div>
+                </li>            
+                <li class="li_form">
+                    <div class="form_label">险种大类:</div>
+                    <div class="form_value">
+                        <div class="group_select">
+                            <select class="select">
+                                <option>请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">共保标志代码:</div>
+                    <div class="form_value">
+                        <div class="group_select">
+                            <select class="select">
+                                <option>请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="btn_box clearfix">
+                <span class="query">查询</span>
+                <span class="reset">重置</span>
+            </div>
+            <div class="tableUpResult">
+            	<div class="unfoldLeft softColor">查询结果预览<span></span></div>
+                <div class="box_wrap">
+                    <div class="softColor size14">提取数据行数：0</div>
+                    <div class="clearfix small_btn_box">
+                        <span onclick="changePage('number_keep.html');" class="smallbtn save_btn lightBg">保存</span>
+                        <span class="smallbtn cancel_btn resectBg">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tableOutDivSpl">
+			    <div class="tableInnerDiv">
+			        <table id="dragTable">
+				<thead>
+					<tr>
+						<th>分公司</th>
+						<th>分公司名称</th>
+						<th>部门组</th>
+						<th>部门组名称</th>
+						<th>部门代码</th>
+						<th>部门名称</th>
+						<th>保单号</th>
+						<th>签单日期</th>
+						<th>起保日期</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>3110100</td>
+						<td>苏州分公司</td>
+						<td>32050</td>
+						<td>分公司本部</td>
+						<td>A50</td>
+						<td>车商渠道一组</td>
+						<td>ASU2508391923838</td>
+						<td>2017-04-01</td>
+						<td>2017-04-05</td>
+					</tr>
+					<tr>
+						<td>3110100</td>
+						<td>苏州分公司</td>
+						<td>32050</td>
+						<td>分公司本部</td>
+						<td>A50</td>
+						<td>车商渠道一组</td>
+						<td>ASU2508391923838</td>
+						<td>2017-04-01</td>
+						<td>2017-04-05</td>
+					</tr>
+					<tr>
+						<td>3110100</td>
+						<td>苏州分公司</td>
+						<td>32050</td>
+						<td>分公司本部</td>
+						<td>A50</td>
+						<td>车商渠道一组</td>
+						<td>ASU2508391923838</td>
+						<td>2017-04-01</td>
+						<td>2017-04-05</td>
+					</tr>
+					<tr>
+						<td>3110100</td>
+						<td>苏州分公司</td>
+						<td>32050</td>
+						<td>分公司本部</td>
+						<td>A50</td>
+						<td>车商渠道一组</td>
+						<td>ASU2508391923838</td>
+						<td>2017-04-01</td>
+						<td>2017-04-05</td>
+					</tr>
+					<tr>
+						<td>3110100</td>
+						<td>苏州分公司</td>
+						<td>32050</td>
+						<td>分公司本部</td>
+						<td>A50</td>
+						<td>车商渠道一组</td>
+						<td>ASU2508391923838</td>
+						<td>2017-04-01</td>
+						<td>2017-04-05</td>
+					</tr>
+					<tr>
+						<td>3110100</td>
+						<td>苏州分公司</td>
+						<td>32050</td>
+						<td>分公司本部</td>
+						<td>A50</td>
+						<td>车商渠道一组</td>
+						<td>ASU2508391923838</td>
+						<td>2017-04-01</td>
+						<td>2017-04-05</td>
+					</tr>
+				</tbody>
+			</table>
+		        </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/my_number.js"></script>
+    <script>
+        $(function(){
+            $(".unfoldLeft").on("click",function(){
+                $(".box_wrap").stop().slideToggle();
+            });
+            /*拖拽拉伸单元格*/
+            function isNullOrUndefined(obj) {
+             if (typeof(obj) == "undefined" || obj == null) {
+                 return true;
+             }
+             return false;
+         }
+
+            function registerTableDragEvent() {
+                var dragTH; //记录拖拽的列
+                 //第一步按下
+                 $('#dragTable th').mousedown(function(e) {
+                     e = e || window.event;
+                     if (e.offsetX > $(this).innerWidth() - 10) {
+                         dragTH = $(this);
+                         dragTH.mouseDown = true;
+                         dragTH.oldX = e.pageX || e.clientX;
+                         dragTH.oldWidth = $(this).innerWidth();
+                     }
+                 })
+                 //第二步 拖动
+                 $('#dragTable th').mousemove(function(e) {
+                     //改鼠标样式
+                     if (e.offsetX > $(this).innerWidth() - 10) {
+                         $(this).css({
+                             cursor: "e-resize"
+                         });
+                     } else {
+                         $(this).css({
+                             cursor: "default"
+                         });
+                          }
+                     if (isNullOrUndefined(dragTH)) {
+                         dragTH = $(this);
+                     }
+                     if (!isNullOrUndefined(dragTH.mouseDown) && dragTH.mouseDown == true) {
+                         var difference = (e.pageX - dragTH.oldX) || (e.clientX - dragTH.oldX);
+                         var newWidth = dragTH.oldWidth + difference; //新的宽度
+                         dragTH.width(newWidth)
+                     }
+                 })
+                 // 第三步，释放
+                 $("table#dragTable th").mouseup(function(e) {
+                      dragTH.mouseDown = false;
+                 });
+            }
+                registerTableDragEvent()
+            });
+        </script>
+</body>
+</html>

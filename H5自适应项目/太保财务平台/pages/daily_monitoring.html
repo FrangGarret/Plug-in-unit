@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>日结影像监控</title>
+</head>
+<body>
+<div class="box_form">
+	<div class="form_tabs_con">
+		<ul class="ul_form">
+			<li class="li_form">
+				<div class="form_label"><span class="span_blue">*</span>分公司</div>
+				<div class="form_value">
+					<div class="group_select">
+						<select class="select_2">
+							<option>这是下拉菜单1</option>
+							<option>这是下拉菜单2</option>
+						</select>
+				</div>
+			</li>
+			<li class="li_form">
+				<div class="form_label"><span class="span_blue">*</span>财务机构</div>
+				<div class="form_value">
+					<div class="group_select">
+						<select class="select_2">
+							<option>这是下拉菜单1</option>
+							<option>这是下拉菜单2</option>
+							<option>这是下拉菜单3</option>
+						</select>
+				</div>
+			</li>
+			<li class="li_form">
+				<div class="form_label"><span class="span_blue">*</span>业务开始日期</div>
+				<div class="form_value">
+					<input class="input input_date" type="text" readonly="readonly" value="2017-09-01">
+				</div>
+			</li>
+			<li class="li_form">
+				<div class="form_label"><span class="span_blue">*</span>业务结束日期</div>
+				<div class="form_value">
+					<div class="group_select clearfix">
+						<input class="input input_date" type="text" readonly="readonly" value="2017-09-01">
+					</div>
+				</div>
+			</li>
+			<li class="li_form">
+				<div class="form_label"><span class="span_blue">*</span>核对结果</div>
+				<div class="form_value">
+					<div class="group_select">
+						<select class="select_2">
+							<option>这是下拉菜单1</option>
+							<option>这是下拉菜单2</option>
+						</select>
+					</div>
+				</div>
+			</li>
+			<li class="clear"></li>
+		</ul>
+		<div class="box_form_btn">
+			<button class="button submit">提交</button>
+			<button class="button">重置</button>
+		</div>
+	</div>
+</div>
+<div class="box_form_sub">
+	<div class="form_tabs_con form_tabs_list">
+		<table class="table_list">
+			<thead>
+				<tr class="t_head">
+					<td>序号</td>
+					<td>日期</td>
+					<td>分公司</td>
+					<td>账套机构</td>
+					<td>核心系统日结数量</td>
+					<td>影像数据量</td>
+					<td>核对结果</td>
+					<td>明细结果</td>
+					<td>工单号</td>
+					<td>历史差异</td>
+				</tr>
+			</thead>
+			<tbody id="daily-monitoring"></tbody>
+		</table>
+	</div>
+	<div class="box_page_num">
+		<button class="btn_page_num">首页</button>
+		<button class="btn_page_num">上一页</button>
+		<button class="btn_page_num">下一页</button>
+		<button class="btn_page_num">末页</button>
+		<input class="input_page_num" type="text">
+		<button class="btn_page_num">跳转</button>
+		<div class="box_num_text">
+			第<span>1</span>页&nbsp;	
+			共<span>10</span>页&nbsp;	
+		</div>
+	</div>
+</div>
+	
+<div class="box_form_sub">
+	<ul class="form_tabs" id="formTabsTop">
+		<li class="current">核对一致<span class="icon_form_tabs_cur"></span></li>
+		<li>核对不一致</li>
+	</ul>
+	<div class="box_list_hasline">
+		<div class="hasline_titles">
+			天津分公司——20170901
+		</div>
+		<div class="hasline_table">
+			<div class="form_tabs_list">
+				<table class="hasline_table">
+					<thead>
+						<tr class="t_head">
+							<td>序号</td>
+							<td>系统来源</td>
+							<td>日结报表名称</td>
+							<td>影像系统</td>
+							<td>核心系统</td>
+						</tr>
+					</thead>
+					<tbody id="daily-monitoring-data"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="scripts/index.js"></script>
+<script type="text/javascript" src="scripts/daily_details.js"></script>
+</body>
+</html>

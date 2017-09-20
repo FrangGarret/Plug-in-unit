@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>审计云平台</title>
+</head>
+<body>
+<div class="liuchengPage">
+    <h2>审批流程跟踪</h2>
+    <div class="liuchengPicture">
+        <img src="images/liucheng.png" class="liuchengImage">
+        <img src="images/yewuyuan.png" class="yewuyuan">
+        <img src="images/departmentManager.png" class="departmentManager">
+        <img src="images/remoteFunction.png" class="remoteFunction">
+        <img src="images/remoteManager.png" class="remoteManager">
+    </div>
+    <div class="motai"></div>
+    <div class="remoteManagerInfo">
+        <span class="cross"></span>
+        <div class="publicInput IDInput">
+            <span class="IDIcon"></span>
+            <label>待审批人ID</label>
+            <input type="text">
+        </div>
+        <div class="publicInput approvalInput">
+            <span class="workCard"></span>
+            <label>待审批人姓名</label>
+            <input type="text">
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $.setSel(".select");
+        $(".remoteManager").click(function(event) {
+            $(".motai").stop().fadeIn(200);
+            $(".remoteManagerInfo").stop().fadeIn(200);
+            $(this).css('z-index', 200);
+            setNavHeight();
+            $("body").css('overflow','hidden');
+        });
+        $(".cross").click(function(event) {
+            $(".motai").stop().fadeOut(200);
+            $(".remoteManagerInfo").stop().fadeOut(200);
+            setNavHeight();
+            $("body").css('overflow','auto');
+        });
+    })
+</script>
+</body>
+</html>

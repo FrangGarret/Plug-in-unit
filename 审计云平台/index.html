@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/approvalProcessTracking.css">
+    </head>
+    <body>
+        <div class="auditHeader">
+            <div class="leftHead">
+                <div class="cpicLogo"></div>
+                <h1>审计云平台</h1>
+            </div>
+            <div class="rightHead">
+                <div class="headSculpture"></div>
+                <p class="id">小东</p>
+                <span class="down"></span>
+            </div>
+        </div>
+        <div class="info_wrap clearfix">
+            <div class="sideNav">
+                <div class="sideNavHead">
+                    <div class="navHeadSculpture"></div>
+                    <div class="personInfo">
+                        <span class="personId">小东</span>
+                        <div class="state"><span class="stateColor"></span>在线</div>
+                    </div>
+                </div>
+                <span class="line"></span>
+                <div class="sideNavBody">
+                    <div class="publicNav">
+                        <div class="publicTopic">
+                            <span class="publicIcon extractionData"></span>
+                            自助提数
+                            <span class="down"></span>
+                        </div>
+                        <ul class="tishu_toggle" style="display: block">
+                            <li><i class="current">我的提数</i><span class="newMessage"></span></li>
+                            <li><i>提数申请</i></li>
+                            <li><i>待办任务</i></li>
+                        </ul>
+                    </div>
+                    <span class="line"></span>
+                    <div class="publicNav">
+                        <div class="publicTopic">
+                            <span class="publicIcon allocatingTask"></span>
+                            任务分配
+                            <span class="down"></span>
+                        </div>
+                        <ul class="task_toggle">
+                            <li><i>任务分配</i><span class="newMessage"></span></li>
+                        </ul>
+                    </div>
+                    <span class="line"></span>
+                    <div class="publicNav">
+                        <div class="publicTopic">
+                            <span class="publicIcon reportForm"></span>
+                            提数报表
+                            <span class="down"></span>
+                        </div>
+                        <ul class="rizhi_toggle">
+                            <li><i>提数查询日志</i><span class="newMessage"></span></li>
+                        </ul>
+                    </div>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <div class="right_box" id="mainContent"></div>
+        </div>
+        <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+
+        <script type="text/javascript" src="js/approvalProcessTracking.js"></script>
+        <script>
+            $(function(){
+                changePage('my_number.html');
+            });
+        </script>
+    </body>
+</html>

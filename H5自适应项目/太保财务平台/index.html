@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>页面模板</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="styles/global.css" rel="stylesheet">
+<!--[if lt IE 9]>
+  <script src="scripts/html5shiv.js"></script>
+  <script src="scripts/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrapper-top clearfix">
+		<div class="cpic"></div>
+		<div class="menu-top clearfix">
+			<div class="menu-con">财务业务管理平台</div>
+			<ul class="m-t-right-box">
+				<li class="index">首页</li>
+				<li class="index-line"></li>
+				<li class="exit">退出</li>
+				<li class="index-line i-l"></li>
+				<li class="m-t-r-more"></li>
+			</ul>
+		</div>
+	</div>
+	<ul class="m-t-middle-box clearfix">
+		<li class="a-bg time">
+			时间：
+			<span class="m-color time-date"></span>
+			<span class="m-color time-hour"></span>
+		</li>
+		<li class="a-bg admin">超级管理员：<span class="m-color">超级管理员</span></li>
+		<li class="a-bg company">所属机构：<span class="m-color">寿险公司</span></li>
+	</ul>
+	<div class="wrapper-left">
+		<ul class="inwrap"></ul>
+	</div>
+	<i class="menu-more more-open"></i>
+	<div class="wrapper-right">
+		<!--append_tabs s-->
+		<div class="box_append_tabs">
+			<span class="span_prev"></span>
+			<span class="span_next"></span>
+			<div class="append_tabs_panel">
+				<ul class="append_tabs"></ul>
+			</div>
+		</div>
+		<!--append_tabs e-->
+		
+		<!--main_content s-->
+		<div class="main_content" id="mainContent">
+			<!--append_tabs_con s-->
+			<!--append_tabs_con e-->
+		</div>
+		<!--main_content e-->
+	</div>
+</div>
+
+<!--pop s-->
+<div class="bg_pop"></div>
+<div class="show_pop" id="showPop">
+	<div class="pop_titles">
+		<div class="title_left"></div>
+		<div class="icon_close"></div>
+	</div>
+	<div class="box_panel" id="boxPanel"></div>
+</div>
+<!--pop e-->
+<script type="text/javascript" src="scripts/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="scripts/global.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>审计云平台</title>
+</head>
+<body>
+    <div class="right_tab clearfix">
+       <ul class="tab_list toggle_cur">
+           <li onclick="changePage('my_number.html');">我的提数</li>
+           <li onclick="changePage('apply.html');">提数申请</li>
+           <li class="cur" onclick="changePage('my_task.html');">待办任务</li>
+       </ul>
+        <div class="unfold">收起<span></span></div>
+    </div>
+    <div class="tab_wrap">
+        <div class="my_task">
+            <ul class="ul_form list_three clearfix">
+                <li class="li_form">
+                    <div class="form_label"><span class="asterisk">*</span>提数原因:</div>
+                    <div class="form_value">
+                        <input class="input_tip" type="text"/>
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">是否与项目有关:</div>
+                    <div class="form_value">
+                        <div class="group_select">
+                            <select class="select">
+                                <option>是</option>
+                                <option>否</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">被审机构:</div>
+                    <div class="form_value">
+                        <div class="group_select">
+                            <select class="select">
+                                <option>产线苏州分公司</option>
+                                <option>产线上海分公司</option>
+                                <option>产线北京分公司</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label"><span class="asterisk">*</span>审计项目:</div>
+                    <div class="form_value">
+                        <div class="group_select">
+                            <select class="select">
+                                <option>2017年产险苏州分公司</option>
+                                <option>2017年产险深圳分公司</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">计划结束时间:</div>
+                    <div class="form_value">
+                        <input class="input input_date" type="date" value="2017-09-01">
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">项目类型:</div>
+                    <div class="form_value">
+                        <input class="input_tip" placeholder="高管任中审计" type="text"/>
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">计划开始时间:</div>
+                    <div class="form_value">
+                        <input class="input input_date" type="date" value="2017-09-01">
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">所属条线:</div>
+                    <div class="form_value">
+                        <div class="group_select">
+                            <select class="select">
+                                <option>产险公司</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="li_form">
+                    <div class="form_label">实施部门:</div>
+                    <div class="form_value">
+                        <div class="group_select">
+                            <select class="select">
+                                <option>集团审计业务部</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="tableOutDiv">
+                <div class="tableInnerDiv tableH">
+                    <table class="table1">
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" name="checkAll">全选</th><th>主题</th><th>领域</th><th>所属公司</th><th>提取字段数量</th>
+                            <th>文件生成状态</th><th>提取结果行数</th><th>累计下载次数</th><th>最近一次下载时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="checkbox" name="checktr" class="checkDetial"></td>
+                            <td>车险城堡</td><td>承保</td><td>苏州分公司</td><td>41</td><td>未生成</td>
+                            <td>78</td><td>0</td><td>2017-05-03</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="checktr" class="checkDetial"></td>
+                            <td>车险城堡</td><td>承保</td><td>苏州分公司</td><td>41</td><td>未生成</td>
+                            <td>78</td><td>0</td><td>2017-05-03</td><td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="textarea clearfix">
+                <span>审批意见：</span>
+                <textarea></textarea>
+            </div>
+            <div class="btn_box clearfix">
+                <span class="query">通过</span>
+                <span class="reset">退回</span>
+            </div>
+        </div>
+    </div>
+    <script src="js/my_number.js"></script>
+</body>
+</html>
