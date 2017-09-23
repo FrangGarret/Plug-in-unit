@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>由经纬度获取省市区&获取这些天时间-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+#allmap {width:300px;height: 300px}</style>
+</head>
+<body>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=DD279b2a90afdf0ae7a3796787a0742e"></script><script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&amp;ak=DD279b2a90afdf0ae7a3796787a0742e&amp;services=&amp;t=20170912191900"></script>
+<div id="allmap"></div>
+<p></p>
+
+<script>
+function GetDateStr(AddDayCount) {
+    var dd = new Date();
+    dd.setDate(dd.getDate() + AddDayCount); //获取AddDayCount天后的日期 
+    var year = dd.getFullYear();
+    var month = dd.getMonth() + 1; //获取当前月份的日期 
+    var day = dd.getDate();
+    var hour = dd.getHours();
+    var minute = dd.getMinutes();
+    if (Number(month) < 10) {
+        month = "0" + month
+    }
+    if (Number(day) < 10) {
+        day = "0" + day
+    }
+    if (Number(hour) < 10) {
+        hour = "0" + hour
+    }
+    if (Number(minute) < 10) {
+        minute = "0" + minute
+    }
+    // return month+"月"+day+"日"+ hour + ":" + minute;
+    return month + "月" + day + "日";
+}
+document.write("前天：" + GetDateStr(-2));
+document.write("<br />昨天：" + GetDateStr(-1));
+document.write("<br />今天：" + GetDateStr(0));
+document.write("<br />明天：" + GetDateStr(1));
+document.write("<br />后天：" + GetDateStr(2));
+document.write("<br />大后天：" + GetDateStr(3));
+
+function map_click(lng, lat) {
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(lng, lat);
+    map.centerAndZoom(point, 12);
+    var geoc = new BMap.Geocoder();
+    geoc.getLocation(point, function(rs) {
+        var addComp = rs.addressComponents;
+        document.write("<br />" + addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+    });
+}
+map_click(116.460370, 39.832670);
+//参数解析 
+//@parameter1 lng 传入的经度 
+//@parameter2 lat 传入的纬度
+</script>
+
+</body>
+</html>
