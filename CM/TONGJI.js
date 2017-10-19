@@ -1,19 +1,44 @@
-<!DOCTYPE html>
-<html>
+	//网站热力图实现
+	var _speedMark = new Date();
 
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-		<a href="javascript:;">你好</a>
-		<button>你好</button>
-		<div class="" style="position: absolute;bottom: 0;left: 50px;width: 100px;height: 50px;">哈喽</div>
-	<body>
-	</body>
+	/**
+	 *  分析主JS，该JS部署时放在页面</boday>标签之前，所有引入的其他JS位置之后
+	 *  该JS文件会自动加载hot.js文件，进行行为追踪，无需配置。
+	 *  配置说明：
+	 *  如果追踪页面加载速度，需要在页面标签<head>内靠前位置Javascript语句块中嵌入代码： var _speedMark = new Date(); 如不配置，该功能不可用，这种方式实现比较传统，为的是兼容更多的浏览器，如果只考虑高版本的浏览器，可以用很简单很直接的方式来解决。这里就不累赘讲述了。
+	 */
+	/**************************参数说明********************************
+	 * 
+	 *  bs      浏览器及版本，中间固定用“/”隔开： 如   Firefox/29
+	 *  fl    	Flash版本：如 13.0 r0
+	 *  hp    	是否设置为首页，y表是，否则为空
+	 *  jv    	是否禁用脚本：0表否，1表是
+	 *  lg    	浏览器语言：如 zh-cn
+	 *  ps      页面加载用时：如 271 单位为毫秒，如没配置该属性，ps没值，网页首次加载有值，其它情况下值为0
+	 *  pvi     用户标识：如 5699369775 第一次访问页面时产生，只要用户不清除客户端cookie，该值永远存在 
+	 *  rurl  	上一个页面地址
+	 *  scl   	屏幕颜色深度：如 24-bit
+	 *  scr     屏幕分辨率: 如 1600x900
+	 *  sh      滚动条可滚动高度：如 3259
+	 *  si      本地一次会话标识： 如 s479879256
+	 *  tz      区时：如 8
+	 *  ui      登陆的用户ID，未登陆时没有该值：如 7155113994790596
+	 *  url     当前的URL
+	 *  x       鼠标点击事件时，相对body中轴线的x坐标， 中轴线左边为负，右边为正，此值只有开启热点追踪时才会产生，页面初始化时无值
+	 *  y       鼠标点击事件时的y坐标，此值只有开启热点追踪时才会产生，页面初始化时无值
+	 *
+	 **************************参数说明********************************/
 
-</html>
-<!--<script src="js/hot.js" type="text/javascript" charset="utf-8"></script>-->
-<script type="text/javascript">
+	/**************************使用方法********************************
+	 *
+	 * 配置方式：
+	 * 在页面</body>标签之前其他外部文件引入之后的位置加入该js引用
+	 *
+	 *   
+	 *
+	 **************************使用方法********************************/
+
+	;
 	(function() {
 		function ea() {
 			this.url = [];
@@ -171,8 +196,13 @@
 				return a
 			},
 			sendInfo: function(a) {
-				
-				console.log(a)
+				n = new Image(1, 1);
+				n.onload = n.onerror = function() {
+					n.onload = n.onerror = null;
+					n = null;
+				}
+				n.src = a;
+				console.log(n.src)
 			}
 		};
 		var u = {
@@ -408,4 +438,3 @@
 			};
 		ea && (new ea).run();
 	})();
-</script>

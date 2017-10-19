@@ -17,6 +17,7 @@ hot.prototype = {
             a = a.replace("ps=" + b, "" == b ? "ps=" : "ps=0");
             a = a.replace("sh=" + b, "sh=" + Math.max(q && q.scrollHeight, s && s.scrollHeight));
             this.t.sendInfo(a);
+            
         }
     },
     getPos: function (a, d, b, c) {
@@ -61,9 +62,9 @@ hot.prototype = {
     },
     clickHeat: function (a) {
         this.sendHeat(this.getPos(a))
-        
     },
     watchClick: function (a) {
+    	alert(0)
         var d = function (a, b, c) {
             var d = function (a) {
                 a = window.event || a;
@@ -93,6 +94,7 @@ hot.prototype = {
         }
     },
     getElementPos: function (a) {
+    	
         if (null === a.parentNode || "none" == a.style.display) return !1;
         var d = navigator.userAgent.toLowerCase(),
             b = null,

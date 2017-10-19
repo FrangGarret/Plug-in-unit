@@ -22,6 +22,7 @@ hot.prototype = {
         }
     },
     getPos: function (a, d, b, c) {
+    	
         var b = b || 0,
             c = c || 0,
             d = d || document,
@@ -50,6 +51,7 @@ hot.prototype = {
             case "EMBED":
             case "BUTTON":
             case "SELECT":
+            case "DIV":
             case "OBJECT":
             case "TEXTAREA":
                 a.r = 1;
@@ -61,8 +63,10 @@ hot.prototype = {
     },
     clickHeat: function (a) {
         this.sendHeat(this.getPos(a))
+        
     },
     watchClick: function (a) {
+    	
         var d = function (a, b, c) {
             var d = function (a) {
                 a = window.event || a;
@@ -77,6 +81,9 @@ hot.prototype = {
             a = document;
             d(a, "click", function (a) {
                 b.sendHeat(b.getPos(a))
+                console.log(this.event.type)
+                console.log(a.target)
+                console.log(a.target.getAttribute('id'))
             });
             for (var c = a.getElementsByTagName("iframe"), e = 0, a = c.length; e < a; e++) try {
                 (function () {
@@ -92,6 +99,7 @@ hot.prototype = {
         }
     },
     getElementPos: function (a) {
+    	
         if (null === a.parentNode || "none" == a.style.display) return !1;
         var d = navigator.userAgent.toLowerCase(),
             b = null,
