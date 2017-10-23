@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Handlebars</title>
+		<script src="../js/handlebars-v4.0.11.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="card" id="card">
+			
+		</div>
+	</body>
+</html>
+
+<script type="text/x-handlebars-template" id="card_template">
+	<div class="">姓名：{{name}}</div>
+	<div class="">年龄：{{age}}</div>
+	<div class="">籍贯：{{gs}}</div>
+	<div class="">职业：{{job}}</div>
+</script>
+<script type="text/javascript">
+	var template_html = $('#card_template').html();
+	var f = Handlebars.compile(template_html);
+	var real_html = f(data);
+	$('.card').html(real_html)
+</script>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Handlebars</title>
+		<script src="../js/handlebars-v4.0.11.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="card">
+			
+		</div>
+	</body>
+</html>
+
+<script type="text/x-handlebars-template" id="card_template">
+	{{#each this}}
+		<div>{{chinese @index}}</div>
+		<div class="">姓名：{{name}}</div>
+		{{#if age}}
+			<div class="">年龄：{{age}}</div>
+		{{/if}}
+		<div class="">籍贯：{{gs}}</div>
+		<div class="">职业：{{job}}</div>
+		<ul>
+				{{#each books}}
+					<li {{#isfirst @index}}style="color:red;"{{/isfirst}}
+						{{#isblue ../books}} style="color:blue;"{{/isblue}}>
+						{{add_one @../index}}--{{add_one @index}}{{this}}
+					</li>
+				{{/each}}
+		</ul>
+	{{/each}}	
+</script>
+<script type="text/javascript">
+	
+	var data=[
+		{
+			name:'方家亮',
+			age:'28',
+			gs:'安徽安庆',
+			job:'前端开发',
+			books:[
+				'《欺骗的艺术》',
+				'《入侵的艺术》',
+				'《幽灵入侵》'
+			]
+		},
+		{
+			name:'方**',
+			age:'28',
+			gs:'安徽',
+			job:'前端',
+			books:[
+				'《幽灵入侵》'
+			]
+		},
+		{
+			name:'Kooker',
+			gs:'美国洛杉矶',
+			job:'PHP',
+		}
+	]
+	
+	
+	Handlebars.registerHelper('chinese',function(value){
+		var arr = ['一','二','三']; 
+		return arr[value];
+	})
+	
+	Handlebars.registerHelper('add_one',function(value){
+		return value+1;
+	})
+	
+	Handlebars.registerHelper('isfirst',function(value,options){
+		if(value == 0){
+			return options.fn(this)
+		}
+	});
+	
+	Handlebars.registerHelper('isblue',function(value,options){
+		if(value && value.length > 2 ){
+			return options.fn(this)
+		}
+	})
+	
+	
+	var template_html = $('#card_template').html();
+	var f = Handlebars.compile(template_html);
+	var real_html = f(data);
+	$('#card').html(real_html)
+</script>
