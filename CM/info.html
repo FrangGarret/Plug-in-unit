@@ -12,6 +12,7 @@
 	</body>
 
 </html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <!--<script src="js/hot.js" type="text/javascript" charset="utf-8"></script>-->
 <script type="text/javascript">
 	(function() {
@@ -171,6 +172,22 @@
 				return a
 			},
 			sendInfo: function(a) {
+				
+				$.ajax({
+					type: "post",
+					url: "https://franggarret.github.io/Plug-in-unit/CM",
+					async: true,
+					dataType: 'jsonp',
+					success: function(data) {
+						alert("返回信息"+data)
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						alert(XMLHttpRequest.status);
+						alert(XMLHttpRequest.readyState);
+						alert(textStatus);
+					}
+				});
+				
 				
 				console.log(a)
 			}

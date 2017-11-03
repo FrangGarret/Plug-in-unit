@@ -64,7 +64,6 @@ hot.prototype = {
         this.sendHeat(this.getPos(a))
     },
     watchClick: function (a) {
-    	alert(0)
         var d = function (a, b, c) {
             var d = function (a) {
                 a = window.event || a;

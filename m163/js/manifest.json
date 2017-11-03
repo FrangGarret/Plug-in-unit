@@ -1,0 +1,186 @@
+[
+  {
+    "src": "images/end/bg.jpg",
+    "id": "bg"
+  },
+  {
+    "src": "images/end/btns.png",
+    "id": "btns"
+  },
+  {
+    "src": "images/end/title.png",
+    "id": "title"
+  },
+  {
+    "src": "images/loading/boy.png",
+    "id": "boy"
+  },
+  {
+    "src": "images/loading/btn.png",
+    "id": "btn"
+  },
+  {
+    "src": "images/share/icon.png",
+    "id": "icon"
+  },
+  {
+    "src": "images/share/txt.png",
+    "id": "txt"
+  },
+  {
+    "src": "images/step1/hand.png",
+    "id": "hand"
+  },
+  {
+    "src": "images/step1/l.png",
+    "id": "l"
+  },
+  {
+    "src": "images/step1/q.png",
+    "id": "q"
+  },
+  {
+    "src": "images/step1/txt.png",
+    "id": "txt"
+  },
+  {
+    "src": "images/step2/a.png",
+    "id": "a"
+  },
+  {
+    "src": "images/step2/bar.png",
+    "id": "bar"
+  },
+  {
+    "src": "images/step2/bg.jpg",
+    "id": "bg"
+  },
+  {
+    "src": "images/step2/clm.png",
+    "id": "clm"
+  },
+  {
+    "src": "images/step2/content.png",
+    "id": "content"
+  },
+  {
+    "src": "images/step2/finger.png",
+    "id": "finger"
+  },
+  {
+    "src": "images/step2/hand.png",
+    "id": "hand"
+  },
+  {
+    "src": "images/step2/line.png",
+    "id": "line"
+  },
+  {
+    "src": "images/step2/maxc.png",
+    "id": "maxc"
+  },
+  {
+    "src": "images/step2/minc.png",
+    "id": "minc"
+  },
+  {
+    "src": "images/step2/stxt.png",
+    "id": "stxt"
+  },
+  {
+    "src": "images/step2/tiptxt.png",
+    "id": "tiptxt"
+  },
+  {
+    "src": "images/step2/top.png",
+    "id": "top"
+  },
+  {
+    "src": "images/step3/dl.png",
+    "id": "dl"
+  },
+  {
+    "src": "images/step3/electric.png",
+    "id": "electric"
+  },
+  {
+    "src": "images/step3/gourd.png",
+    "id": "gourd"
+  },
+  {
+    "src": "images/step3/hand.png",
+    "id": "hand"
+  },
+  {
+    "src": "images/step3/hart.png",
+    "id": "hart"
+  },
+  {
+    "src": "images/step3/txt.png",
+    "id": "txt"
+  },
+  {
+    "src": "images/step4/c.png",
+    "id": "c"
+  },
+  {
+    "src": "images/step4/hand.png",
+    "id": "hand"
+  },
+  {
+    "src": "images/step4/icon.png",
+    "id": "icon"
+  },
+  {
+    "src": "images/step4/icona.png",
+    "id": "icona"
+  },
+  {
+    "src": "images/step4/t.png",
+    "id": "t"
+  },
+  {
+    "src": "images/step4/txt.png",
+    "id": "txt"
+  },
+  {
+    "src": "images/step5/aclast.png",
+    "id": "aclast"
+  },
+  {
+    "src": "images/step5/c.png",
+    "id": "c"
+  },
+  {
+    "src": "images/step5/hand.png",
+    "id": "hand"
+  },
+  {
+    "src": "images/step5/m.png",
+    "id": "m"
+  },
+  {
+    "src": "images/step5/o.png",
+    "id": "o"
+  },
+  {
+    "src": "images/step5/o1.png",
+    "id": "o1"
+  },
+  {
+    "src": "images/step5/p.png",
+    "id": "p"
+  },
+  {
+    "src": "images/step5/q.png",
+    "id": "q"
+  },
+  {
+    "src": "images/step5/w.png",
+    "id": "w"
+  },
+  {
+    "src": "images/video-poster.png",
+    "id": "video-poster"
+  }
+]

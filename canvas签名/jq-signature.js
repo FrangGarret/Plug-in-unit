@@ -26,7 +26,11 @@ var WritingPad = function () {
             
             var myImg = $('#myImg').empty();
             var dataUrl = $('.js-signature').jqSignature('getDataURL');
-            var img = $('<img>').attr('src', dataUrl);
+            console.log(dataUrl)
+            var img = $('<img>').attr({
+            	'src': dataUrl,
+            	'width' : '320px'
+            });
             $(myImg).append($('<p class="pic_title">').text("图片保存在这里"));
             $(myImg).append(img);
 
@@ -198,7 +202,7 @@ var WritingPad = function () {
        // debugger;
         if (window.requestAnimFrame) {
             var signature = $("#mySignature");
-            signature.jqSignature({ width: document.body.clientWidth-17, height: 400, background: '#ccc', lineColor: '#000', lineWidth: 2, autoFit: false });
+            signature.jqSignature({ width: 320, height: 400, background: '#ccc', lineColor: '#000', lineWidth: 2, autoFit: false });
             //{ width: 600, height: 200, border: '1px solid red', background: '#16A085', lineColor: '#ABCDEF', lineWidth: 2, autoFit: true }
         } else {
 
