@@ -1,0 +1,58 @@
+  
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="data-spm" content="5176"/>
+<title>双11“鬼故事”</title>
+<link href="css/animate.min.css" rel="stylesheet" type="text/css">
+<link href="css/app.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="screen-container">
+  <div class="share_box">	
+  <div class="share_bg"></div>
+  <img class="share_img" src="Image/share_sw.png"/>
+  
+  </div>
+  <div class="page-container first-page active"> 
+       <div class="loading">
+			<div class="all" id="loading">
+				<img src="Image/loading.gif" style="width:90%;">
+			</div>
+			<span id="loading_font">Loading 0%</span>
+	   </div>
+	   <img src="Image/btnbg.gif" class="btn-start"/> 
+	   <img src="Image/startw.png" class="btn-start" style="top:55%;"/> 
+  </div>
+  <div class="page-container last-page"> <img src="Image/btn2.png" class="btn-restart"/><img src="Image/btn1.png" class="btn-goout"/></div>
+  <div class="container-video">
+    <video id="video" src="mp4.mp4" preload="auto" webkit-playsinline="true" playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" style="object-fit: fill;"></video>
+  </div>
+  
+</div>
+
+<script src="js/jquery-2.1.4.min.js"></script> 
+<script src="js/app.js"></script>
+<script src="js/jweixin-1.1.0.js"></script>
+
+     <script> 
+	 $(".btn-goout").click(function(){
+		  $(".share_box").show();
+		});
+	$(".share_box").click(function(){
+		  $(".share_box").hide();
+		}); 
+     
+
+    </script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256835944'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1256835944' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256835944'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1256757167' type='text/javascript'%3E%3C/script%3E"));</script>
+<script src="js/data-statistics.js"></script>
+</body>
+</html>
