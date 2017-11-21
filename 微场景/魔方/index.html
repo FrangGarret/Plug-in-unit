@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>HTML5移动场景之魔方</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,target-densityDpi=device-dpi">
+<style>
+*{ margin:0; padding:0;}
+html{ overflow:hidden;}
+body{ font-family:Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self; background:black;}
+li{ list-style:none;}
+#main{ width:640px; height:1008px; position:absolute; overflow:hidden; left:50%; top:50%; margin:-504px 0 0 -320px; z-index:-1;}
+#phone{ width:100%; height:100%; position:absolute; left:0; top:0; z-index:10; background-image:url(img/phoneBg.jpg); background-size:cover; transition:.5s; -webkit-transition:.5s; overflow:hidden;}
+#phoneHead{ width:100%; position:absolute; top:10%;}
+#phoneHead .phoneHeadName{ width:262px; height:115px; background:url(img/phoneHeadName.png) no-repeat; margin:0 auto;}
+#phoneHead .phoneHeadTime{ color:white; font-size:30px; text-align:center; margin-top:10px; letter-spacing:3px;}
+#phoneBtn{ width:520px; height:360px; background:url(img/phoneBtn.png) no-repeat; left:50%; bottom:10%; margin-left:-260px; position:absolute;}
+#phoneBtn .phoneBtnArc{ width:170px; height:170px; border:3px solid #4cd864; border-radius:50%; position:absolute; left:358px; top:143px; -webkit-animation:1s linear infinite arcMove; animation:1s linear infinite arcMove; z-index:-1;}
+@-webkit-keyframes arcMove{
+	0%{ -webkit-transform:scale(1.2);}
+	100%{ -webkit-transform:scale(0);}
+}
+@keyframes arcMove{
+	0%{ transform:scale(1.2);}
+	100%{ transform:scale(0);}
+}
+#phoneBtn .phoneBtnTouch{ width:170px; height:170px; border-radius:50%; position:absolute; left:358px; top:143px; z-index:1;}
+#phoneKey{ width:520px; height:659px; position:absolute; left:50%; bottom:15px; margin-left:-260px; background:url(img/phoneKey.png) no-repeat; transform:translate(0,675px); transition:.5s; -webkit-transform:translate(0,675px); -webkit-transition:.5s;}
+#phoneKey .phoneKeyTouch{ width:170px; height:170px; border-radius:50%; position:absolute; left:173px; top:460px; z-index:1;}
+#message{ width:100%; height:100%; background:#eaeaea; position:absolute; left:0; top:0; z-index:8; transition:.5s 2s; -webkit-transition:.5s 2s; overflow:hidden;}
+#messageList{ width:100%; font-size:30px; position:absolute; top:20px; line-height:40px; transition:.5s; -webkit-transition:.5s; box-sizing:border-box;}
+#messageList li{ margin:0 0 40px; clear:both; position:relative; padding:25px; border-radius:10px; max-width:340px; transform:translate(0,100px); opacity:0; transition:.5s; -webkit-transform:translate(0,100px); -webkit-transition:.5s;}
+#messageList li.sty1{ margin-right:40px; float:left; left:125px; background:white; border:2px #cbcbcb solid;}
+#messageList li.sty2{ float:right; right:125px; background:#a2e55c; border:2px #93b577 solid; border-radius:10px;}
+#messageList li img { position:absolute; top:0px;}
+#messageList li.sty1 img{ left:-105px;}
+#messageList li.sty2 img{ right:-105px;}
+#messageList li.sty1 .arrow{ width:10px; height:20px; background:url(img/messageArrow1.png) no-repeat; position:absolute; left:-10px; top:30px;}
+#messageList li.sty2 .arrow{ width:10px; height:20px; background:url(img/messageArrow2.png) no-repeat; position:absolute; right:-10px; top:30px;}
+#message .messageText{ width:100%; height:88px; background:url(img/messageText.png) no-repeat; position:absolute; left:0; bottom:0; box-sizing:border-box;}
+#cube{ width:100%; height:100%; position:absolute; left:0; top:0; background-image:url(img/cubeBg.jpg); background-size:cover; z-index:6; overflow:hidden; perspective:1000px; -webkit-perspective:1000px;}
+
+#cubeBox{ width:510px; height:510px; position:absolute; left:50%; top:20%; margin-left:-255px; -webkit-transform-style:preserve-3d; transform-style:preserve-3d; position:relative; transform-origin:255px 255px -255px; -webkit-transform-origin:255px 255px -255px; -webkit-transform:scale(0) rotateX(-45deg) rotateY(-180deg);}
+#cubeBox li{ width:510px; height:510px; position:absolute;}
+#cubeBox li:nth-of-type(1){ left:0px; top:0; background:url(img/cubeImg1.png) no-repeat; z-index:1;}
+#cubeBox li:nth-of-type(2){ left:510px;top:0; background:url(img/cubeImg2.png) no-repeat; transform-origin:left; transform:rotateY(90deg); -webkit-transform-origin:left; -webkit-transform:rotateY(90deg);}
+#cubeBox li:nth-of-type(3){ left:0;top:0; background:url(img/cubeImg3.png) no-repeat; transform:translateZ(-510px) rotateY(-180deg); -webkit-transform:translateZ(-510px) rotateY(-180deg);}
+#cubeBox li:nth-of-type(4){ left:-510px; top:0; background:url(img/cubeImg4.png) no-repeat; transform-origin:right; transform:rotateY(-90deg); -webkit-transform-origin:right; -webkit-transform:rotateY(-90deg);}
+#cubeBox li:nth-of-type(5){ left:0;top:-510px; background:url(img/cubeImg5.png) no-repeat; transform-origin:bottom; transform:rotateX(90deg); -webkit-transform-origin:bottom; -webkit-transform:rotateX(90deg);}
+#cubeBox li:nth-of-type(6){ left:0px;top:510px; background:url(img/cubeImg6.png) no-repeat; transform-origin:top; transform:rotateX(-90deg); -webkit-transform-origin:top; -webkit-transform:rotateX(-90deg);}
+#cubeShare{ width:62px; height:62px; background:url(img/cubeShare.png) no-repeat; position:absolute; right:30px; top:30px;}
+#cubeShareMark{ position:absolute; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10; left:0; top:0; display:none; text-align:center; padding-top:100px;}
+
+#cubeTip{ width:394px; height:44px; background:url(img/cubeTip.png) no-repeat; position:absolute; left:50%; bottom:30px; margin-left:-197px;}
+
+#details{ width:100%; height:100%; display:none; position:absolute; left:0; top:0; z-index:8;}
+#details .detailsList{ width:100%; height:100%; perspective:800px; transform-style:preserve-3d; -webkit-perspective:800px; -webkit-transform-style:preserve-3d;}
+#details .detailsList li{ width:100%; height:100%; position:absolute; left:0; top:0; visibility:hidden; color:white;}
+#details .detailsList li:nth-of-type(1){ background:#5cb2a9;}
+#details .detailsList li:nth-of-type(2){ background:#ff7878;}
+#details .detailsList li:nth-of-type(3){ background:#fbffe5;}
+#details .detailsList li:nth-of-type(4){ background:#e5fff4;}
+#details .detailsList li:nth-of-type(5){ background:#ffffff;}
+#details .detailsList li:nth-of-type(6){ background:#5975ff;}
+#details .detailsList .fadeIn{animation:.5s homefadeIn; visibility:visible; z-index:3;-webkit-animation:.5s homefadeIn;}
+#details .detailsList .fadeOut{animation:.5s homefadeOut; visibility:hidden; z-index:3;-webkit-animation:.5s homefadeOut;}
+@keyframes homefadeIn{
+	0%{ transform:scale(0.8); opacity:0;}
+	100%{ transform:scale(1); opacity:1;}
+}
+@-webkit-keyframes homefadeIn{
+	0%{ -webkit-transform:scale(0.8); opacity:0;}
+	100%{ -webkit-transform:scale(1); opacity:1;}
+}
+@keyframes homefadeOut{
+	0%{ transform:scale(1); opacity:1; visibility:visible;}
+	100%{ transform:scale(0.8); opacity:0;}
+}
+@-webkit-keyframes homefadeOut{
+	0%{ -webkit-transform:scale(1); opacity:1; visibility:visible;}
+	100%{ -webkit-transform:scale(0.8); opacity:0;}
+}
+#details .detailsList .leftShow{ animation:1s homeLeftShow; visibility:visible; z-index:3;-webkit-animation:1s homeLeftShow;}
+#details .detailsList .rightHide{ animation:1s homeRightHide; visibility:hidden; -webkit-animation:1s homeRightHide;}
+#details .detailsList .leftHide{ animation:1s homeLeftHide; visibility:hidden; -webkit-animation:1s homeLeftHide;}
+#details .detailsList .rightShow{ animation:1s homeRightShow; visibility:visible; z-index:3; -webkit-animation:1s homeRightShow;}
+@keyframes homeLeftHide{
+	0%{ transform:translateZ(0px); visibility:visible;}
+	40%{ transform:translate(-40%,0) scale(0.8) rotateY(-20deg);}
+	100%{ transform:translateZ(-200px);}
+}
+@keyframes homeRightShow{
+	0%{ transform:translateZ(-200px);}
+	40%{ transform:translate(40%,0) scale(0.8) rotateY(20deg);}
+	100%{ transform:translateZ(0px);}
+}
+@-webkit-keyframes homeLeftHide{
+	0%{ -webkit-transform:translateZ(0px); visibility:visible;}
+	40%{ -webkit-transform:translate(-40%,0) scale(0.8) rotateY(-20deg);}
+	100%{ -webkit-transform:translateZ(-200px);}
+}
+@-webkit-keyframes homeRightShow{
+	0%{ -webkit-transform:translateZ(-200px);}
+	40%{ -webkit-transform:translate(40%,0) scale(0.8) rotateY(20deg);}
+	100%{ -webkit-transform:translateZ(0px);}
+}
+@keyframes homeLeftShow{
+	0%{ transform:translateZ(-200px);}
+	40%{ transform:translate(-40%,0) scale(0.8) rotateY(-20deg);}
+	100%{ transform:translateZ(0px);}
+}
+@keyframes homeRightHide{
+	0%{ transform:translateZ(0px); visibility:visible;}
+	40%{ transform:translate(40%,0) scale(0.8) rotateY(20deg);}
+	100%{ transform:translateZ(-200px);}
+}
+@-webkit-keyframes homeLeftShow{
+	0%{ -webkit-transform:translateZ(-200px);}
+	40%{ -webkit-transform:translate(-40%,0) scale(0.8) rotateY(-20deg);}
+	100%{ -webkit-transform:translateZ(0px);}
+}
+@-webkit-keyframes homeRightHide{
+	0%{ -webkit-transform:translateZ(0px); visibility:visible;}
+	40%{ -webkit-transform:translate(40%,0) scale(0.8) rotateY(20deg);}
+	100%{ -webkit-transform:translateZ(-200px);}
+}
+
+#details .detailsBtn{ position:absolute; bottom:20px; text-align:center; width:100%;}
+#details .detailsBtn li{width:15px; height:15px; border-radius:50%; background:rgba(217,103,104,0.5); display:inline-block; margin:2px; }
+#details .detailsBtn li.active{ background:#7e8e8b;}
+#detailsReturn{ width:65px; height:76px; background:url(img/detailsReturn.png) no-repeat; position:absolute; right:30px; top:30px;}
+#details .detailsImg{ width:100%; position:absolute; top:10%;}
+#details .detailsImg img,#details .detailsImg canvas{ position:absolute; left:50%; top:0;}
+#details li:nth-of-type(1) img,#details li:nth-of-type(1) canvas{ margin-left:-255px;}
+#details li:nth-of-type(2) img,#details li:nth-of-type(2) canvas{ margin-left:-187px;}
+#details li:nth-of-type(3) img,#details li:nth-of-type(3) canvas{ margin-left:-193px;}
+#details li:nth-of-type(4) img,#details li:nth-of-type(4) canvas{ margin-left:-130px;}
+#details li:nth-of-type(5) img,#details li:nth-of-type(5) canvas{ margin-left:-111px;}
+#details li:nth-of-type(6) img,#details li:nth-of-type(6) canvas{ margin-left:-239px;}
+#details li span{ width:100%; position:absolute; bottom:10%; background-position:center center; background-repeat:no-repeat;}
+#details li:nth-of-type(1) span{ background-image:url(img/detailText1.png); height:240px;}
+#details li:nth-of-type(2) span{ background-image:url(img/detailText2.png); height:400px;}
+#details li:nth-of-type(3) span{ background-image:url(img/detailText3.png); height:300px;}
+#details li:nth-of-type(4) span{ background-image:url(img/detailText4.png); height:300px;}
+#details li:nth-of-type(5) span{ background-image:url(img/detailText5.png); height:400px;}
+#details li:nth-of-type(6) span{ background-image:url(img/detailText6.png); height:260px;}
+#details li:nth-of-type(2) .detailsImg{ background:white; width:374px; height:374px; border-radius:50%; left:50%; margin-left:-187px;}
+
+#loading{ width:100%; height:100%; background:black; position:absolute; left:0; top:0; z-index:20;}
+#loading .progress{ background-color: #f5f5f5; border-radius: 6px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;  height: 30px; overflow: hidden; width:450px; margin:400px auto;}
+#loading .progress-bar{ width:0%; background-color: #5cb85c; height:100%; background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); background-size: 40px 40px; animation:1s progress-bar-stripes linear infinite; -webkit-animation:1s progress-bar-stripes linear infinite; transition:1s; -webkit-transition:1s;}
+@keyframes progress-bar-stripes {
+	0% {
+		background-position: 40px 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+@-webkit-keyframes progress-bar-stripes{
+	0% {
+		background-position: 40px 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+</style>
+<script src="jquery-2.1.3.min.js"></script>
+<script>
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$(1k).o("2g",5(x){x.3n()});$(5(){5 x(){i f="3e.1y 3c.1y 3b.1y 36.7 2W.7 2U.7 2R.7 2Q.7 2J.7 1Z.7 2E.7 2D.7 2C.7 2B.7 2A.7 2y.7 2x.7 2w.7 2v.7 2u.7 3E.7 2q.7 2o.7 1U.7 1T.7 2l.7 2k.7 1S.7 3o.7".3l(" "),l=0;$.3k(f,5(e,a){i g=1r 1P;g.1E="1D/"+a;g.1L=5(){l++;$("#1K").9("W",l/f.14*2m+"%")};g.3C=5(){$("#1W").1Q({18:0},5(){$(11).1m();B.Y()})}});$("#1K").o("1A 1z",5(){l==f.14&&$("#1W").1Q({18:0},5(){$(11).1m();B.Y()})})}i L=$("#2n"),C=$("#34"),t=$(1N).12(),y=$(1N).W(),D=$("#1U"),M=D.s(".2z"),E=$("#1T"),N=E.s(".3f"),F=$("#3t").s(".2r"),u=$("#2H"),z=$("#3d"),O=u.s(".1S"),G=$("#3i"),p=$("#3A"),v=$("#2p"),q=v.s(".2t"),A=v.s(".2F"),w=$("#2K"),H=$("#35"),I=$("#1Z"),J=$("#3g").1c(0),r=$("#3j").1c(0),P=$("#3y").1c(0),B=5(){5 f(){M.o("17",5(){E.9("V","1e(0,0)");D.9("18",0);J.1Y();l()});N.o("17",5(){g()})}5 l(){r.1x();F.25("1I:1I");i a=1B(5(){F.25(e(r.1J));r.1J==r.2G&&(1C(a),g())},2I)}5 e(c){c=2V(c);i e=a(U.1a(c%38/1M));c=a(U.1a(c%1M));X e+":"+c}5 a(a){X 10>a?"0"+a:""+a}5 g(){C.9("V","1e(0,"+(t+1O)+"1s)");r.1Y();C.o("1A 1z",5(){$(11).1m();Q.Y()})}X{Y:5(){J.1x();f()}}}(),Q=5(){5 f(){5 c(){e.j(a).9("V","1e(0,0)");e.j(a).9("18",1);3<=a&&(g+=e.j(a).3p()+10,z.9("V","1e(0,"+-g+"1s)"));a++;a==e.14&&(1C(f),l())}c();i f=1B(c,3q)}5 l(){u.9("V","1e(0,"+(t+1O)+"1s)");u.o("1A 1z",5(a){u.1H(a.1R)&&($(11).1m(),R.Y())})}i e=z.s("1i"),a=0,g=0;X{Y:5(){P.1x();f()}}}(),R=5(){5 f(){$(1k).o("17",5(b){p.9("1g","");b=b.1f.1w[0];g=b.1d;c=b.1V;n=!1;$(1k).o("2g.1F",5(b){b=b.1f.1w[0];h=(b.1d-g)/2;d=(b.1V-c)/2;n=!0;-1p>e-d?d=e+1p:1p<e-d&&(d=e-1p);k?p.9("V","19(0.6) 1l("+(e-d)+"Z) 1j("+(a+h)+"Z)"):p.9("V","19(0.8) 1l("+(e-d)+"Z) 1j("+(a+h)+"Z)")});$(1k).o("1v.1F",5(a){$(11).1X(".1F")})});l.o("1v",5(b){n?(e+=-d,a+=h):K.16($(11).1G())});H.o("17",5(){I.16()});I.o("17",5(){$(11).1b();X!1})}i l=p.s("1i"),e=-20,a=20,g=0,c=0,h=0,d=0,n=!1,k=-1!=2L.2M.2N().2O("2P")?!0:!1;X{Y:5(){p.9("1g","2s");k?p.9("V","19(0.6) 1l("+e+"Z) 1j("+a+"Z)"):p.9("V","19(0.8) 1l("+e+"Z) 1j("+a+"Z)");f()}}}(),K=5(){5 f(){a.o("17",5(b){c=b.1f.1w[0].1d;h=$(11).1G();a.o("1v",5(b){n&&(b=b.1f.1w[0],n=!1,b.1d<c?(d=h==a.14-1?0:h+1,a.j(h).S("T","2S"),a.j(d).S("T","2T"),g.j(d).S("T","1o").21().S("T",""),k.13&&k.13(d)):b.1d>c?(d=0==h?a.14-1:h-1,a.j(h).S("T","2X"),a.j(d).S("T","2Y"),g.j(d).S("T","1o").21().S("T",""),k.13&&k.13(d)):n=!0,a.1X("1v"))});X!1});w.o("17",5(){l(g.2Z(".1o").1G())})}5 l(b){G.16();A.1b();w.1b();a.j(b).S("T","30");g.j(b).S("T","");a.j(b).31("32  33",5(b){a.1H(b.1R)&&(a.S("T",""),v.1b())})}5 e(a){5 e(a,b){i g=(1r 22).23(),h=1B(5(){c.1h(0,0,d.W,d.12);i e=(1r 22).23(),e=U.37(e-g,b);e==b&&(1C(h),24(5(){n=!0;c.1h(0,0,d.W,d.12);f.9("1g",".39");f.9("18",1)},3a));1u(i m=0;m<a.14;m++){i l=(a[m].x-a[m].1t)*e/b+a[m].1t,k=(a[m].y-a[m].1q)*e/b+a[m].1q;c.26();c.27(l,k,1,0,28*U.29/2a);c.2b();c.2c()}},15)}5 g(a,b,e){i c=a.3m;a=a.W;i d=[];d[0]=c[4*(a*e+b)];d[1]=c[4*(a*e+b)+1];d[2]=c[4*(a*e+b)+2];d[3]=c[4*(a*e+b)+3];X d}i f=q.s("1D").j(a),d=q.s("2e").1c(a),c=d.2f("2d"),h=1r 1P;h.1E=f.S("1E");h.1L=5(){i a=h.W,b=h.12,f=[];c.3r(h,0,0);a=c.3s(0,0,a,b);c.1h(0,0,d.W,d.12);1u(i b=U.1a(a.W/8),l=U.1a(a.12/8),k=0;k<l;k++)1u(i m=0;m<b;m++){i n=8*m+U.1a(8*U.1n()),p=8*k+U.1a(8*U.1n());0!=g(a,n,p)[3]&&f.3u({x:n,y:p,1t:U.1n()*d.W,1q:U.1n()*d.12})}1u(k=0;k<f.14;k++)c.26(),c.27(f[k].1t,f[k].1q,1,0,28*U.29/2a),c.2b(),c.2c();24(5(){e(f,3v)},3w)}}i a=q.s("1i"),g=A.s("1i"),c=0,h=0,d=0,n=!0,k={13:5(a){i c=q.s("1D").j(a),d=q.s("2e").1c(a);d.2f("2d").1h(0,0,d.W,d.12);c.9("1g","");c.9("18",0);e(a)}};X{Y:5(){f()},16:5(b){v.16();G.1b();A.16();w.16();a.j(b).S("T","3x");g.j(b).S("T","1o");k.13&&k.13(b)}}}();(5(){L.9("V","19("+t/2h+")");i f=t/2h*3z;2i>f&&(3B=2i);z.9("2j","0 "+(f-y)/2+"1s");O.9("V","19("+y/f+")");H.3D(w).9("2j-3h",(f-y)/2);x();K.Y()})()});',62,227,'|||||function||png||css|||||||||var|eq|||||on||||find||||||||||||||||||||||||||attr|class|Math|transform|width|return|init|deg||this|height|inAn|length||show|touchstart|opacity|scale|floor|hide|get|pageX|translate|originalEvent|transition|clearRect|li|rotateY|document|rotateX|remove|random|active|70|by|new|px|bx|for|touchend|changedTouches|play|jpg|webkitTransitionEnd|transitionEnd|setInterval|clearInterval|img|src|move|index|is|00|currentTime|progressBar|onload|60|window|504|Image|animate|target|messageText|phoneKey|phoneBtn|pageY|loading|off|pause|cubeShareMark|45|siblings|Date|getTime|setTimeout|html|beginPath|arc|360|PI|180|closePath|fill||canvas|getContext|touchmove|1008|320|padding|messageHead2|messageHead1|100|main|detailText6|details|detailText5|phoneHeadTime||detailsList|detailText3|detailText2|detailText1|detailsCanvas6|detailsCanvas5|phoneBtnTouch|detailsCanvas4|detailsCanvas3|detailsCanvas2|detailsCanvas1|cubeTip|detailsBtn|duration|message|1E3|cubeImg6|detailsReturn|navigator|userAgent|toLowerCase|indexOf|iphone|cubeImg5|cubeImg4|leftHide|rightShow|cubeImg3|parseInt|cubeImg2|rightHide|leftShow|filter|fadeOut|one|webkitAnimationEnd|animationEnd|phone|cubeShare|cubeImg1|min|3600|5s|500|cubeBg|phoneBg|messageList|shareicon|phoneKeyTouch|bell|right|cube|say|each|split|data|preventDefault|phoneHeadName|outerHeight|2E3|drawImage|getImageData|phoneHead|push|300|1200|fadeIn|music|640|cubeBox|paddingNum|onerror|add|detailText4'.split('|'),0,{}))
+</script>
+</head>
+
+<body>
+<div style="width:0; height:0; overflow:hidden;"><img src="img/shareicon.jpg"></div>
+<div id="main">
+	<div id="loading">
+    	<div class="progress">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+    </div>
+    <div id="sound">
+    	<audio id="bell" src="img/bell.mp3" preload="auto" loop></audio>
+        <audio id="say" src="img/say.mp3" preload="auto"></audio>
+        <audio id="music" src="img/music.mp3" preload="auto" loop></audio>
+    </div>
+    <div id="phone">
+    	<div id="phoneHead">
+        	<div class="phoneHeadName"></div>
+            <div class="phoneHeadTime"></div>
+        </div>
+        <div id="phoneBtn">
+        	<div class="phoneBtnArc"></div>
+            <div class="phoneBtnTouch"></div>
+        </div>
+        <div id="phoneKey">
+        	<div class="phoneKeyTouch"></div>
+        </div>
+    </div>
+    <div id="message">
+    	<ul id="messageList">
+        	<li class="sty1">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead1.png">
+                那个谁谁谁……
+            </li>
+            <li class="sty2">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead2.png">
+                你好，我是妙味课堂，小乐～ ^_^
+            </li>
+            <li class="sty1">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead1.png">
+                哦，小乐乐你好！
+            </li>
+            <li class="sty2">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead2.png">
+                嗯，请问有什么可以帮到你？
+            </li>
+            <li class="sty1">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead1.png">
+                你们那个移动端课程都讲到什么？
+            </li>
+            <li class="sty2">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead2.png">
+                我们这次的移动端课程，讲的是移动端H5场景应用的相关知识，比如：CSS3D、canvas、粒子、动画……
+            </li>
+            <li class="sty1">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead1.png">
+                那你们上课的时间是什么？
+            </li>
+            <li class="sty1">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead1.png">
+                你们这个课程是谁来讲？？
+            </li>
+            <li class="sty1">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead1.png">
+                这个课程学完以后能自己做移动端吗？
+            </li>
+            <li class="sty1">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead1.png">
+                这个学费多钱？贵吗？
+            </li>
+            <li class="sty1">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead1.png">
+                哦对了，我基础不太好听得懂吗？
+            </li>
+            <li class="sty1">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead1.png">
+                嗯？小乐乐？在吗？？？
+            </li>
+            <li class="sty2">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead2.png">
+                呃……是的，我一直都在，我正在拼命打字回复你的问题，只是回复慢了，请见谅啊。另外，你的问题比较多，我干脆送给你一个神奇魔方，让这个精致的小魔方来回复你所有问题吧？
+            </li>
+            <li class="sty1">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead1.png">
+                啊？魔方？什么鬼东东？
+            </li>
+            <li class="sty2">
+            	<div class="arrow"></div>
+            	<img src="img/messageHead2.png">
+                嘻嘻……发给你了，接住啊~~
+            </li>
+        </ul>
+        <div class="messageText"></div>
+    </div>
+    <div id="cube">
+    	<ul id="cubeBox">
+        	<li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div id="cubeShare"></div>
+        <div id="cubeTip"></div>
+    </div>
+    <div id="details">
+    	<ul class="detailsList">
+        	<li>
+            	<div class="detailsImg">
+                	<img src="img/detailsCanvas1.png">
+                    <canvas width="510" height="423"></canvas>
+                </div>
+                <span></span>
+            </li>
+            <li>
+            	<div class="detailsImg">
+                	<img src="img/detailsCanvas2.png">
+                    <canvas width="374" height="374"></canvas>
+                </div>
+                <span></span>
+            </li>
+            <li>
+            	<div class="detailsImg">
+                	<img src="img/detailsCanvas3.png">
+                    <canvas width="386" height="336"></canvas>
+                </div>
+                <span></span>
+            </li>
+            <li>
+            	<div class="detailsImg">
+                	<img src="img/detailsCanvas4.png">
+                    <canvas width="259" height="306	"></canvas>
+                </div>
+                <span></span>
+            </li>
+            <li>
+            	<div class="detailsImg">
+                	<img src="img/detailsCanvas5.png">
+                    <canvas width="221" height="284"></canvas>
+                </div>
+                <span></span>
+            </li>
+            <li>
+            	<div class="detailsImg">
+                	<img src="img/detailsCanvas6.png">
+                    <canvas width="478" height="419"></canvas>
+                </div>
+                <span></span>
+            </li>
+        </ul>
+        <ul class="detailsBtn">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div id="detailsReturn"></div>
+    </div>
+    <div id="cubeShareMark"><img src="img/cubeShareMark.png"></div>
+    
+</div>
+</body>
+</html>
