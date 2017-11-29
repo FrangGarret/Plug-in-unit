@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				font-family: "微软雅黑";
+				
+			}
+			html,body{
+				height: 100%;
+			}
+			.nav_li_warp{
+				width: 300px;
+				height: 100%;
+				position: fixed;
+			}
+			.nav_li{
+				height: 30px;
+				font-size: 20px;
+				line-height: 30px;
+				text-align: center;
+				border: 1px solid #ccc;
+				margin-top:10px;
+				cursor: pointer;
+			}
+			.nav_li.active{
+				background: #00D5F9;
+			}
+			.con{
+				margin-left: 300px;
+				box-sizing: border-box;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="nav_li_warp">
+			<li class="nav_li active" data_link="1">1.html</li>
+			<li class="nav_li" data_link="2">2.html</li>
+			<li class="nav_li" data_link="3">3.html</li>
+			<li class="nav_li" data_link="4">4.html</li>
+			<li class="nav_li" data_link="5">5.html</li>
+		</ul>
+		<div class="con"></div>
+	</body>
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+	function createJson(prop, val,jsons) {
+    // 如果 val 被忽略
+    if(typeof val === "undefined") {
+        // 删除属性
+        delete jsons[prop];
+    }
+    else {
+        // 添加 或 修改
+        jsons[prop] = val;
+    }
+}
+	$(document).on('click','li',function(){
+		$(this).addClass('active').siblings().removeClass('active');
+		var load_html = $(this).attr('data_link')
+		var jsons={};
+		createJson('data_url',load_html,jsons)
+		if( $(this).hasClass('nav_li') ){
+			createJson('target_li',$(this).index(),jsons);
+		}else{
+			createJson('target_li_te',$(this).attr('ft'),jsons);
+		}
+		$('.con').load(load_html+'.html');
+		history.pushState(jsons,'','#'+load_html)
+		jsons=null
+	})
+	window.onpopstate = function(ev) {
+		var obj = ev.state
+		if( obj ){
+			var qian=ev.state.data_url||''
+			var li_click=ev.state.target_li || ''
+			var li_click_te = ev.state.target_li_te || ''
+			if(li_click==''){
+				$('.nav_li').eq(li_click_te).addClass('active').siblings().removeClass('active')
+				$('.con').load(qian+'.html')
+			}else{
+				$('.nav_li').eq(li_click).addClass('active').siblings().removeClass('active')
+				$('.con').load(qian+'.html')
+			}
+		}
+		
+		obj=null
+
+	};
+	
+	
+</script>
