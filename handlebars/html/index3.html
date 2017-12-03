@@ -25,6 +25,7 @@
 		<ul>
 				{{#each books}}
 					<li {{#isfirst @index}}style="color:red;"{{/isfirst}}
+						{{#istwo @index}}style="color:yellow;"{{/istwo}}
 						{{#isblue ../books}} style="color:blue;"{{/isblue}}>
 						{{add_one @../index}}--{{add_one @index}}{{this}}
 					</li>
@@ -77,6 +78,13 @@
 			return options.fn(this)
 		}
 	});
+	
+	Handlebars.registerHelper('istwo',function(value,options){
+		if(value == 1){
+			return options.fn(this)
+		}
+	});
+	
 	
 	Handlebars.registerHelper('isblue',function(value,options){
 		if(value && value.length > 2 ){
