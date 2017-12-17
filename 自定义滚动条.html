@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				box-sizing: border-box;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				width: 100%;
+			}
+			
+			.warp {
+				width: 100%;
+				height: 100%;
+				flex-flow: row;
+				display: flex;
+			}
+			
+			.left_gu,
+			.right {
+				width: 200px;
+				height: 100%;
+				border: 1px solid #ccc;
+			}
+			
+			.center_Warp {
+				flex: 1;
+				height: 100%;
+				overflow-y: auto;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				margin: 0 10px;
+			}
+			/* 滚动条整体部分，其中的属性有width,height,background,border（就和一个块级元素一样）等。*/
+			
+			*::-webkit-scrollbar {
+				width: 10px;
+				background: transparent;
+				border-radius: 5px;
+				
+			}
+			
+			*::-webkit-scrollbar-thumb {
+				width: 10px;
+				background: #f6f6f6;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			/*滚动条两端的按钮。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果。*/
+			
+			*::-webkit-scrollbar-button {
+				display: none;
+			}
+			
+			* {
+				scrollbar-track-color: #fff;
+				scrollbar-base-color: #fff;
+				scrollbar-3dlight-color: #fff;
+				scrollbar-highlight-color: #f1f1f1;
+				scrollbar-face-color: #fff;
+				scrollbar-arrow-color: #f1f1f1;
+				scrollbar-shadow-color: #f1f1f1;
+			}
+			.top{
+				height: 100px;
+				background: #f4f4f4;
+				flex-flow: row;
+				position: absolute;
+			}
+			.bottom{
+				flex: 1;
+				background: #f1f1f1;
+				flex-flow: row;
+				overflow: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="warp">
+			<div class="left_gu">我是左侧</div>
+			<div class="center_Warp">
+				<div class="top">我是上面的内容</div>
+				<div class="bottom">我是下面的内容
+					<div class="" style="height: 1500px;"></div>
+				</div>
+			</div>
+			<div class="right">我是右侧</div>
+		</div>
+	</body>
+
+</html>
