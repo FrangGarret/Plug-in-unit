@@ -137,6 +137,22 @@ textarea {
 }
 
 
+input:focus,button:focus,input[type="checkbox"]:focus,input[type="radio"]:focus,textarea:focus{
+	outline: none;
+}
+/*按钮初始样式*/
+.btn_normal {
+	width: 120px;
+	height: 40px;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	font-size: 14px;
+	border: none;
+	border-radius: 5px;
+	background: #f1f1f1;
+}
+
 /*按钮鼠标划上的效果*/
 
 button:hover {
@@ -144,19 +160,48 @@ button:hover {
 }
 
 
-/*按钮点击的效果*/
-
-button:checked {
-	background: ;
+.btn_normal.btn_default{
+	background: #ccc;
 }
-
+.btn_normal.btn_default:active{
+	background: #c3c3c3;
+}
 
 /*按钮成功状态*/
 
-button.btn_success {
-	background: ;
+.btn_normal.btn_success {
+	background:#46be8a ;
+}
+/*成功按钮点击的效果*/
+
+.btn_normal.btn_success:active {
+	background:#00bf6c ;
 }
 
+/*按钮错误状态*/
+
+.btn_normal.btn_error {
+	background:#ff7272 ;
+}
+.btn_normal.btn_error:active{
+	background: #ff3939;
+}
+
+/*按钮警告状态*/
+
+.btn_normal.btn_warming {
+	background: #f99800;
+}
+.btn_normal.btn_warming:active{
+	background: #f9ae00;
+}
+
+.btn_normal.btn_win{
+	background:#0093e7 ;
+}
+.btn_normal.btn_win:active{
+	background: #00a5f7;
+}
 
 /*按钮禁用状态*/
 
@@ -166,40 +211,18 @@ button.btn_success {
 }
 
 
-/*按钮错误状态*/
 
-button.btn_error {
-	background: ;
-}
-
-
-/*按钮警告状态*/
-
-button.btn_warming {
-	background: ;
-}
-
-
-/*按钮正常状态*/
-
-button.btn_normal {
-	width: 120px;
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
-	font-size: 14px;
-	border: none;
-	border-radius: 5px;
-	background: #F1f1f1;
-}
 
 
 /*input获得焦点的效果*/
-
+input{
+	border: 1px solid #f1f1f1;
+}
+input:focus{
+	box-shadow: 0px 0px 5px #c1c1c1;
+}
 
 /*自定义checkbox、radio样式*/
-
-
 /*checkbox*/
 
 .FWD_checkbox {
@@ -241,14 +264,10 @@ button.btn_normal {
 	left: 3px;
 	color: #99a1a7;
 }
-
-
 /* radio */
-
 .FWD_radio {
 	display: none;
 }
-
 .FWD_radio+label {
 	-webkit-appearance: none;
 	background-color: #fafafa;
@@ -285,19 +304,30 @@ button.btn_normal {
 .FWD_radio:checked+label:active {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
-
-
-/*alert弹出框样式*/
-
-.FWD_alert {}
-
-
 /*alert弹出框标题*/
 
-.FWD_alert .FWD_alert_tips {}
+.FWD_alert .FWD_alert_tips,.FWD_confirm .FWD_confirm_tips {
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	font-weight: 600;
+}
+.FWD_alert_info_one,.FWD_confirm_info_one{
+	text-align: center;
+	font-size: 14px;
+}
+.FWD_alert_info_more,.FWD_confirm_info_more{
+	padding: 0 25%;
+	font-size: 14px;
+}
 
+.FWD_alert_btns_warp,.FWD_confirm_btns_warp{
+	text-align: center;
+	margin-top: 20px;
+}
 
-/*confirm*/
+/*alert弹出框样式、confirm*/
 
 .FWD_confirm,
 .FWD_alert {
@@ -305,11 +335,10 @@ button.btn_normal {
 	z-index: 9;
 	min-width: 800px;
 	left: 50%;
-	height: ;
 	background: #fff;
 	border-radius: 5px;
-	padding: 20px;
-	top: 50%;
+	padding:10px;
+	top: 30%;
 	transform: translate(-50%,-50%);
 }
 
@@ -322,12 +351,34 @@ button.btn_normal {
 /*alert、comfirm中的确定按钮样式*/
 
 .FWD_confirm .enter_btn,
-.FWD_alert .enter_btn {}
+.FWD_alert .enter_btn {
+	width: 60px;
+	height: 30px;
+	border-radius:5px;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	background: #0093e7;
+	margin: 0 30px;
+}
+.FWD_confirm .enter_btn:active,
+.FWD_alert .enter_btn:active{
+	background: #00a5f7;;
+}
 
 
 /*comfirm中的取消按钮样式*/
 
-.FWD_confirm .enter_btn {}
+.FWD_confirm .cancel_btn {
+	width: 60px;
+	height: 30px;
+	border-radius:5px;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	background: #ccc;
+	margin: 0 30px;
+}
 
 
 /*弹出层样式*/
@@ -369,7 +420,7 @@ button.btn_normal {
 *::-webkit-scrollbar-button {
 	display: none;
 }
-
+/*设置IE滚动条的样式*/
 * {
 	scrollbar-track-color: #fff;
 	scrollbar-base-color: #fff;
