@@ -346,7 +346,9 @@ input:focus{
 	text-align: center;
 	font-size: 16px;
 }
-
+.FWD_alert_info_Warp,.FWD_confirm_info_Warp{
+	margin:10px 0;
+}
 
 /*alert、comfirm中的确定按钮样式*/
 

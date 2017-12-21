@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button id="btn">点击触发事件</button>
+		<button id="btn">点击触发事件</button>
+		<button id="btn">点击触发事件</button>
+		<script type="text/javascript">
+			var btn = document.querySelectorAll('button');
+			for(var i = 0; i < btn.length; i++) {
+				(function(i) {
+					btn[i].addEventListener('click', function() {
+						alert(i)
+					}, false)
+				})(i)
+			}
+		</script>
+	</body>
+
+</html>

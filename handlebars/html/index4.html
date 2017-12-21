@@ -15,10 +15,12 @@
 
 <script type="text/x-handlebars-template" id="card_template">
 	{{#each this}}
-		<div>{{chinese @index}}</div>
+		<div id="{{chinese @index}}">{{chinese @index}}</div>
 		<div class="">姓名：{{name}}</div>
 		{{#if age}}
-			<div class="">年龄：{{age}}</div>
+			<div class="">年龄：{{age}}
+			{{sex_ @age}}
+			</div>
 		{{/if}}
 		<div class="">籍贯：{{gs}}</div>
 		<div class="">职业：{{job}}</div>
@@ -61,6 +63,14 @@
 			job:'PHP',
 		}
 	]
+	
+	
+	Handlebars.registerHelper('sex_',function(value,options){
+    		
+    		if(value=='28'){
+    			return options.fn(this)
+    		}
+    	})
 	
 	
 	Handlebars.registerHelper('chinese',function(value){
