@@ -20,26 +20,29 @@
 				<!--logo-->
 				<div class="logo"></div>
 				<!--菜单导航-->
-				<ul class="">
-					<li></li>
+				<ul class="Navigation_warp">
+					<li class="Navigation_warp_li" data_url=""><i class="iconfont"></i><span class="Navigation_warp_li_text">运营服务</span></li>
+					<li class="Navigation_warp_li active" data_url=""><i class="iconfont"></i><span class="Navigation_warp_li_text">任务工作台</span></li>
+					<li class="Navigation_warp_li" data_url=""><i class="iconfont"></i><span class="Navigation_warp_li_text">保费溢缴</span></li>
+					<li class="Navigation_warp_li" data_url=""><i class="iconfont"></i><span class="Navigation_warp_li_text">综合查询</span></li>
 				</ul>
 			</div>
 			<!--左侧分区---------------------------------------------------------------------结束------>
 			<!--中部分区----------------------------------------------------------------------开始------>
 			<div class="center_group">
 				<!--头部菜单		开始------------------------------------------------------------------------>
-				<div class="top">
-
+				<div class="top_menu">
+						
 				</div>
 				<!--头部菜单		结束--------------------------------------------------------------------------->
-				<div class="bottom">
-					<div class="left_son">
-						<div class="left_son_top">
-							<div class="left_son_top_left">
+				<div class="FWD_con">
+					<div class="FWD_con_center">
+						<div class="FWD_con_center_top">
+							<div class="task_tab_warp">
 								<ul>
-									<li>待核保任务</li>
-									<li>待跟进事项</li>
-									<li>合同质检</li>
+									<li class="task_tab active"><i class="iconfont"></i>待核保任务 <span class="task_tab_nums">288</span></li>
+									<li class="task_tab"><i class="iconfont"></i>待跟进事项<span class="task_tab_nums">288</span></li>
+									<li class="task_tab"><i class="iconfont"></i>合同质检<span class="task_tab_nums">288</span></li>
 								</ul>
 							</div>
 							<ul class="left_son_top_right">
@@ -48,9 +51,9 @@
 								<li class="left_son_top_right_son">3</li>
 							</ul>
 						</div>
-						<div class="left_son_bottom">
+						<div class="FWD_con_tabs_warp">
 							<!--待核保任务区	开始-->
-							<div class="three_group">
+							<div class="three_group active">
 								待核保任务区
 							</div>
 							<!--待核保任务区	结束-->
@@ -67,8 +70,12 @@
 						</div>
 					</div>
 					<div class="right_son">
-						<div class="right_son_top"></div>
-						<div class="right_son_bottom"></div>
+						<div class="right_son_top">
+							公告栏
+						</div>
+						<div class="right_son_bottom">
+							
+						</div>
 					</div>
 				</div>
 			</div>
@@ -79,3 +86,8 @@
 	</body>
 
 </html>
+<script type="text/javascript">
+	var reg = /^(?!0$)(?!0\.0)[1-9]?[0-9](\.\d)?$/;
+	var str = "10.12";
+	alert(reg.test(str))
+</script>
