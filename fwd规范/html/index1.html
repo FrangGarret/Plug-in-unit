@@ -7,8 +7,10 @@
 		<meta http-equiv="X-UA-Compatible" content="edge" />
 		<meta name="renderer" content="webkit">
 		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/index.css" />
-		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 		<title>富卫核保系统</title>
 	</head>
@@ -32,7 +34,7 @@
 			<div class="center_group">
 				<!--头部菜单		开始------------------------------------------------------------------------>
 				<div class="top_menu">
-						
+
 				</div>
 				<!--头部菜单		结束--------------------------------------------------------------------------->
 				<div class="FWD_con">
@@ -54,40 +56,132 @@
 						<div class="FWD_con_tabs_warp">
 							<!--待核保任务区	开始-->
 							<div class="three_group active">
-								待核保任务区
+								<div class="">
+									<div class="clearfix search_input_warp active">
+										<input type="text" name="" id="" value="" class="task_search_input"/>
+										<div class="search_button_warp clearfix">
+											<button class="Obtain_arr">1</button><button class="Obtain_btn">获取新任务</button>
+										</div>
+									</div>
+									<div class="clearfix search_input_warp">
+										<input type="text" name="" id="" value="" class="task_search_input"/>
+										<div class="search_button_warp clearfix">
+											<button class="Obtain_arr">2</button><button class="Obtain_btn">获取新任务</button>
+										</div>
+									</div>
+									<div class="clearfix search_input_warp">
+										<input type="text" name="" id="" value="" class="task_search_input"/>
+										<div class="search_button_warp clearfix">
+											<button class="Obtain_arr">3</button><button class="Obtain_btn">获取新任务</button>
+										</div>
+									</div>
+									<table class="FWD_tables" cellspacing="0" width="100%">
+										<thead>
+											<tr>
+												<th width="" class="FWD_tables_th">保单号</th>
+												<th class="FWD_tables_th">任务号</th>
+												<th class="FWD_tables_th">距离到期天数</th>
+												<th class="FWD_tables_th">优先级</th>
+												<th class="FWD_tables_th">任务类型</th>
+												<th class="FWD_tables_th">收单日期</th>
+												<th class="FWD_tables_th">状态</th>
+												<th class="FWD_tables_th">机构</th>
+											</tr>
+										</thead>
+										<tbody id="dragTable">
+												
+										</tbody>
+									</table>
+ 									<ul class="page" id="page"></ul>
+								</div>
 							</div>
 							<!--待核保任务区	结束-->
 							<!--待跟进事项	开始-->
-							<div class="three_group">
-								待跟进事项
-							</div>
+							<!--<div class="three_group">
+								<div class="">
+									<div class="clearfix search_input_warp">
+										<input type="text" name="" id="" value="" class="task_search_input"/>
+										<div class="search_button_warp clearfix">
+											<button class="Obtain_arr"></button><button class="Obtain_btn">获取新任务</button>
+										</div>
+									</div>
+									<table id="dragTable" class="display tables" cellspacing="0" width="100%">
+										
+									</table>
+									<ul class="page">
+											<li class="sum">第<span class="page_cur"></span>页/共<span class="page_count"></span>页</li>
+									    <li class="first">首页</li>
+									    <li class="prev">上一页</li>
+									    <li class="num"></li>
+									    <li class="next">下一页</li>
+									    <li class="last">尾页</li>
+									</ul>
+								</div>
+
+							</div>-->
 							<!--待跟进事项	结束-->
 							<!--合同质检		开始-->
-							<div class="three_group">
-								合同质检
-							</div>
+							<!--<div class="three_group">
+								<div class="">
+									<div class="clearfix search_input_warp">
+										<input type="text" name="" id="" value="" class="task_search_input"/>
+										<div class="search_button_warp clearfix">
+											<button class="Obtain_arr"></button><button class="Obtain_btn">获取新任务</button>
+										</div>
+									</div>
+									<table id="dragTable" class="display tables" cellspacing="0" width="100%">
+										
+									</table>
+									<ul class="page">
+											<li class="sum">第<span class="page_cur"></span>页/共<span class="page_count"></span>页</li>
+									    <li class="first">首页</li>
+									    <li class="prev">上一页</li>
+									    <li class="num"></li>
+									    <li class="next">下一页</li>
+									    <li class="last">尾页</li>
+									</ul>
+
+								</div>
+
+							</div>-->
 							<!--合同质检		结束-->
 						</div>
 					</div>
 					<div class="right_son">
-						<div class="right_son_top">
-							公告栏
+						<div class="notice_warp">
+							<p class="notice_title">
+								<i class="iconfont"></i> 公告
+							</p>
+							<div class="notice_info_warp myscroll">
+								<ul class="notice_info_warp_ul">
+									<li class="notice_info_li FWD_ellipsis" title="热烈庆祝中华人民共和国第19届全国人民代表待会隆重召开">
+										热烈庆祝中华人民共和国第19届全国人民代表待会隆重召开
+									</li>
+									<li class="notice_info_li FWD_ellipsis" title="热烈庆祝中华人民共和国第18届全国人民代表待会隆重召开">
+										热烈庆祝中华人民共和国第18届全国人民代表待会隆重召开
+									</li>
+									<li class="notice_info_li FWD_ellipsis" title="热烈庆祝中华人民共和国第17届全国人民代表待会隆重召开">
+										热烈庆祝中华人民共和国第17届全国人民代表待会隆重召开
+									</li>
+									<li class="notice_info_li FWD_ellipsis" title="热烈庆祝中华人民共和国第16届全国人民代表待会隆重召开">
+										热烈庆祝中华人民共和国第16届全国人民代表待会隆重召开
+									</li>
+									<li class="notice_info_li FWD_ellipsis" title="热烈庆祝中华人民共和国第15届全国人民代表待会隆重召开">
+										热烈庆祝中华人民共和国第15届全国人民代表待会隆重召开
+									</li>
+								</ul>
+							</div>
 						</div>
 						<div class="right_son_bottom">
-							
+
 						</div>
 					</div>
 				</div>
 			</div>
 			<!--中部分区----------------------------------------------------------------------结束------>
 
-
 		</div>
 	</body>
 
 </html>
-<script type="text/javascript">
-	var reg = /^(?!0$)(?!0\.0)[1-9]?[0-9](\.\d)?$/;
-	var str = "10.12";
-	alert(reg.test(str))
-</script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
