@@ -7,11 +7,10 @@
 		<meta http-equiv="X-UA-Compatible" content="edge" />
 		<meta name="renderer" content="webkit">
 		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
-		<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/index.css" />
-		<script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-2.1.0.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/echarts-all.js" type="text/javascript" charset="utf-8"></script>
 		<title>富卫核保系统</title>
 	</head>
 
@@ -48,13 +47,15 @@
 								</ul>
 							</div>
 							<ul class="left_son_top_right">
-								<li class="left_son_top_right_son">1</li>
-								<li class="left_son_top_right_son">2</li>
-								<li class="left_son_top_right_son">3</li>
+								<li class="left_son_top_right_son" id="main1">1</li>
+								<li class="line"></li>
+								<li class="left_son_top_right_son" id="main2">2</li>
+								<li class="line"></li>
+								<li class="left_son_top_right_son" id="main3">3</li>
 							</ul>
 						</div>
 						<div class="FWD_con_tabs_warp">
-							<!--待核保任务区	开始-->
+							<!--主任务区---------------------------------------------------------------------------	开始-->
 							<div class="three_group active">
 								<div class="">
 									<div class="clearfix search_input_warp active">
@@ -75,79 +76,37 @@
 											<button class="Obtain_arr">3</button><button class="Obtain_btn">获取新任务</button>
 										</div>
 									</div>
-									<table class="FWD_tables" cellspacing="0" width="100%">
-										<thead>
-											<tr>
-												<th width="" class="FWD_tables_th">保单号</th>
-												<th class="FWD_tables_th">任务号</th>
-												<th class="FWD_tables_th">距离到期天数</th>
-												<th class="FWD_tables_th">优先级</th>
-												<th class="FWD_tables_th">任务类型</th>
-												<th class="FWD_tables_th">收单日期</th>
-												<th class="FWD_tables_th">状态</th>
-												<th class="FWD_tables_th">机构</th>
-											</tr>
-										</thead>
-										<tbody id="dragTable">
-												
-										</tbody>
-									</table>
+									<div class="FWD_tables_warps clearfix">
+										<table class="FWD_tables" cellspacing="0" width="100%">
+											<thead>
+												<tr>
+													<th class="FWD_tables_th FWD_ellipsis" width="120">保单号</th>
+													<th class="FWD_tables_th FWD_ellipsis" width="120">任务号</th>
+													<th class="FWD_tables_th FWD_ellipsis">距离到期天数</th>
+													<th class="FWD_tables_th FWD_ellipsis">优先级</th>
+													<th class="FWD_tables_th FWD_ellipsis">任务类型</th>
+													<th class="FWD_tables_th FWD_ellipsis">收单日期</th>
+													<th class="FWD_tables_th FWD_ellipsis">状态</th>
+													<th class="FWD_tables_th FWD_ellipsis">机构</th>
+												</tr>
+											</thead>
+											<!--公用数据部分存放地点  开始-->
+											<tbody id="dragTable">
+												  	
+											</tbody>
+											<!--公用数据部分存放地点  结束-->
+										</table>
+									</div>
+									<!--分页器————开始——————————————————————————————————————————————————————————————————————————————-->
  									<ul class="page" id="page"></ul>
+ 									<!--分页器————结束——————————————————————————————————————————————————————————————————————————————-->
 								</div>
 							</div>
-							<!--待核保任务区	结束-->
-							<!--待跟进事项	开始-->
-							<!--<div class="three_group">
-								<div class="">
-									<div class="clearfix search_input_warp">
-										<input type="text" name="" id="" value="" class="task_search_input"/>
-										<div class="search_button_warp clearfix">
-											<button class="Obtain_arr"></button><button class="Obtain_btn">获取新任务</button>
-										</div>
-									</div>
-									<table id="dragTable" class="display tables" cellspacing="0" width="100%">
-										
-									</table>
-									<ul class="page">
-											<li class="sum">第<span class="page_cur"></span>页/共<span class="page_count"></span>页</li>
-									    <li class="first">首页</li>
-									    <li class="prev">上一页</li>
-									    <li class="num"></li>
-									    <li class="next">下一页</li>
-									    <li class="last">尾页</li>
-									</ul>
-								</div>
-
-							</div>-->
-							<!--待跟进事项	结束-->
-							<!--合同质检		开始-->
-							<!--<div class="three_group">
-								<div class="">
-									<div class="clearfix search_input_warp">
-										<input type="text" name="" id="" value="" class="task_search_input"/>
-										<div class="search_button_warp clearfix">
-											<button class="Obtain_arr"></button><button class="Obtain_btn">获取新任务</button>
-										</div>
-									</div>
-									<table id="dragTable" class="display tables" cellspacing="0" width="100%">
-										
-									</table>
-									<ul class="page">
-											<li class="sum">第<span class="page_cur"></span>页/共<span class="page_count"></span>页</li>
-									    <li class="first">首页</li>
-									    <li class="prev">上一页</li>
-									    <li class="num"></li>
-									    <li class="next">下一页</li>
-									    <li class="last">尾页</li>
-									</ul>
-
-								</div>
-
-							</div>-->
-							<!--合同质检		结束-->
+							<!--主任务区---------------------------------------------------------------------------	结束-->
 						</div>
 					</div>
 					<div class="right_son">
+						<!--公告部分--------------------------------------开始------------------------------------------------------>
 						<div class="notice_warp">
 							<p class="notice_title">
 								<i class="iconfont"></i> 公告
@@ -172,8 +131,79 @@
 								</ul>
 							</div>
 						</div>
-						<div class="right_son_bottom">
-
+						<!--公告部分--------------------------------------结束------------------------------------------------------>
+						<div class="Task_ranking">
+							
+							<p class="Task_ranking_title"><i class="iconfont"></i>各任务排行</p>
+							
+							<ul class="Task_ranking_tab">
+								<li class="Task_ranking_tab_li active">
+									核保任务
+								</li>
+								<li class="Task_ranking_tab_li">
+									保全任务
+								</li>
+								<li class="Task_ranking_tab_li">
+									理赔任务
+								</li>
+							</ul>
+							
+							<div class="Task_ranking_con">
+								<ul class="Task_ranking_Bar_graph">
+									<li class="Bar_graph Bar_graph_1">
+										<p class="Bar_graph_title">JUDY</p>
+										<div class="_height_"></div>
+									</li>
+									
+									<li class="Bar_graph Bar_graph_2">
+										<p class="Bar_graph_title">张艺彤</p>
+										<div class="_height_"></div>
+									</li>
+									
+									<li class="Bar_graph Bar_graph_3">
+										<p class="Bar_graph_title">JAMAS</p>
+										<div class="_height_"></div>
+									</li>
+								</ul>
+								<ul class="Task_ranking_nums_warp clearfix">
+									<li class="Task_ranking_nums_li">
+										<p class="Task_ranking_nums FWD_ellipsis">300</p>
+										<p class="Task_ranking_nums_title FWD_ellipsis">完成量/日</p>
+									</li>
+									<li class="Task_ranking_nums_li">
+										<p class="Task_ranking_nums FWD_ellipsis">300</p>
+										<p class="Task_ranking_nums_title FWD_ellipsis">完成量/日</p>
+									</li>
+									<li class="Task_ranking_nums_li">
+										<p class="Task_ranking_nums FWD_ellipsis">300</p>
+										<p class="Task_ranking_nums_title FWD_ellipsis">完成量/日</p>
+									</li>
+									<li class="Task_ranking_nums_li">
+										<p class="Task_ranking_nums FWD_ellipsis">300</p>
+										<p class="Task_ranking_nums_title FWD_ellipsis">完成量/日</p>
+									</li>
+									<li class="Task_ranking_nums_li">
+										<p class="Task_ranking_nums FWD_ellipsis">300</p>
+										<p class="Task_ranking_nums_title FWD_ellipsis">完成量/日</p>
+									</li>
+									<li class="Task_ranking_nums_li">
+										<p class="Task_ranking_nums FWD_ellipsis">300</p>
+										<p class="Task_ranking_nums_title FWD_ellipsis">完成量/日</p>
+									</li>
+								</ul>
+							</div>
+							<div class="Task_bottom">
+								<div class="Task_bottom_warp">
+									<div class="Task_bottom_con">
+										<p class="Task_ranking_nums FWD_blue">300</p>
+										<p class="Task_ranking_nums_title FWD_ellipsis">当月完成量</p>
+									</div>
+									<div class="Task_bottom_con">
+										<p class="Task_ranking_nums FWD_blue">1500</p>
+										<p class="Task_ranking_nums_title FWD_ellipsis">当月完成量</p>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

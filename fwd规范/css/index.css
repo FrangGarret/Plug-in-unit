@@ -56,6 +56,7 @@
 	flex: 1;
 	flex-flow: row;
 	display: flex;
+	overflow-y: auto;
 }
 .FWD_con_center{
 	flex: 1;
@@ -80,11 +81,16 @@
 	box-sizing: border-box;
 }
 
-.right_son_bottom{
+.Task_ranking{
 	flex: 1;
 	margin-top: 26px;
 	background: #fff;
 	border-radius: 8px;
+	padding: 0 28px;
+	box-sizing: border-box;
+	overflow-y: auto;
+	display: flex;
+	flex-flow: column;
 }
 
 .FWD_con_center_top{
@@ -173,11 +179,19 @@
 .Navigation_warp_li.active,.Navigation_warp_li:hover{
 	background: url(../img/navagation_bg.png) no-repeat;
 }
-
+.line{
+	height: 160px;
+	width: 3px;
+	background: #f2f2f2;
+	margin-top: 27px;
+	border-radius: 2px;
+	margin-top: 52px;
+	
+}
 
 /*公告模块	开始---------------------------------------------------------------------------------------------------------*/
 .notice_title{
-	font-size: 16px;
+	font-size: 18px;
 }
 .notice_info_warp{
 	margin-top: 14px;
@@ -234,6 +248,7 @@ table.dataTable .mechanism,
 	text-align: center;
 	width: 100px;
 	float: left;
+	
 }
 .Obtain_arr{
 	height: 36px;
@@ -244,26 +259,58 @@ table.dataTable .mechanism,
 
 
 /*.table 分页*/
+.FWD_tables_warps{
+	height: 416px;
+	border: 1px solid #ccc;
+}
 .FWD_tables{
 	table-layout: fixed;
 }
+.FWD_tables .FWD_tables_th,.FWD_tables_td{
+	text-align: right;
+	height: 45px;
+	font-size: 16px;
+	border-bottom: 1px solid #ccc;
+	padding: 0 10px;
+	cursor: pointer;
+	
+}
+.FWD_tables .FWD_tables_td{
+	font-size: 14px;
+}
+.FWD_tables tbody tr:nth-child(odd){
+	background: #fff9e9;
+}
+.FWD_tables tbody tr:last-child td{
+	border-bottom: none;
+}
+.FWD_tables thead tr{
+	background: #f8f9fe;
+}
 .page{
     list-style: none;
+     float: right;
+     margin-top: 10px;
+    
 }
 .page>li{
-    float: left;
-    padding: 5px 10px;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 10px;
     cursor: pointer;
 }
 .page .pageItem{
     border: solid thin #DDDDDD;
-    margin: 5px;
+   margin-left: 10px;
+   
 }
 .page .pageItemActive{
     border: solid thin #0099FF;
     margin: 5px;
     background-color: #0099FF;
     color:white;
+    border-radius: 3px;
 }
 .page .pageItem:hover{
     border: solid thin #0099FF;
@@ -273,22 +320,107 @@ table.dataTable .mechanism,
 .page .pageItemDisable{
     border: solid thin #DDDDDD;
     margin: 5px;
-    background-color: #DDDDDD;
+    background-color: #dddddd;
 }
 
+/*各任务排行*/
+.Task_ranking_title{
+	font-size: 18px;
+	font-weight: 500;
+	margin-top: 30px;
+}
+.Task_ranking_tab{
+	display: flex;
+	flex-flow: row;
+}
+.Task_ranking_tab_li{
+	flex: 1;
+	height: 40px;
+	line-height: 37px;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	font-size: 16px;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+.Task_ranking_tab_li.active{
+	border-bottom: 2px solid #1295F3;
+	color: #1295F3;
+}
+.Task_ranking_con{
+	padding: 0 20px;
+}
+.Bar_graph{
+	width: 20%;
+}
+.Task_ranking_Bar_graph{
+	height: 184px;
+	width: 100%;
+	position: relative;
+	border-bottom: 1px solid #ccc;
+}
+.Bar_graph{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.Bar_graph_1{
+	left: 0;
+}
+.Bar_graph_2{
+	left: 50%;
+	transform: translateX(-50%);
+}
+._height_{
+	height: 60px;
+	background: #ccc;
+	border-radius: 5px;
+}
+.Bar_graph_2 ._height_{
+	height: 100px;
+}
+.Task_ranking_nums_li{
+	float: left;
+	width: 33.3333%;
+	padding:0 5px;
+	box-sizing: border-box;
+	margin-top: 30px;
+}
+.Task_ranking_nums{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+.Task_ranking_nums_title{
+	font-style: italic;
+	text-align: center;
+	font-size: 12px;
+}
+.Bar_graph_title{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.Task_bottom{
+	flex: 1;
+	border-top: 1px solid #ccc;
+	margin-top: 20px;
+	position: relative;
+}
+.Task_bottom_con{
+	margin: 0 20px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.Task_bottom_warp{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 90%;
+	text-align: center;
+}
+.Task_bottom_con{
+	display: inline-block;
+}
 
 
 
