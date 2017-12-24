@@ -198,303 +198,184 @@ var myChart1 = echarts.init(document.getElementById('main1'));
 var myChart2 = echarts.init(document.getElementById('main2'));	
 var myChart3 = echarts.init(document.getElementById('main3'));	
 option1 = {
-    tooltip : {
+    tooltip: {
         formatter: "{a} <br/>{b} : {c}%"
     },
-    toolbox: {	//设置仪表盘
-        show : false,
-        feature : {
-            mark : {show: true},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-    series : [
-        {
-            name:'任务件处理进度',
-            type:'gauge',
-            center : ['50%', '50%'],    // 默认全局居中
-            radius : [0, '75%'],
-            startAngle: 140,
-            endAngle : -140,
-            min: 0,                     // 最小值
-            max: 100,                   // 最大值
-            precision: 0,               // 小数精度，默认为0，无小数点
-            splitNumber: 10,             // 分割段数，默认为5
-            axisLine: {            // 坐标轴线
-                show: true,        // 默认显示，属性show控制显示与否
-                lineStyle: {       // 属性lineStyle控制线条样式
-                    color: [[0.2, 'lightgreen'],[0.4, 'lightgreen'],[0.8, 'lightgreen'],[1, 'lightgreen']], 
-                    width: 10
+    series: [{
+        name: '指标',
+        type: 'gauge',
+        axisLine: {
+            show: true,
+            lineStyle: {
+                width: 10,
+                shadowBlur: 0,
+                color: [
+                    [0.2, '#90ee90'],
+                    [0.4, '#90ee90'],
+                    [0.6, '#90ee90'],
+                    [0.8, '#90ee90'],
+                    [1, '#90ee90']
+                ]
+            }
+        },
+        axisLabel: {
+            formatter: function(e) {
+                switch (e + "") {
+                    case "10":
+                        return "弱";
+                    case "30":
+                        return "低";
+                    case "60":
+                        return "中";
+                    case "90":
+                        return "高";
+                    default:
+                        return "";
                 }
             },
-            axisTick: {            // 坐标轴小标记
-                show: true,        // 属性show控制显示与否，默认不显示
-                splitNumber: 5,    // 每份split细分多少段
-                length :8,         // 属性length控制线长
-                lineStyle: {       // 属性lineStyle控制线条样式
-                    color: '#eee',
-                    width: 1,
-                    type: 'solid'
-                }
-            },
-            axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
-                show: true,
-                formatter: function(v){
-                    switch (v+''){
-                        case '10': return '100';
-                        case '30': return '200';
-                        case '60': return '300';
-                        case '90': return '400';
-                        default: return '';
-                    }
-                },
-                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                    color: '#333'
-                }
-            },
-            splitLine: {           // 分隔线
-                show: true,        // 默认显示，属性show控制显示与否
-                length :30,         // 属性length控制线长
-                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                    color: '#eee',
-                    width: 2,
-                    type: 'solid'
-                }
-            },
-            pointer : {
-                length : '80%',
-                width : 8,
-                color : 'auto'
-            },
-            title : {
-                show : true,
-                offsetCenter: ['-65%', -10],       // x, y，单位px
-                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                    color: '#333',
-                    fontSize : 15
-                }
-            },
-            detail : {
-                show : true,
-                backgroundColor: 'rgba(0,0,0,0)',
-                borderWidth: 0,
-                borderColor: '#ccc',
-                width: 100,
-                height: 40,
-                offsetCenter: ['-60%', 10],       // x, y，单位px
-                formatter:'{value}件',
-                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                    color: 'auto',
-                    fontSize : 24
-                }
-            },
-            data:[
-            	{value: 50, name: '处理进度'}
-            ]
-        }
-    ]
+            textStyle: {
+                fontSize: 12,
+                fontWeight: ""
+            }
+        },
+        startAngle: 140,
+        endAngle: -140,
+        axisTick: {
+            splitNumber: 5
+        },
+        detail: {
+            formatter: '{value}%',
+            textStyle: {
+                fontSize: 20,
+                fontWeight: "",
+                color:"#000"
+            }
+        },
+        data: [{
+            value: 4.46,
+            name: '处理进度'
+        }]
+    }]
 };
 option2 = {
-    tooltip : {
+    tooltip: {
         formatter: "{a} <br/>{b} : {c}%"
     },
-    toolbox: {	//设置仪表盘
-        show : false,
-        feature : {
-            mark : {show: true},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-    series : [
-        {
-            name:'任务件处理时间',
-            type:'gauge',
-            center : ['50%', '50%'],    // 默认全局居中
-            radius : [0, '75%'],
-            startAngle: 140,
-            endAngle : -140,
-            min: 0,                     // 最小值
-            max: 5,                   // 最大值
-            precision: 0,               // 小数精度，默认为0，无小数点
-            splitNumber: 1,             // 分割段数，默认为5
-            axisLine: {            // 坐标轴线
-                show: true,        // 默认显示，属性show控制显示与否
-                lineStyle: {       // 属性lineStyle控制线条样式
-                    color: [[0.2, 'skyblue'],[0.4, 'skyblue'],[0.8, 'skyblue'],[1, 'skyblue']], 
-                    width: 10
+    series: [{
+        name: '指标',
+        type: 'gauge',
+        axisLine: {
+            show: true,
+            lineStyle: {
+                width: 10,
+                shadowBlur: 0,
+                color: [
+                    [0.2, '#87ceeb'],
+                    [0.4, '#87ceeb'],
+                    [0.6, '#87ceeb'],
+                    [0.8, '#87ceeb'],
+                    [1, '#87ceeb']
+                ]
+            }
+        },
+        axisLabel: {
+            formatter: function(e) {
+                switch (e + "") {
+                    case "10":
+                        return "弱";
+                    case "30":
+                        return "低";
+                    case "60":
+                        return "中";
+                    case "90":
+                        return "高";
+                    default:
+                        return "";
                 }
             },
-            axisTick: {            // 坐标轴小标记
-                show: true,        // 属性show控制显示与否，默认不显示
-                splitNumber: 5,    // 每份split细分多少段
-                length :8,         // 属性length控制线长
-                lineStyle: {       // 属性lineStyle控制线条样式
-                    color: '#eee',
-                    width: 1,
-                    type: 'solid'
-                }
-            },
-            axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
-                show: true,
-                formatter: function(v){
-                    switch (v+''){
-                        case '0': return '0';
-                        case '1': return '1';
-                        case '2': return '2';
-                        case '3': return '3';
-                        case '4': return '4';
-                        case '5': return '5';
-                        default: return '';
-                    }
-                },
-                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                    color: '#333'
-                }
-            },
-            splitLine: {           // 分隔线
-                show: true,        // 默认显示，属性show控制显示与否
-                length :30,         // 属性length控制线长
-                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                    color: '#eee',
-                    width: 2,
-                    type: 'solid'
-                }
-            },
-            pointer : {
-                length : '80%',
-                width : 8,
-                color : 'auto'
-            },
-            title : {
-                show : true,
-                offsetCenter: ['-65%', -10],       // x, y，单位px
-                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                    color: '#333',
-                    fontSize : 15
-                }
-            },
-            detail : {
-                show : true,
-                backgroundColor: 'rgba(0,0,0,0)',
-                borderWidth: 0,
-                borderColor: '#ccc',
-                width: 100,
-                height: 40,
-                offsetCenter: ['-60%', 10],       // x, y，单位px
-                formatter:'{value}h/件',
-                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                    color: 'auto',
-                    fontSize : 24
-                }
-            },
-            data:[
-            	
-            	{value: 4, name: '件均处理时间'}
-            
-            ]
-        }
-    ]
+            textStyle: {
+                fontSize: 12,
+                fontWeight: ""
+            }
+        },
+        startAngle: 140,
+        endAngle: -140,
+        axisTick: {
+            splitNumber: 5
+        },
+        detail: {
+            formatter: '{value}%',
+            textStyle: {
+                fontSize: 20,
+                fontWeight: "",
+                color:"#000"
+            }
+        },
+        data: [{
+            value: 4.46,
+            name: '处理进度'
+        }]
+    }]
 };
-
 option3 = {
-    tooltip : {
+    tooltip: {
         formatter: "{a} <br/>{b} : {c}%"
     },
-    toolbox: {	//设置仪表盘
-        show : false,
-        feature : {
-            mark : {show: true},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-    series : [
-        {
-            name:'差错率',
-            type:'gauge',
-            center : ['50%', '50%'],    // 默认全局居中
-            radius : [0, '75%'],
-            startAngle: 140,
-            endAngle : -140,
-            min: 0,                     // 最小值
-            max: 100,                   // 最大值
-            precision: 0,               // 小数精度，默认为0，无小数点
-            splitNumber: 10,             // 分割段数，默认为5
-            axisLine: {            // 坐标轴线
-                show: true,        // 默认显示，属性show控制显示与否
-                lineStyle: {       // 属性lineStyle控制线条样式
-                    color: [[0.2, 'lightgreen'],[0.4, 'skyblue'],[0.8, 'orange'],[1, '#ff4500']], 
-                    width: 10
+    series: [{
+        name: '指标',
+        type: 'gauge',
+        axisLine: {
+            show: true,
+            lineStyle: {
+                width: 10,
+                shadowBlur: 0,
+                color: [
+                    [0.2, '#90ee90'],
+                    [0.4, '#ffa500'],
+                    [0.6, '#87ceeb'],
+                    [0.8, '#87ceeb'],
+                    [1, '#ff4500']
+                ]
+            }
+        },
+        axisLabel: {
+            formatter: function(e) {
+                switch (e + "") {
+                    case "10":
+                        return "弱";
+                    case "30":
+                        return "低";
+                    case "60":
+                        return "中";
+                    case "90":
+                        return "高";
+                    default:
+                        return "";
                 }
             },
-            axisTick: {            // 坐标轴小标记
-                show: true,        // 属性show控制显示与否，默认不显示
-                splitNumber: 5,    // 每份split细分多少段
-                length :8,         // 属性length控制线长
-                lineStyle: {       // 属性lineStyle控制线条样式
-                    color: '#eee',
-                    width: 1,
-                    type: 'solid'
-                }
-            },
-            axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
-                show: true,
-                formatter: function(v){
-                    switch (v+''){
-                        case '10': return '弱';
-                        case '30': return '低';
-                        case '60': return '中';
-                        case '90': return '高';
-                        default: return '';
-                    }
-                },
-                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                    color: '#333'
-                }
-            },
-            splitLine: {           // 分隔线
-                show: true,        // 默认显示，属性show控制显示与否
-                length :30,         // 属性length控制线长
-                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                    color: '#eee',
-                    width: 2,
-                    type: 'solid'
-                }
-            },
-            pointer : {
-                length : '80%',
-                width : 8,
-                color : 'auto'
-            },
-            title : {
-                show : true,
-                offsetCenter: ['-65%', -10],       // x, y，单位px
-                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                    color: '#333',
-                    fontSize : 15
-                }
-            },
-            detail : {
-                show : true,
-                backgroundColor: 'rgba(0,0,0,0)',
-                borderWidth: 0,
-                borderColor: '#ccc',
-                width: 100,
-                height: 40,
-                offsetCenter: ['-60%', 10],       // x, y，单位px
-                formatter:'{value}%',
-                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                    color: 'auto',
-                    fontSize : 24
-                }
-            },
-            data:[
-            	{value: 80, name: '差错率'}
-            ]
-        }
-    ]
+            textStyle: {
+                fontSize: 12,
+                fontWeight: ""
+            }
+        },
+        startAngle: 140,
+        endAngle: -140,
+        axisTick: {
+            splitNumber: 5
+        },
+        detail: {
+            formatter: '{value}%',
+            textStyle: {
+                fontSize: 20,
+                fontWeight: "",
+                color:"#000"
+            }
+        },
+        data: [{
+            value: 4.46,
+            name: '处理进度'
+        }]
+    }]
 };
 clearInterval(timeTicket1);
 var timeTicket1 = setInterval(function (){

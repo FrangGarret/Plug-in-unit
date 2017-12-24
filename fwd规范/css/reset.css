@@ -238,7 +238,7 @@ input:focus{
 	background-color: #fafafa;
 	border: 1px solid #cacece;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-	padding: 9px;
+	padding: 11px;
 	border-radius: 3px;
 	display: inline-block;
 	position: relative;
@@ -250,10 +250,11 @@ input:focus{
 }
 
 .FWD_checkbox:checked+label {
-	background-color: #e9ecee;
-	border: 1px solid #adb8c0;
+	border: 1px solid #1295f3;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
 	color: #99a1a7;
+	background:url(../img/checkbox_bg.png) #1295f3;
+	background-size: cover;
 }
 
 .FWD_checkbox:checked+label:after {

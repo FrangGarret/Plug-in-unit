@@ -10,10 +10,29 @@
 /*正文字体、颜色、大小*/
 
 
-
-
-
-
+/*顶部菜单*/
+.user_info_warp{
+	float: right;
+	height: 36px;
+	line-height: 36px;
+	margin-right: 100px;
+	margin-top: 18px;
+}
+.user_info_li,.Exit_logon_warp{
+	display: inline-block;
+	margin-left: 10px;
+}
+.user_info_name,.Exit_logon{
+	height: 36px;
+	line-height: 36px;
+	display: inline-block;
+	font-size: 16px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.user_info_li img{
+	float: left;
+}
 /*分辨率区分*/
 @media only screen and (min-width: 1500px) and (max-width: 1920px) {
 	
@@ -248,6 +267,8 @@ table.dataTable .mechanism,
 	text-align: center;
 	width: 100px;
 	float: left;
+	color: #1295f3;
+	font-size: 16px;
 	
 }
 .Obtain_arr{
@@ -279,7 +300,7 @@ table.dataTable .mechanism,
 	font-size: 14px;
 }
 .FWD_tables tbody tr:nth-child(odd){
-	background: #fff9e9;
+	background: #fffcf5;
 }
 .FWD_tables tbody tr:last-child td{
 	border-bottom: none;
@@ -301,19 +322,16 @@ table.dataTable .mechanism,
     cursor: pointer;
 }
 .page .pageItem{
-    border: solid thin #DDDDDD;
    margin-left: 10px;
    
 }
 .page .pageItemActive{
-    border: solid thin #0099FF;
     margin: 5px;
     background-color: #0099FF;
     color:white;
     border-radius: 3px;
 }
 .page .pageItem:hover{
-    border: solid thin #0099FF;
     background-color: #0099FF;
     color:white;
 }
@@ -421,6 +439,8 @@ table.dataTable .mechanism,
 .Task_bottom_con{
 	display: inline-block;
 }
+
+
 
 
 
