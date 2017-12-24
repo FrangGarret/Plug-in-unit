@@ -8,10 +8,55 @@
 /*核保结论*/
 .Underwriting_results{
 	position: fixed;
+	height: 75px;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	margin-left: ;
+	margin-left:276px ;
+	box-shadow: 0 0 5px #ccc;
+	background: #fff;
+	z-index: 2;
+	margin-right: 43px;
+	border-radius: 5px;
+	display: flex;
+	flex-flow:row;
+	min-width: 1047px;
+}
+.Underwriting_results_warp{
+	flex: 1;
+	margin: 0 20px;
+}
+.Policy_number{
+	display: flex;
+	flex-flow: row;
+	margin-top: 15px;
+}
+.Underwriting_results_warp .Underwriting_results_text{
+	height: 38px;
+	width: 100%;
+	border: 1px solid #ebebeb;
+	padding-left: 15px;
+	border-radius: 3px;
+	box-sizing: border-box;
+	margin-top: 15px;
+}
+.Underwriting_results_btns .btn_normal{
+	height: 38px;
+	line-height: 38px;
+	width: 90px;
+	margin: 15px 10px;
+}
+.Policy_number_li{
+	height: 38px;
+	line-height: 38px;
+	padding: 0 10px;
+	margin-left: 10px;
+	cursor: pointer;
+	font-size: 16px;
+
+}
+.Policy_number_li.active{
+	color: #0093e7;
 }
 
 .first_group{
@@ -171,7 +216,7 @@
 	flex-flow: row;
 	overflow-y: scroll;
 	border-bottom: 1px solid #e6e6ff;
-	background: #E6E6FF;
+	background: #f8f9fe;
 }
 .simulation_con{
 	flex: 1;
