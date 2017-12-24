@@ -407,13 +407,13 @@ input:focus{
 *::-webkit-scrollbar {
 	width: 17px;
 	background: transparent;
-	border-radius: 5px;
+	border-radius: 8px;
 }
 
 *::-webkit-scrollbar-thumb {
 	width: 17px;
-	background: #f6f6f6;
-	border-radius: 5px;
+	background: #dcdcdc;
+	border-radius:8px;
 	cursor: pointer;
 }
 
@@ -428,7 +428,7 @@ input:focus{
 	scrollbar-track-color: #fff;
 	scrollbar-base-color: #fff;
 	scrollbar-3dlight-color: #fff;
-	scrollbar-highlight-color: #f1f1f1;
+	scrollbar-highlight-color: #fff;
 	scrollbar-face-color: #fff;
 	scrollbar-arrow-color: #f1f1f1;
 	scrollbar-shadow-color: #f1f1f1;

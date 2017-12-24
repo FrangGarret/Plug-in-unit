@@ -1,6 +1,7 @@
 .main_con{
-	padding: 0 40px 0 42px;
+	padding: 26px;
 	background: #f2f3f5;
+	flex: 1;
 }
 
 
@@ -136,9 +137,10 @@
 	flex: 1;
 	margin: 0 40px 20px 44px;
 	border: 1px solid #e6e6ff;
-	overflow-y: auto;
+	display: flex;
+	flex-flow: column;
 }
-.Problem_parts_table .table_{
+/*.Problem_parts_table .table_{
 	width: 100%;
 	table-layout: fixed;
 }
@@ -162,6 +164,80 @@
 
 .Problem_parts_table .Problem_parts_tbodyData tr:last-child td{
 	border-bottom: none;
+}*/
+
+.simulation_table{
+	display: flex;
+	flex-flow: row;
+	overflow-y: scroll;
+	border-bottom: 1px solid #e6e6ff;
+	background: #E6E6FF;
+}
+.simulation_con{
+	flex: 1;
+	overflow-y: auto;
+}
+.simulation_tr{
+	height: 47px;
+	border-bottom: 1px solid #E6E6FF;
+	display: flex;
+	flex-flow:row ;
+}
+.simulation_tr:last-child{
+	border-bottom: none;
+}
+.simulation_td{
+	flex: 1;
+	
+}
+.simulation_tds{
+	height: 100%;
+	line-height: 47px;
+	text-align: center;
+	font-size: 14px;
+	padding: 0 5px;
+	box-sizing: border-box;
+}
+.simulation_table .simulation_table_th{
+	flex: 1;
+}
+.simulation_table_th_checkbox label{
+	top: 8px;
+}
+.simulation_table li{
+	text-align: center;
+	height: 47px;
+	line-height: 47px;
+	font-size: 16px;
+	padding: 0 5px;
+	box-sizing: border-box;
+	
+}
+
+.simulation_tds .input,.simulation_tds .select{
+	height: 30px;
+	box-sizing: border-box;
+	border: 1px solid #E6E6FF;
+	width: 100%;
+	border-radius: 3px;
+}
+.simulation_table_th_180{
+	width: 180px;
+}
+.simulation_table_th_80{
+	width: 80px;
+}
+.simulation_table_th_50{
+	width: 50px;
+}
+.simulation_table_th_30{
+	width: 30px;
+}
+.simulation_table_th_120{
+	width: 120px;
+}
+.simulation_table_th_checkbox{
+	width: 50px;
 }
 .Problem_parts_tab_Warp{
 	float: left;
@@ -175,16 +251,15 @@
 .Problem_parts_operation_li{
 	float: left;
 }
-.Problem_parts_tbodyData tr td label{
-	top: 8px;
+.Problem_parts_operation .Problem_parts_operation_li{
+	height:48px ;
+	text-decoration: underline;
+	color:#0093e7 ;
+	line-height: 48px;
+	font-size: 16px;
+	margin-left: 20px;
+	cursor: pointer;
 }
-.Problem_parts_tbodyData .input,.Problem_parts_tbodyData .select{
-	width: 100%;
-	height:23px;
-	border: 1px solid #e6e6ff;
-	border-radius: 3px;
-}
-
 
 
 
