@@ -3,12 +3,48 @@
 	flex: 1;
 	flex-flow: row;
 	display: flex;
-	margin: 0px 26px 26px 40px;
+	margin: 0px 20px 20px 40px;
 	flex-direction: column;
 }
+.task_tab_warp{
+	width: 300px;
+	border-radius: 8px;
+	background: #fff;
+}
+.task_tab_warp_ul{
+	margin-top: 50px;
+	margin-left: 40px;
+}
+.task_tab_nums{
+	float: right;
+	margin-right: 30px;
+	font-size: 20px;
+	height: 30px;
+	line-height: 30px;
+}
+.task_tab{
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 30px;
+	font-size: 14px;
+	cursor: pointer;
+}
+.task_tab.active{
+	color: #f68b1f;
+}
+.task_tab .iconfont{
+	position: relative;
+	top: 5px;
+}
+.task_tab .iconfont .icon{
+	font-size: 28px;
+	margin-right: 15px;
+}
+
+
 .right_son{
 	width: 325px;
-	margin: 0 0 26px 0;
+	margin: 0 0 20px 0;
 	flex-flow: row;
 	display: flex;
 	flex-direction: column;
@@ -24,7 +60,7 @@
 
 .Task_ranking{
 	flex: 1;
-	margin-top: 26px;
+	margin-top: 20px;
 	background: #fff;
 	border-radius: 8px;
 	padding: 0 28px;
@@ -42,10 +78,10 @@
 .FWD_con_tabs_warp{
 	flex: 1;
 	background: #fff;
-	margin-top:26px ;
+	margin-top:20px ;
 	overflow-y: auto;
 	border-radius: 8px;
-	padding: 30px 50px 0px 50px;
+	padding: 30px 40px 0px 40px;
 	display: flex;
 	flex-flow: row;
 	flex-direction: column;
@@ -64,7 +100,7 @@
 	background: #fff;
 	display: flex;
 	flex-flow: row;
-	margin-left: 26px;
+	margin-left: 20px;
 	border-radius: 8px;
 }
 .left_son_top_right_son{

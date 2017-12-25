@@ -3,8 +3,19 @@ $(function() {
 	var myChart2 = echarts.init(document.getElementById('main2'));
 	var myChart3 = echarts.init(document.getElementById('main3'));
 	option1 = {
+		 title: {
+            //show:false,
+            x: "100",
+            bottom: 200,
+            //text:'AAA',
+            subtext: '处理进度'
+        },
 		tooltip: {
-			formatter: "{a} <br/>{b} : {c}%"
+			show:true,
+			formatter: "{a} <br/>{b} : {c}%",
+			left:100,
+			bottom:100,
+			y:'center'
 		},
 		series: [{
 			name: '指标',
