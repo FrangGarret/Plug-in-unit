@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			span {
+				height: 50px;
+				background: red;
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size: 30px;
+				text-align: center;
+				line-height: 50px;
+				color: #22B8CB;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var adiv = document.getElementsByTagName('span');
+				for(var i = 0; i < 200; i++) {
+					document.body.innerHTML += '<span>' + i + '</span>';
+				}
+				for(var i = 0; i < adiv.length; i++) {
+
+					if(i % 10 == 0) {
+						adiv[i].style.left = 10 + 'px';
+						adiv[i].style.top = i * 20 + 'px';
+						var b = adiv[i].style.top;
+					} else {
+						adiv[i].style.left = 10 + i % 10 * 60 + 'px';
+						adiv[i].style.top = b;
+
+					}
+				}
+				//逢10往下一行
+
+			}
+		</script>
+		<title>Document</title>
+	</head>
+
+	<body>
+
+	</body>
+
+</html>

@@ -4,6 +4,8 @@
 	<head>
 		<title>pjax</title>
 		<meta charset="utf-8">
+		<meta http-equiv="Pragma" content="public" />
+		<meta http-equiv="Cache-Control" content="private" />
 	</head>
 
 	<body>
@@ -23,25 +25,22 @@
 			<input type="radio" />4
 			<input type="radio" />5
 			<input type="radio" />6
-			<a href="http://fangjialiang.com">第一页</a>.
-			<a href="https://baidu.com">第二页</a>
-			<iframe src="" width="" height=""></iframe>
+			<a href="pjax1.html" >第一页</a>.
+			<a href="pjax2.html" >第二页</a>
+			<iframe src="" width="" height="" id=""></iframe>
 			
 			
 		</div>
 		<div id="container"></div>
-		<script type="text/javascript">
-			var aaa="123"
-			document.addEventListener('click',function(){
-				
-			})
-			console.log(aaa)
-		</script>
+		
 	</body>
-	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="handlebars/js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
 	<script src="jquery.pjax.js"></script>
 	<script type="text/javascript">
-	//	$(document).pjax('a', '#container')
+		$(document).pjax('a', '#container')
+			$('html,body').click(function(){
+				$('body').css('background','red')
+			})
 	</script>
 
 </html>

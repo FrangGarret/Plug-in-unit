@@ -1,7 +1,8 @@
 .main_con{
-	padding: 26px;
+	padding: 20px;
 	background: #f2f3f5;
 	flex: 1;
+	padding-top:0 ;
 }
 
 
@@ -247,9 +248,9 @@
 .simulation_table .simulation_table_th{
 	flex: 1;
 }
-.simulation_table_th_checkbox label{
+/*.simulation_table_th_checkbox label{
 	top: 8px;
-}
+}*/
 .simulation_table li{
 	text-align: center;
 	height: 47px;

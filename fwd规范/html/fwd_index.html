@@ -65,7 +65,20 @@
 			<div class="center_group">
 				<!--头部菜单		开始------------------------------------------------------------------------>
 				<div class="top_menu">
+					<div class="current_position_warp">
+						 <svg class="icon menu_switch" aria-hidden="true">
+                <use xlink:href="#icon-yunyingfuwu"></use>
+            </svg>
+						<span>当前位置：</span>
+						<span class="current_position_1">首页</span>
+						>
+						<span class="current_position_2">任务工作台</span>
+					</div>
 					<ul class="user_info_warp">
+						<li class="user_info_Job_number">
+								<span class="user_Jop_nums_title">工号</span>
+								<span class="user_Jop_nums">P102221255332</span>
+						</li>
 						<li class="user_info_li">
 							<img src="../img/user.jpg"/>
 							<span class="user_info_name">张三一</span>
@@ -93,7 +106,26 @@
 
 </html>
 <script type="text/javascript">
+	$('.menu_switch').click(function(){
+		$('.left_menu').toggle(0)
+	})
+	
+	$('.FWD_con').on('click','.Obtain_arr',function(){
+		var siblings_ = $(this).parent('.search_button_warp ').siblings('.task_search_input');
+		if(siblings_.is(":hidden")){
+			siblings_.show(0)
+		}else{
+			siblings_.hide(0)
+		}
+		$(this).toggleClass('show')
+	})
+	
+	
+	
+	fwd_alert('nihao')
+	
 //	$('.FWD_con').load('Workbench.html')
-	$('.FWD_con').load('homePage.html')
+
+	$('.FWD_con').load('insurance_contract.html');
 </script>
 

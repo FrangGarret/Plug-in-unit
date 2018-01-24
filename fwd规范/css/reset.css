@@ -44,6 +44,7 @@ select,
 textarea {
 	font-size: 12px;
 	font-family: 'Microsoft Yahei', '微软雅黑', \5FAE\8F6F\96C5\9ED1, '宋体', \5b8b\4f53, arial, 'Hiragino Sans GB', Tahoma, Arial, Helvetica;
+	background: transparent;
 }
 
 ul,
@@ -235,35 +236,23 @@ input:focus{
 }
 
 .FWD_checkbox+label {
-	background-color: #fafafa;
-	border: 1px solid #cacece;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-	padding: 11px;
-	border-radius: 3px;
-	display: inline-block;
 	position: relative;
 }
-
+.FWD_checkbox+label:after{
+	content: '\e60a';
+	font-size: 28px;
+	color: #ccc;
+}
 .FWD_checkbox+label:active,
 .FWD_checkbox:checked+label:active {
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.FWD_checkbox:checked+label {
-	border: 1px solid #1295f3;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
-	color: #99a1a7;
-	background:url(../img/checkbox_bg.png) #1295f3;
-	background-size: cover;
-}
 
 .FWD_checkbox:checked+label:after {
-	/*content: '\2714';*/
-	font-size: 14px;
-	position: absolute;
-	top: 0px;
-	left: 3px;
-	color: #99a1a7;
+	content: "\e609";
+	font-size: 28px;
+	color: #0099FF;
+	
 }
 /* radio */
 .FWD_radio {
@@ -271,10 +260,10 @@ input:focus{
 }
 .FWD_radio+label {
 	-webkit-appearance: none;
-	background-color: #fafafa;
+	/*background-color: #fafafa;
 	border: 1px solid #cacece;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-	padding: 9px;
+	padding: 9px;*/
 	border-radius: 50px;
 	display: inline-block;
 	position: relative;
@@ -293,6 +282,8 @@ input:focus{
 	left: 3px;
 	font-size: 32px;
 }
+
+
 
 .FWD_radio:checked+label {
 	background-color: #e9ecee;
@@ -327,7 +318,18 @@ input:focus{
 	text-align: center;
 	margin-top: 20px;
 }
-
+.FWD_alert_btns_warp{
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+	top: 10px;
+	margin-top: 0;
+	color: ;
+}
+/*alert弹出框关闭按钮样式*/
+.FWD_alert_btns_warp .icon-quxiao{
+	font-size: 20px;
+}
 /*alert弹出框样式、confirm*/
 
 .FWD_confirm,

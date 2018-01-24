@@ -11,7 +11,10 @@
 
 
 
-
+/*当前位置*/
+.current_position_warp{
+	height: ;
+}
 
 
 
@@ -40,17 +43,28 @@
 	margin-right: 100px;
 	margin-top: 18px;
 }
-.user_info_li,.Exit_logon_warp{
+.user_info_li,.Exit_logon_warp,.user_info_Job_number{
 	display: inline-block;
 	margin-left: 10px;
 }
-.user_info_name,.Exit_logon{
+.user_info_Job_number{
+	margin-right: 30px;
+}
+.current_position_warp .icon{
+	font-size: 26px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.user_info_name,.Exit_logon,.user_Jop_nums_title,.user_Jop_nums{
 	height: 36px;
 	line-height: 36px;
 	display: inline-block;
 	font-size: 16px;
 	margin-left: 14px;
 	cursor: pointer;
+}
+.user_Jop_nums{
+	color: #1295f3;
 }
 .user_info_li img{
 	float: left;
@@ -91,9 +105,29 @@
 }
 
 .top_menu{
-	height: 80px;
+	height: 73px;
 	background: #f1f1f1;
 }
+.current_position_warp{
+	height: 73px;
+	line-height: 73px;
+	float:left;
+	margin-left: 20px;
+}
+.current_position_warp>span{
+	font-size: 14px;
+	color: #999999;
+}
+.current_position_warp .current_position_1{
+	color: #000000;
+}
+.current_position_warp .current_position_2{
+	color: #f68b1f;
+}
+
+
+
+
 .FWD_con{
 	flex: 1;
 	flex-flow: row;

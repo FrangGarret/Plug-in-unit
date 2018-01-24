@@ -1,0 +1,352 @@
+.wrapper{
+	width:100%;
+	padding:0 2%;
+	background-color: #f2f3f5;
+}
+.wrapper-left,.wrapper-right{
+	margin-bottom: 40px;
+}
+.wrapper-left,.inwrapper-right{
+	background-color: #fff;
+    border-radius: 8px;
+}
+.wrapper-left{
+	width: 24%;
+    float: left;
+	height: 910px;
+}
+.img-info-wrap{
+	margin: 15px 30px 0 40px;
+}
+.wrapper-right{
+    margin-left: 25.5%;
+    overflow: hidden;
+}
+.img-info{
+	width: 96px;
+	padding: 10px;
+	font-size: 16px;
+	color: #0085e4;
+	border-bottom: #0085e4 solid 3px;
+	cursor: pointer;
+}
+.img-type{
+	width: 150px;
+	height: 38px;
+	border: #e6e6ff solid 1px;
+	border-radius: 5px;
+	margin-top: 26px;
+	font-size: 15px;
+	color: #0093e7;
+	text-indent: 36px;
+	line-height: 38px;
+	position: relative;
+	cursor: default;
+}
+.icon-sel{
+	display: block;
+	width: 18px;
+	border-left: #e6e6ff solid 1px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	background:#f8f9fe url(../images/sel.png) no-repeat center;
+}
+.insurance-information-wrap{
+	margin: 8% 8% 7%;
+	color: #333333;
+}
+.insurance-tips{
+	height: 54px;
+	line-height: 54px;
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+.insurance-info{
+	margin-top: 22px;
+	font-size: 16px;
+	cursor: default;
+}
+.info-means{
+	float: left;
+	width: 46%;
+}
+.info-means,.c-i-right li,.i-t-n-right,.i-t-w p{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.info-time{
+	width: 90px;
+	float: right;
+}
+.contract-title-wrap{
+	border-bottom: #e5e5e5 dashed 1px;
+	position: relative;
+	padding-top: 38px;
+}
+.contract-logo{
+	width: 158px;
+	height: 42px;
+	background: url(../images/fuwei.png) no-repeat center;
+	background-size: cover;
+	margin: 0 auto;
+}
+.contract-title{
+	font-size: 22px;
+	color: #666666;
+	height: 60px;
+	line-height: 60px;
+	margin-bottom: 14px;
+}
+.insurance-bill-code{
+	position: absolute;
+	top: 38px;
+	right: 20px;
+}
+.code-num{
+	font-size: 16px;
+	color: #1295f3;
+	text-decoration: underline;
+	display: block;
+}
+.code-num-top{
+	margin-top: 16px;
+}
+.insurance-contract-conwrap{
+	padding: 41px 42px 20px 51px;
+}
+.insurance-contract-code{
+	font-size: 17px;
+	color: #333333;
+	height: 48px;
+	line-height: 48px;
+}
+.i-con-code-num{
+	font-size: 12px;
+	margin-left: 14px;
+}
+.insurance-contract-con{
+	padding-bottom: 36px;
+	border-bottom: #e5e5e5 dashed 1px;
+	margin-top: 14px;
+	display: flex;
+}
+.i-c-con{
+	height: 148px;
+	flex:1;
+}
+.c-insured-wrap{
+	position: relative;
+}
+.c-i-left,.c-i-right{
+	padding-bottom: 9999px;
+	margin-bottom: -9999px;
+}
+.c-i-left{
+	float: left;
+	width: 40px;
+}
+.c-i-right{
+	overflow: hidden;
+}
+.contract-applicant{
+	/*width: 333px;*/
+	border-right: #e6e6ff solid 1px;
+	border-left: #e6e6ff solid 1px;
+}
+.contract-insured{
+	padding-right: 2%;
+	/*width: 337px;*/
+}
+.contract-beneficiary,.contract-applicant{
+	padding: 0 2%;
+}
+.icon-beibaoren{
+	color: #6ec2bd;
+	font-size: 26px;
+}
+.c-i-w-con-tip{
+	font-size: 20px;
+	margin-right:16px;
+}
+.c-i-w-con-tip,.c-i-w-con-name{
+	color: #59bfb9;
+	position: relative;
+    top: -2px;
+}
+.c-i-w-con-name{
+	font-size: 17px;
+}
+.c-i-w-con-age{
+	display: inline-block;
+	padding:4px 8px;
+	background-color: #fff1f1;
+	border-radius: 5px;
+	float: right;
+	color: #ff7272;
+	font-size: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.c-i-right-margin{
+	margin-bottom: 12px;
+}
+.c-i-w-con-left,.c-i-w-con-right{
+	height: 38px;
+	line-height: 38px;
+}
+.c-i-w-con-left{
+	width: 66px;
+	font-size: 12px;
+	color: #CCCCCC;
+	display: inline-block;
+}
+.c-i-w-con-right{
+	font-size: 14px;
+	color: #555555;
+}
+.icon-toubaoren{
+	font-size: 24px;
+	color: #f29d94;
+}
+.c-a-tip{
+	color: #f08d81;
+}
+.icon-t-shouyi{
+	color: #2197ef;
+}
+.c-b-tip{
+	color: #666666;
+}
+.c-b-name{
+	color: #1295f3;
+	text-decoration: underline;
+}
+.insurance-type-wrap,.insurance-rule{
+	display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.insurance-type-wrap{
+	padding: 38px 0 36px;
+	border-bottom: #E5E5E5 dashed 1px;
+}
+.i-t-w,.i-r-wrap{
+	display: table-cell;
+}
+.i-t-w{
+	height: 91px;
+}
+.insurance-type-cost{
+	width: 249px;
+	border-left: #e5e5e5 dashed 1px;
+	border-right: #e5e5e5 dashed 1px;
+	padding: 0 26px;
+}
+.i-t-name{
+	margin-bottom: 46px;
+}
+.i-t-n-left,.i-t-c-left,.i-r-w-c-tip{
+	font-size: 12px;
+	color: #CCCCCC;
+	display: inline-block;
+}
+.i-t-n-left{
+	width: 114px;
+}
+.i-t-n-right,.i-t-right{
+	font-size: 14px;
+	color: #555555;
+}
+.i-t-c-left{
+	width: 74px;
+}
+.i-t-d-bonus{
+	width: 135px;
+}
+.insurance-type-date{
+	padding-left: 26px;
+}
+.i-t-c-wrap-mid{
+	margin:16px 0;
+}
+.insurance-rule{
+	width: 100%;
+	padding: 26px 0 23px;
+	border-bottom: #E5E5E5 dashed 1px;
+}
+.i-r-w-clause{
+	border-right: #E5E5E5 dashed 1px;
+}
+.i-r-w-appoint{
+	padding-left: 40px;
+}
+.i-r-w-c-sum{
+	display: block;
+	font-size: 20px;
+	color: #555555;
+	margin:25px 0 40px;
+}
+.appoint-tip{
+	margin-top: 12px;
+}
+.appoint-con{
+	margin-top: 36px;
+	display: block;
+}
+.insurance-business{
+	margin-top: 15px;
+}
+.button-wrap{
+	position: relative;
+    height: 73px;
+}
+.date-select{
+	position: absolute;
+	left: 26px;
+	top:21px;
+	font-size: 14px;
+	color: #0093e7;
+}
+.FWD_checkbox+label{
+	background-color: #f2f3f5;
+	width: 20px;
+    height: 20px;
+    padding: 0;
+    vertical-align: -5px;
+    margin-right: 4px;
+}
+.button-inwrap{
+	padding-top: 22px;
+}
+.btn{
+	width: 88px;
+	height: 38px;
+	border-radius: 5px;
+	line-height: 38px;
+	color: #FFFFFF;
+}
+.pass{
+	background-color: #46be8a;
+}
+.return{
+	background-color: #0093e7;
+	margin:0 28px;
+}
+.back{
+	background-color: #CCCCCC;
+}
+.button-inwrap,.img-info,.contract-title,.c-i-w-con-age,.i-r-w-c-sum,.appoint-con,.button-inwrap{
+	text-align: center;
+}
+.wrapper,.img-type,.img-info,.wrapper-left,.sel,.sel-wrap,.insurance-information-wrap,.contract-title-wrap,.insurance-contract-conwrap,.i-c-con,.i-t-w,.button-wrap{
+	box-sizing: border-box;
+}
+@media screen and (max-width: 1588px){
+	.c-i-w-con-age{
+		top: 44px;
+	}
+}

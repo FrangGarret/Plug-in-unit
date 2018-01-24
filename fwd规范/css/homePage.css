@@ -3,7 +3,7 @@
 	flex: 1;
 	flex-flow: row;
 	display: flex;
-	margin: 0px 20px 20px 40px;
+	margin: 0px 20px 20px 20px;
 	flex-direction: column;
 }
 .task_tab_warp{
@@ -44,11 +44,10 @@
 
 .right_son{
 	width: 325px;
-	margin: 0 0 20px 0;
+	margin: 0 20px 20px 0;
 	flex-flow: row;
 	display: flex;
 	flex-direction: column;
-	margin-right: 40px;
 }
 .notice_warp{
 	height: 254px;
@@ -161,6 +160,7 @@ table.dataTable .mechanism,
 	padding-left: 20px;
 	float: left;
 	margin-right: 2%;
+	display: none;
 }
 .search_button_warp{
 	height: 38px;
@@ -186,9 +186,11 @@ table.dataTable .mechanism,
 	height: 36px;
 	width: 30px;
 	float: left;
-	background: url(../img/);
+	background: url(../img/search_arr_left.png);
 }
-
+.Obtain_arr.show{
+		background: url(../img/search_arr_right.png);
+}
 
 /*.table 分页*/
 .FWD_tables_warps{
@@ -302,7 +304,7 @@ table.dataTable .mechanism,
 }
 ._height_{
 	height: 60px;
-	background: #ccc;
+	background: #eaebed;
 	border-radius: 5px;
 }
 .Bar_graph_2 ._height_{
