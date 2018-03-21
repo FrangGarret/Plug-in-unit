@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>面试题</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				font-size: 13px;
+			}
+			pre p{
+				font-size: 14px;
+				font-weight: 600;
+			}
+		</style>
+	</head>
+	<body>
+		<pre class="pre">
+			<p>1、指出下列alert及函数调用各输出什么值</p>
+			alert(a)
+			var a=1;
+			alert(a)
+			function a(){
+				alert(2)
+			}
+			alert(a)
+			var a=3;
+			alert(a)
+			function a(){
+				alert(4)
+			}
+			alert(a)
+		</pre>
+		<pre class="pre">
+			<p>2、指出下列alert及函数调用各输出什么值</p>
+			var a = 1;
+			function fn1(){
+				alert( a )
+				var a = 2;
+			}
+			fn1()
+			alert( a )
+		</pre>
+		<pre class="pre">
+			<p>3、指出下列alert及函数调用各输出什么值</p>
+			var a = 1;
+			function fn1(){
+				alert( a )
+				a = 2;
+			}
+			fn1()
+			alert( a )
+		</pre>
+		<pre class="pre">
+			<p>4、指出下列alert及函数调用各输出什么值</p>
+			var a = 1;
+			function fn1(a){
+				alert( a )
+				a = 2;
+			}
+			fn1()
+			alert( a )
+		</pre>
+		<pre class="pre">
+			<p>5、指出下列alert及函数调用各输出什么值</p>
+			var a = 1;
+			function fn1(a){
+				alert( a )
+				var	a = 2;
+			}
+			fn1()
+			alert( a )
+		</pre>
+		<pre class="pre">
+			<p>6、指出下列alert及函数调用各输出什么值</p>
+			var a = 1;
+			function fn1(a){
+				alert( a )
+				var	a = 2;
+			}
+			fn1(a)
+			alert( a )
+		</pre>
+		<pre class="pre">
+			<p>7、指出下列alert及函数调用各输出什么值</p>
+			alert( a );
+			alert( fn1 )
+			if (true){
+				var a = 1
+				function fn1(){
+					alert(123)
+				}
+			}
+		</pre>
+		
+		
+		<pre class="pre">
+			
+			<p>8、指出下列alert及函数调用各输出什么值</p>
+			&lt;input type="button" name="" id="" value="按钮1" /&gt;
+			&lt;input type="button" name="" id="" value="按钮2" /&gt;
+			&lt;input type="button" name="" id="" value="按钮3" /&gt;
+			&lt;input type="button" name="" id="" value="按钮4" /&gt;
+			&lt;input type="button" name="" id="" value="按钮5" /&gt;
+			var oBtns = document.getElementsByTagName('input');
+			for(var i=0;i&lt;oBtns.length;i++){
+				oBtns[i].onclick = function(){
+					alert( i )
+				}
+			}
+		</pre>
+		
+		<pre class="pre">
+			<p>9、指出下列alert及函数调用各输出什么值</p>
+			&lt;input type="button" name="" id="" value="按钮1" /&gt;
+			&lt;input type="button" name="" id="" value="按钮2" /&gt;
+			&lt;input type="button" name="" id="" value="按钮3" /&gt;
+			&lt;input type="button" name="" id="" value="按钮4" /&gt;
+			&lt;input type="button" name="" id="" value="按钮5" /&gt;
+			var oBtns = document.getElementsByTagName('input')
+			for (var i=0;i&lt;oBtns.length;i++ ){
+				oBtns[i].onclick = function(){
+					alert( i )
+					for(var i=0; i&lt;oBtns.length;i++ ){
+						oBtns[i].style.background = 'red'
+					}
+				}
+				
+				
+				
+			}
+		</pre>
+		
+		<pre class="pre">
+			<p>10、指出下列alert及函数调用各输出什么值</p>
+			&lt;input type="button" name="" id="" value="按钮1" /&gt;
+			&lt;input type="button" name="" id="" value="按钮2" /&gt;
+			&lt;input type="button" name="" id="" value="按钮3" /&gt;
+			&lt;input type="button" name="" id="" value="按钮4" /&gt;
+			&lt;input type="button" name="" id="" value="按钮5" /&gt;
+			var oBtns = document.getElementsByTagName('input')
+			for (var i=0;i&lt;oBtns.length;i++ ){
+				oBtns[i].onclick = function(){
+					
+					alert( i )
+					
+					for( i=0;i&lt;oBtns.length;i++ ){
+						oBtns[i].style.background = 'red'
+					}
+					
+					
+					
+				}
+				
+				
+				
+			}
+		</pre>
+		
+		
+		<pre class="pre">
+			<p>11、指出下列alert及函数调用各输出什么值</p>
+			
+			for(var i=0;i&lt;6;i++){
+				if(i == 4){
+					break;
+				}
+				alert(i)
+			}
+			
+			alert(i)
+		</pre>
+		
+		<pre class="pre">
+			<p>12、指出下列alert及函数调用各输出什么值</p>
+			for(var i=0;i&lt;6;i++){
+				if(i == 4){
+					continue;
+				}
+				alert(i)
+			}
+			
+			alert(i)
+		</pre>
+		
+		<pre class="pre">
+			<p>13、指出下列alert及函数调用各输出什么值</p>
+			&lt;script&gt;
+				a();
+			&lt;/script&gt;
+			
+			&lt;script&gt;
+				function a(){
+					alert(0);
+				}
+			&lt;/script&gt;
+		</pre>
+		
+	</body>
+	<input type="button" name="" id="" value="按钮1" />
+	<input type="button" name="" id="" value="按钮2" />
+	<input type="button" name="" id="" value="按钮3" />
+</html>
+<script type="text/javascript">
+//函数在预解析的过程中，函数的权重会大于变量的权重，即同名函数会取代同名的变量
+//
+
+	
+
+</script>
+
+
+
+
+
+
+
