@@ -79,7 +79,7 @@
 			<span class="money_warp">
 				<span class="money_warp_nums">￥33.99</span>起
 			</span>
-			<button class="pay_money">立即支付</button>
+			<button class="pay_money" id="pay_money">立即支付</button>
 		</nav>
 		<div class="mui-content">
 				<img src="../images/muwu.jpg"/ class="img">
@@ -228,12 +228,33 @@
 					mui('.a1').on('tap', '.showUserPicker',function(event) {
 						userPicker.setData(jsons);
 						userPicker.show(function(items) {
+								alert(0)
 							showUserPickerButton.innerText = items[0].text;
 							//返回 false 可以阻止选择框的关闭
 							//return false;
 						});
 					}, false);
 					//-----------------------------------------
+					var options = {
+						styles:{
+							popGesture: "close"
+						},
+						extras:{
+							name:'fangjialiang'
+						}
+					};
+					if(mui.os.ios||(mui.os.android)){
+					   //...
+					 } else{
+					 	localstorage.setItem('a',JSON.stringify(options))
+					 }
+					
+					
+					
+					document.getElementById('pay_money').onclick = function(){
+						mui.openWindow('radio.html','radio',options);
+						//window.location.href = 'https://m.baidu.com'
+					}
 					
 				});
 			})(mui, document);

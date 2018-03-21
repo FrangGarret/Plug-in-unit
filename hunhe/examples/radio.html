@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>投保</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -11,83 +11,117 @@
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
+		<style type="text/css">
+			.mui-checkbox.mui-left input[type=checkbox]{
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			.pay_money{
+			width: 90%;
+			line-height: 48px;
+			height: 48px;
+			margin-left: 5%;
+			padding: 0;
+			border: 1px solid #ffb84e;
+			color: #ffb84e;
+			border-radius: 50px;
+			
+		}
+		.mui-bar{
+			box-shadow: none;
+			background: transparent;
+		}
+		</style>
 	</head>
 
 	<body>
 
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">单选框（radio）</h1>
+			<h1 class="mui-title">投保</h1>
 		</header>
-		<div class="mui-content">
-			<h5 class="mui-content-padded">图标左对齐</h5>
-			<div class="mui-card">
-				<form class="mui-input-group">
-					<div class="mui-input-row mui-radio mui-left">
-						<label>radio</label>
-						<input name="radio1" type="radio">
-					</div>
-					<div class="mui-input-row mui-radio mui-left">
-						<label>radio</label>
-						<input name="radio1" type="radio" checked>
-					</div>
-					<div class="mui-input-row mui-radio mui-left mui-disabled">
-						<label>disabled radio</label>
-						<input name="radio1" type="radio" disabled="disabled">
-					</div>
-				</form>
-			</div>
 		
-			<h5 class="mui-content-padded">图标右对齐</h5>
-			<div class="mui-card">
-				<form class="mui-input-group">
-					<div class="mui-input-row mui-radio">
-						<label>radio</label>
-						<input name="radio1" type="radio">
+		<nav class="mui-bar mui-bar-tab">
+			<button class="pay_money" id="pay_money">立即支付</button>
+		</nav>
+		
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
+					<div class="mui-media-body">
+						成长无忧少儿综合意外险
+						<p class="mui-ellipsis">承包公司<span class="">众安保险</span></p>
+						<p class="mui-ellipsis">保障期限<span class="">1年</span></p>
 					</div>
-					<div class="mui-input-row mui-radio">
-						<label>radio</label>
-						<input name="radio1" type="radio" checked>
-					</div>
-					<div class="mui-input-row mui-radio mui-disabled">
-						<label>disabled radio</label>
-						<input name="radio1" type="radio" disabled="disabled">
-					</div>
-				</form>
-			</div>
-			<h5 class="mui-content-padded">列表模式的单选框</h5>
-			<ul class="mui-table-view mui-table-view-radio">
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						Item 1
-					</a>
 				</li>
-				<li class="mui-table-view-cell mui-selected">
-					<a class="mui-navigate-right">
-						Item 2
-					</a>
+				<li class="mui-table-view-cell mui-media">
+					<p class="mui-navigate-right">
+						生效日期
+						<span class="mui-pull-right">
+							2018-01-08
+						</span>
+					</p>
 				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						Item 3
-					</a>
+				<li class="mui-table-view-cell mui-media">
+					
+					<p class="mui-navigate-right">
+						选择被保人
+						<button type="button" class="mui-pull-right mui-btn showUserPicker" id="showUserPicker">
+						</button>
+					</p>
 				</li>
+				<li class="mui-table-view-cell mui-media">
+					
+					<p class="mui-navigate-right">
+						选择额度
+						<button type="button" class="mui-pull-right mui-btn showUserPicker" id="showUserPicker">
+						</button>
+					</p>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<p class="mui-navigate-right">
+						选择额度
+						<span class="mui-pull-right">
+							1年
+						</span>
+					</p>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<p class="mui-navigate-right">
+						保险价格
+						<span class="mui-pull-right">
+							￥33.00
+						</span>
+					</p>	
+				</li>
+			
 			</ul>
-			<div class="mui-content-padded">
-				<p id="info"></p>
-			</div>
+			<p class="mui-input-row mui-checkbox mui-left">
+				<label>我已经认真阅读<a href="javascript:;">《保险条款》</a><a href="javascript:;">《投保须知》</a>了解并接受，包括有关责任条款
+				及免除责任条款，承保限制等约定
+				</label>
+				<input name="checkbox" value="Item 2" type="checkbox" checked="">
+			</p>
 		</div>
 	</body>
 	<script src="../js/mui.min.js"></script>
 	<script>
+		
 		mui.init({
 			swipeBack:true //启用右滑关闭功能
 		});
-		var info = document.getElementById("info");
-		document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected',function(e){
-			info.innerHTML = "当前选中的为："+e.detail.el.innerText;
-		});
+		
+		//判断在plus5+环境下还是浏览器环境下，取值方式不同
+		if(mui.os.ios||(mui.os.android)){
+			var self = plus.webview.currentWebview();
+			var name = self.name;
+				alert(name)	   //...
+		} else{
+		 	console.log(localStorage.getItem('a'))
+		}
+		
+		
 		
 	</script>
 </html>
