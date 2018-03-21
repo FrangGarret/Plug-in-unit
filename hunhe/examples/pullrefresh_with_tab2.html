@@ -9,395 +9,234 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="../css/mui.min.css">
+		<link href="../css/mui.picker.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
 		<style>
 			html,
 			body {
-				background-color: #efeff4;
+				background-color: #fff;
+				height: 100%;
 			}
-			.mui-segmented-control.mui-scroll-wrapper .mui-scroll{
+			
+			.mui-bar-nav~.mui-content{
+				height: 100%;
+				overflow: hidden;
+			}
+			.mui-content{
+				display: flex;
+				flex-flow: column;
+				background: #fff;
+			}
+			.img{
 				width: 100%;
+				height: 150px;
 			}
-			.mui-bar~.mui-content .mui-fullscreen {
-				top: 44px;
-				height: auto;
+			.a1{
+				flex: 1;
+				overflow: auto;
 			}
-			.mui-pull-top-tips {
-				position: absolute;
-				top: -20px;
-				left: 50%;
-				margin-left: -25px;
-				width: 40px;
-				height: 40px;
-				border-radius: 100%;
-				z-index: 1;
+			.mui-table-view-cell:after{
+				left: 0;
 			}
-			.mui-bar~.mui-pull-top-tips {
-				top: 24px;
-			}
-			.mui-pull-top-wrapper {
-				width: 42px;
-				height: 42px;
-				display: block;
-				text-align: center;
-				background-color: #efeff4;
-				border: 1px solid #ddd;
-				border-radius: 25px;
-				background-clip: padding-box;
-				box-shadow: 0 4px 10px #bbb;
-				overflow: hidden;
-			}
-			.mui-pull-top-tips.mui-transitioning {
-				-webkit-transition-duration: 200ms;
-				transition-duration: 200ms;
-			}
-			.mui-pull-top-tips .mui-pull-loading {
-				/*-webkit-backface-visibility: hidden;
-				-webkit-transition-duration: 400ms;
-				transition-duration: 400ms;*/
-				
-				margin: 0;
-			}
-			.mui-pull-top-wrapper .mui-icon,
-			.mui-pull-top-wrapper .mui-spinner {
-				margin-top: 7px;
-			}
-			.mui-pull-top-wrapper .mui-icon.mui-reverse {
-				/*-webkit-transform: rotate(180deg) translateZ(0);*/
-			}
-			.mui-pull-bottom-tips {
-				text-align: center;
-				background-color: #efeff4;
-				font-size: 15px;
-				line-height: 40px;
-				color: #777;
-			}
-			.mui-pull-top-canvas {
-				overflow: hidden;
-				background-color: #fafafa;
-				border-radius: 40px;
-				box-shadow: 0 4px 10px #bbb;
-				width: 40px;
-				height: 40px;
-				margin: 0 auto;
-			}
-			.mui-pull-top-canvas canvas {
-				width: 40px;
-			}
-			.mui-slider-indicator.mui-segmented-control {
-				background-color: #efeff4;
-			}
-			.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
-				text-align: center;
-				padding: 0;
-				width: 25%;
-			}
+		.a1 .mui-table-view-cell	.inlink-block{
+			display: inline;
+		}
+		.mui-table-view-cell>.mui-btn{
+			right: 0;
+		}
+		.money_warp{
+			width: 40%;
+			line-height: 50px;
+			float: left;
+			text-align: center;
+			font-size: 16px;
+			color: #999;
+		}
+		.money_warp_nums{
+			font-size: 18px;
+			margin-right: 10px;
+			color:#ffb84e ;
+		}
+		.pay_money{
+			width: 60%;
+			line-height: 50px;
+			padding: 0;
+			background: #ffb84e;
+			color: #fff;
+			float: right;
+			border: none;
+			border-radius: 0;
+		}
 		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">选项卡切换+下拉刷新（div模式）</h1>
+			<h1 class="mui-title">产品详情</h1>
 		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<span class="money_warp">
+				<span class="money_warp_nums">￥33.99</span>起
+			</span>
+			<button class="pay_money">立即支付</button>
+		</nav>
 		<div class="mui-content">
-			<div id="slider" class="mui-slider mui-fullscreen">
-				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-					<div class="mui-scroll">
-						<a class="mui-control-item mui-active" href="#item1mobile">
-							保障详情
-						</a>
-						<a class="mui-control-item" href="#item2mobile">
-							产品亮点
-						</a>
-						<a class="mui-control-item" href="#item3mobile">
-							理赔流程
-						</a>
-						<a class="mui-control-item" href="#item4mobile">
-							常见问题
-						</a>
+				<img src="../images/muwu.jpg"/ class="img">
+				<div>
+					<div id="segmentedControl" class="mui-segmented-control">
+						<a class="mui-control-item mui-active" href="#item1">保障详情</a>
+						<a class="mui-control-item" href="#item2">产品亮点</a>
+						<a class="mui-control-item" href="#item3">理赔流程</a>
+						<a class="mui-control-item" href="#item4">常见问题</a>
 					</div>
 				</div>
-				<div class="mui-slider-group">
-					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-						<div id="scroll1" class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-1
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-2
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-3
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-4
-									</li>
-								</ul>
-							</div>
+			<div class="a1">
+				<div id="item1" class="mui-control-content mui-active" style="padding: 10px 10px;">
+						<div id="segmentedControl1" class="mui-segmented-control">
+							<a class="mui-control-item mui-active" href="#item5">基础版</a>
+							<a class="mui-control-item" href="#item6">优选版</a>
+							<a class="mui-control-item" href="#item7">精选版</a>
 						</div>
-					</div>
-					<div id="item2mobile" class="mui-slider-item mui-control-content">
-						<div class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-1
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-2
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-3
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-4
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-5
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-6
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-7
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-8
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-9
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-10
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-11
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-12
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-13
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-14
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-15
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-16
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-17
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-18
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-19
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-20
-									</li>
-								</ul>
-							</div>
+						<div id="item5" class="mui-control-content mui-active">
+							<p class="mui-table-view-cell">
+								保障额度
+								<button type="button" class="mui-btn showUserPicker" id="showUserPicker">
+									
+								</button>
+							</p>
+							<p class="mui-table-view-cell">
+								保障期限
+								<span class="mui-pull-right">
+									1年
+								</span>
+							</p>
+							<p class="mui-table-view-cell">
+								等待期
+								<span class="mui-pull-right">
+									无
+								</span>
+							</p>
+							<p class="mui-table-view-cell">
+								适用年龄
+								<span class="mui-pull-right">
+									30天-17周岁
+								</span>
+							</p>
+							<p>
+								请具体查看
+								<a href="javascript:;" class="inlink-block">
+									《保险条款》
+								</a>
+								<a href="javascript:;" class="inlink-block">
+									《投保须知》
+								</a>
+							</p>
 						</div>
-					</div>
-					<div id="item3mobile" class="mui-slider-item mui-control-content">
-						<div class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-1
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-2
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-3
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-4
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-5
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-6
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-7
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-8
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-9
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-10
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-11
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-12
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-13
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-14
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-15
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-16
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-17
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-18
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-19
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-20
-									</li>
-								</ul>
-							</div>
+						<div id="item6" class="mui-control-content">
+							优选版
 						</div>
-					</div>
-					<div id="item4mobile" class="mui-slider-item mui-control-content">
-						<div class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-1
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-2
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-3
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-4
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-5
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-6
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-7
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-8
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-9
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-10
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-11
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-12
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-13
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-14
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-15
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-16
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-17
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-18
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-19
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-20
-									</li>
-								</ul>
-							</div>
+						<div id="item7" class="mui-control-content">
+							精选版
 						</div>
-					</div>
+						
+				</div>
+				<div id="item2" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							第二个选项卡子项-1
+						</li>
+						<li class="mui-table-view-cell">
+							第二个选项卡子项-2
+						</li>
+						<li class="mui-table-view-cell">
+							第二个选项卡子项-3
+						</li>
+					</ul>
+				</div>
+				<div id="item3" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							第三个选项卡子项-1
+						</li>
+						<li class="mui-table-view-cell">
+							第三个选项卡子项-2
+						</li>
+						<li class="mui-table-view-cell">
+							第三个选项卡子项-3
+						</li>
+					</ul>
+				</div>
+				<div id="item4" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							第四个选项卡子项-1
+						</li>
+						<li class="mui-table-view-cell">
+							第四个选项卡子项-2
+						</li>
+						<li class="mui-table-view-cell">
+							第四个选项卡子项-3
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
-		<script src="../js/mui.pullToRefresh.js"></script>
-		<script src="../js/mui.pullToRefresh.material.js"></script>
+		<script src="../js/mui.picker.js"></script>
+		<script src="../js/mui.poppicker.js"></script>
 		<script>
-			mui.init();
-			(function($) {
-				//阻尼系数
-				var deceleration = mui.os.ios?0.003:0.0009;
-				$('.mui-scroll-wrapper').scroll({
-					bounce: false,
-					indicators: true, //是否显示滚动条
-					deceleration:deceleration
-				});
+			(function($, doc) {
+				$.init();
 				$.ready(function() {
-					//循环初始化所有下拉刷新，上拉加载。
-					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
-						$(pullRefreshEl).pullToRefresh({
-							down: {
-								callback: function() {
-									var self = this;
-									setTimeout(function() {
-										var ul = self.element.querySelector('.mui-table-view');
-										ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
-										self.endPullDownToRefresh();
-									}, 1000);
-								}
-							},
-							up: {
-								callback: function() {
-									var self = this;
-									setTimeout(function() {
-										var ul = self.element.querySelector('.mui-table-view');
-										ul.appendChild(createFragment(ul, index, 5));
-										self.endPullUpToRefresh();
-									}, 1000);
-								}
-							}
-						});
-					});
-					var createFragment = function(ul, index, count, reverse) {
-						var length = ul.querySelectorAll('li').length;
-						var fragment = document.createDocumentFragment();
-						var li;
-						for (var i = 0; i < count; i++) {
-							li = document.createElement('li');
-							li.className = 'mui-table-view-cell';
-							li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
-							fragment.appendChild(li);
-						}
-						return fragment;
+					/**
+					 * 获取对象属性的值
+					 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+					 * @param {Object} obj 对象
+					 * @param {String} param 属性名
+					 */
+					var _getParam = function(obj, param) {
+						return obj[param] || '';
 					};
+					//普通示例
+					var jsons=[{
+						value: '10000',
+						text: '1万'
+					}, {
+						value: '100000',
+						text: '10万'
+					}, {
+						value: '150000',
+						text: '15万'
+					}, {
+						value: '200000',
+						text: '20万'
+					}, {
+						value: '300000',
+						text: '30万'
+					}, {
+						value: '500000',
+						text: '50万'
+					}, {
+						value: '1000000',
+						text: '100万'
+					}]
+					var userPicker = new $.PopPicker();
+					
+					var showUserPickerButton = doc.getElementById('showUserPicker');
+					showUserPickerButton.innerText = jsons[0].text
+					mui('.a1').on('tap', '.showUserPicker',function(event) {
+						userPicker.setData(jsons);
+						userPicker.show(function(items) {
+							showUserPickerButton.innerText = items[0].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					
 				});
-			})(mui);
+			})(mui, document);
 		</script>
 	</body>
 

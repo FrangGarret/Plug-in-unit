@@ -96,29 +96,30 @@
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 					<div class="mui-scroll">
 						<a class="mui-control-item mui-active" href="#item1mobile">
-							推荐
+							全部
 						</a>
 						<a class="mui-control-item" href="#item2mobile">
-							热点
+							健康
 						</a>
 						<a class="mui-control-item" href="#item3mobile">
-							北京
+							财产
 						</a>
 						<a class="mui-control-item" href="#item4mobile">
-							社会
+							意外
 						</a>
 						<a class="mui-control-item" href="#item5mobile">
-							娱乐
+							商户
 						</a>
 						<a class="mui-control-item" href="#item6mobile">
-							科技
+							趣味
 						</a>
 					</div>
 				</div>
 				<div class="mui-slider-group">
 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
 						<div id="scroll1" class="mui-scroll-wrapper">
-							<div class="mui-scroll">
+							<div class="mui-scroll mui-scroll-con">
+								<img src="../images/muwu.jpg"/ class="img">
 								<ul class="mui-table-view">
 									<li class="mui-table-view-cell">
 										<a href="pullrefresh_with_tab2.html" class="">
@@ -592,7 +593,7 @@
 				
 				
 				//主列表点击事件
-			mui('.mui-content').on('tap', 'a', function() {
+			mui('.mui-scroll-con').on('tap', 'a', function() {
 				var href = this.getAttribute('href');
 				
 				//非plus环境，直接走href跳转
