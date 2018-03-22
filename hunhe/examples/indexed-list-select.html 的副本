@@ -66,6 +66,7 @@
 				<div class="mui-indexed-list-inner">
 					<div class="mui-indexed-list-empty-alert">没有数据</div>
 					<ul class="mui-table-view">
+						<li data-group="A" class="mui-table-view-divider mui-indexed-list-group">A</li>
 						<li data-value="AKU" data-tags="AKeSu" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />阿克苏机场</li>
 						<li data-value="BPL" data-tags="ALaShanKou" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -78,6 +79,7 @@
 							<input type="checkbox" />安庆天柱山机场</li>
 						<li data-value="MFM" data-tags="AoMenGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />澳门国际机场</li>
+						<li data-group="B" class="mui-table-view-divider mui-indexed-list-group">B</li>
 						<li data-value="BSD" data-tags="BaoShan" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />保山机场</li>
 						<li data-value="BAV" data-tags="BaoTou" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -88,6 +90,7 @@
 							<input type="checkbox" />北京南苑机场</li>
 						<li data-value="PEK" data-tags="BeiJingShouDuGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />北京首都国际机场</li>
+						<li data-group="C" class="mui-table-view-divider mui-indexed-list-group">C</li>
 						<li data-value="NBS" data-tags="ChangBaiShan" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />长白山机场</li>
 						<li data-value="CGQ" data-tags="ChangChunLongJiaGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -106,6 +109,7 @@
 							<input type="checkbox" />成都双流国际机场</li>
 						<li data-value="CIF" data-tags="ChiFeng" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />赤峰机场</li>
+						<li data-group="D" class="mui-table-view-divider mui-indexed-list-group">D</li>
 						<li data-value="DLU" data-tags="DaLi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />大理机场</li>
 						<li data-value="DLC" data-tags="DaLianZhouShuiZiGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -126,16 +130,19 @@
 							<input type="checkbox" />东营机场</li>
 						<li data-value="DNH" data-tags="DunHuang" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />敦煌机场</li>
+						<li data-group="E" class="mui-table-view-divider mui-indexed-list-group">E</li>
 						<li data-value="DSN" data-tags="EErDuoSi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />鄂尔多斯机场</li>
 						<li data-value="ENH" data-tags="EnShiXuJiaPing" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />恩施许家坪机场</li>
 						<li data-value="ERL" data-tags="ErLianHaoTeSaiWuSuGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />二连浩特赛乌苏国际机场</li>
+						<li data-group="F" class="mui-table-view-divider mui-indexed-list-group">F</li>
 						<li data-value="FUG" data-tags="FuYangXiGuan" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />阜阳西关机场</li>
 						<li data-value="FOC" data-tags="FuZhouChangLeGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />福州长乐国际机场</li>
+						<li data-group="G" class="mui-table-view-divider mui-indexed-list-group">G</li>
 						<li data-value="KOW" data-tags="GanZhouHuangJin" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />赣州黄金机场</li>
 						<li data-value="GOQ" data-tags="GeErMu" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -150,6 +157,7 @@
 							<input type="checkbox" />桂林两江国际机场</li>
 						<li data-value="KWE" data-tags="GuiYangLongDongBaoGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />贵阳龙洞堡国际机场</li>
+						<li data-group="H" class="mui-table-view-divider mui-indexed-list-group">H</li>
 						<li data-value="HRB" data-tags="HaErBinTaiPingGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />哈尔滨太平国际机场</li>
 						<li data-value="HMI" data-tags="HaMi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -176,6 +184,7 @@
 							<input type="checkbox" />淮安涟水机场</li>
 						<li data-value="TXN" data-tags="HuangShanTunXiGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />黄山屯溪国际机场</li>
+						<li data-group="J" class="mui-table-view-divider mui-indexed-list-group">J</li>
 						<li data-value="TNA" data-tags="JiNanYaoQiangGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />济南遥墙国际机场</li>
 						<li data-value="JNG" data-tags="JiNingQuFu" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -196,6 +205,7 @@
 							<input type="checkbox" />九江庐山机场</li>
 						<li data-value="JZH" data-tags="JiuZhaiHuangLong" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />九寨黄龙机场</li>
+						<li data-group="K" class="mui-table-view-divider mui-indexed-list-group">K</li>
 						<li data-value="KHG" data-tags="KaShi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />喀什机场</li>
 						<li data-value="KRY" data-tags="KeLaMaYi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -206,6 +216,7 @@
 							<input type="checkbox" />库尔勒机场</li>
 						<li data-value="KMG" data-tags="KunMingWuJiaBaGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />昆明巫家坝国际机场</li>
+						<li data-group="L" class="mui-table-view-divider mui-indexed-list-group">L</li>
 						<li data-value="LXA" data-tags="LaSaGongGa" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />拉萨贡嘎机场</li>
 						<li data-value="LHW" data-tags="LanZhouZhongChuan" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -230,6 +241,7 @@
 							<input type="checkbox" />泸州蓝田机场</li>
 						<li data-value="LYA" data-tags="LuoYangBeiJiao" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />洛阳北郊机场</li>
+						<li data-group="M" class="mui-table-view-divider mui-indexed-list-group">M</li>
 						<li data-value="NZH" data-tags="ManZhouLiXiJiao" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />满洲里西郊机场</li>
 						<li data-value="MIG" data-tags="MianYangNanJiao" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -238,6 +250,7 @@
 							<input type="checkbox" />漠河古莲机场</li>
 						<li data-value="MDG" data-tags="MuDanJiangHaiLang" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />牡丹江海浪机场</li>
+						<li data-group="N" class="mui-table-view-divider mui-indexed-list-group">N</li>
 						<li data-value="KHN" data-tags="NanChangChangBeiGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />南昌昌北国际机场</li>
 						<li data-value="NAO" data-tags="NanChongGaoPing" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -252,8 +265,10 @@
 							<input type="checkbox" />南阳姜营机场</li>
 						<li data-value="NGB" data-tags="NingBoLiSheGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />宁波栎社国际机场</li>
+						<li data-group="P" class="mui-table-view-divider mui-indexed-list-group">P</li>
 						<li data-value="SYM" data-tags="PuErSiMao" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />普洱思茅机场</li>
+						<li data-group="Q" class="mui-table-view-divider mui-indexed-list-group">Q</li>
 						<li data-value="NDG" data-tags="QiQiHaErSanJiaZi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />齐齐哈尔三家子机场</li>
 						<li data-value="SHP" data-tags="QinHuangDaoShanHaiGuan" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -264,8 +279,10 @@
 							<input type="checkbox" />衢州机场</li>
 						<li data-value="JJN" data-tags="QuanZhouJinJiang" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />泉州晋江机场</li>
+						<li data-group="R" class="mui-table-view-divider mui-indexed-list-group">R</li>
 						<li data-value="RKZ" data-tags="RiKaZeHePing" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />日喀则和平机场</li>
+						<li data-group="S" class="mui-table-view-divider mui-indexed-list-group">S</li>
 						<li data-value="SYX" data-tags="SanYaFengHuangGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />三亚凤凰国际机场</li>
 						<li data-value="SWA" data-tags="ShanTouWaiSha" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -282,6 +299,7 @@
 							<input type="checkbox" />石家庄正定国际机场</li>
 						<li data-value="WUX" data-tags="SuNanShuoFangGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />苏南硕放国际机场</li>
+						<li data-group="T" class="mui-table-view-divider mui-indexed-list-group">T</li>
 						<li data-value="TCG" data-tags="TaCheng" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />塔城机场</li>
 						<li data-value="TYN" data-tags="TaiYuanWuSuGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -298,6 +316,7 @@
 							<input type="checkbox" />通辽机场</li>
 						<li data-value="TEN" data-tags="TongRenFengHuang" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />铜仁凤凰机场</li>
+						<li data-group="W" class="mui-table-view-divider mui-indexed-list-group">W</li>
 						<li data-value="WXN" data-tags="WanZhouWuQiao" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />万州五桥机场</li>
 						<li data-value="WEF" data-tags="WeiFang" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -320,6 +339,7 @@
 							<input type="checkbox" />武夷山机场</li>
 						<li data-value="WUZ" data-tags="WuZhouChangZhouDao" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />梧州长洲岛机场</li>
+						<li data-group="X" class="mui-table-view-divider mui-indexed-list-group">X</li>
 						<li data-value="XIY" data-tags="XiAnXianYangGuoJi" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />西安咸阳国际机场</li>
 						<li data-value="XIC" data-tags="XiChangQingShan" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -340,6 +360,7 @@
 							<input type="checkbox" />兴义机场</li>
 						<li data-value="XUZ" data-tags="XuZhouGuanYin" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />徐州观音机场</li>
+						<li data-group="Y" class="mui-table-view-divider mui-indexed-list-group">Y</li>
 						<li data-value="ENY" data-tags="YanAnErShiLiBao" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />延安二十里堡机场</li>
 						<li data-value="YNZ" data-tags="YanCheng" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
@@ -368,6 +389,7 @@
 							<input type="checkbox" />玉树巴塘机场</li>
 						<li data-value="YCU" data-tags="YunChengZhangXiao" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />运城张孝机场</li>
+						<li data-group="Z" class="mui-table-view-divider mui-indexed-list-group">Z</li>
 						<li data-value="ZHA" data-tags="ZhanJiang" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">
 							<input type="checkbox" />湛江机场</li>
 						<li data-value="ZAT" data-tags="ZhaoTong" class="mui-table-view-cell mui-indexed-list-item mui-checkbox mui-left">

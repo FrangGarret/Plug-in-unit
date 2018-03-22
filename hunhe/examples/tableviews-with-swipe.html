@@ -121,8 +121,10 @@
 					<div class="mui-slider-handle">
 						左右滑动均可显示多功能菜单
 					</div>
+					
 				</li>
 			</ul>
+			<div class="mui-slider-handle" id="yes">确定</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script>
@@ -177,6 +179,26 @@
 						}
 					});
 				});
+				
+				
+				if(window.plus){   
+        plusReady();   
+		    }else{   
+		        document.addEventListener("plusready",plusReady,false);   
+		    } 
+		    function plusReady(){   
+		           
+		            
+		         mui("body").on("tap","#yes",function(){   
+		            var view=plus.webview.getWebviewById("radio");   
+		            mui.fire(view,'doit',{   
+		                inputVal:'我回来了'   
+		            });   
+		            mui.back()
+		               
+		         })   
+		    }
+				
 			})(mui);
 		</script>
 	</body>

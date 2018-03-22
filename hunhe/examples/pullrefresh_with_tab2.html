@@ -228,7 +228,6 @@
 					mui('.a1').on('tap', '.showUserPicker',function(event) {
 						userPicker.setData(jsons);
 						userPicker.show(function(items) {
-								alert(0)
 							showUserPickerButton.innerText = items[0].text;
 							//返回 false 可以阻止选择框的关闭
 							//return false;
@@ -243,18 +242,25 @@
 							name:'fangjialiang'
 						}
 					};
-					if(mui.os.ios||(mui.os.android)){
-					   //...
-					 } else{
-					 	localstorage.setItem('a',JSON.stringify(options))
-					 }
-					
-					
 					
 					document.getElementById('pay_money').onclick = function(){
-						mui.openWindow('radio.html','radio',options);
+						
 						//window.location.href = 'https://m.baidu.com'
+						if(mui.os.ios||(mui.os.android)){
+					   //...
+					   localStorage.setItem('a',JSON.stringify(options))
+						} else{
+						 	localStorage.setItem('a',JSON.stringify(options))
+						}
+							mui.openWindow('radio.html','radio',options);
 					}
+					
+					
+					
+					
+					
+					
+					
 					
 				});
 			})(mui, document);

@@ -31,6 +31,16 @@
 			box-shadow: none;
 			background: transparent;
 		}
+		.mui-table-view .mui-media-object{
+			line-height: 80px;
+	    max-width: 80px;
+	    height: 80px;
+		}
+		.mui-popover .mui-table-view .mui-table-view-cell:last-child,
+		.mui-popover .mui-table-view .mui-table-view-cell:first-child,
+		.mui-popover.mui-popover-action .mui-table-view{
+			border-radius: 0px;
+		}
 		</style>
 	</head>
 
@@ -66,22 +76,23 @@
 				<li class="mui-table-view-cell mui-media">
 					
 					<p class="mui-navigate-right">
-						选择被保人
-						<button type="button" class="mui-pull-right mui-btn showUserPicker" id="showUserPicker">
+						
+						<span class="previousElementSibling">选择被保人</span>
+						<button type="button" class="mui-pull-right mui-btn showUserPicker" id="showUserPicker1">111
 						</button>
 					</p>
 				</li>
 				<li class="mui-table-view-cell mui-media">
 					
 					<p class="mui-navigate-right">
-						选择额度
-						<button type="button" class="mui-pull-right mui-btn showUserPicker" id="showUserPicker">
+						<span class="previousElementSibling">选择额度</span>
+						<button type="button" class="mui-pull-right mui-btn showUserPicker" id="showUserPicker2">111
 						</button>
 					</p>
 				</li>
 				<li class="mui-table-view-cell mui-media">
 					<p class="mui-navigate-right">
-						选择额度
+						<span class="previousElementSibling">选择额度</span>
 						<span class="mui-pull-right">
 							1年
 						</span>
@@ -101,9 +112,56 @@
 				<label>我已经认真阅读<a href="javascript:;">《保险条款》</a><a href="javascript:;">《投保须知》</a>了解并接受，包括有关责任条款
 				及免除责任条款，承保限制等约定
 				</label>
-				<input name="checkbox" value="Item 2" type="checkbox" checked="">
+				<input name="checkbox" value="Item 2" type="checkbox" checked="" id="agree">
 			</p>
 		</div>
+		<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom" style="display: none;">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">拍照或录像</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">选取现有的</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture" class=""><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		
+		<div id="InsurersList" class="mui-popover mui-popover-action mui-popover-bottom" style="display: none;">
+			<ul id="OA_task_1" class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						左滑显示删除按钮
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-left mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						右滑显示删除按钮
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-left mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						左右滑动均可显示删除按钮
+					</div>
+				</li>
+			</ul>
+		
 	</body>
 	<script src="../js/mui.min.js"></script>
 	<script>
@@ -117,11 +175,68 @@
 			var self = plus.webview.currentWebview();
 			var name = self.name;
 				alert(name)	   //...
+				alert(localStorage.getItem('a'))
 		} else{
 		 	console.log(localStorage.getItem('a'))
 		}
 		
 		
+		mui('body').on('tap', '.mui-popover-action li>a', function() {
+			var a = this,
+				parent;
+			//根据点击按钮，反推当前是哪个actionsheet
+			for (parent = a.parentNode; parent != document.body; parent = parent.parentNode) {
+				if (parent.classList.contains('mui-popover-action')) {
+					break;
+				}
+			}
+			//关闭actionsheet
+			mui('#' + parent.id).popover('toggle');
+		})
+		
+		
+		
+		var check = true;//设置全局变量判断必选条件是否全部填写和选中
+		
+		mui('.mui-bar').on('tap','#pay_money',function(){
+			var agreeId = document.getElementById('agree').checked 
+			//判断输入框的选项是否已经填写值
+			mui(".mui-navigate-right button").each(function () {
+			  //若当前input为空，则alert提醒
+			  if(!this.innerText||this.innerText==""){
+			    var label = this.previousElementSibling;
+			    mui.alert(label.innerText+"不允许为空");
+			    check = false;
+			    return false;
+			  }
+			});
+			//判断相关条款是否已经同意
+			if( agreeId == false ){
+				mui.alert('请同意相关条款');
+				check = false;
+				return false
+			}
+			
+			if( check ){
+				mui('#picture').popover('show');
+			}
+			
+			
+		})
+		
+		mui('.mui-navigate-right').on('tap','#showUserPicker1',function(){
+			mui.openWindow('tableviews-with-swipe.html','tableviews-with-swipe')
+		})
+		
+		//返回回来要执行的方法   
+    function fun1(e){   
+        var val=e.detail.inputVal   
+        document.getElementById('showUserPicker1').innerText = val  
+    }   
+    //自定义窗体事件  doit 要和b页面定义的 事件名称一致   
+    window.addEventListener('doit',fun1);  
+		
+		//mui('#InsurersList').popover('show');
 		
 	</script>
 </html>
