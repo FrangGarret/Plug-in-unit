@@ -29,9 +29,10 @@
 		</nav>
 		<div class="mui-content">
 			<ul id="OA_task_1" class="mui-table-view">
-				<li class="mui-table-view-cell">
+				<li class="mui-table-view-cell" type_id="1">
 					<div class="mui-slider-right mui-disabled">
-						<a class="mui-btn mui-btn-red">删除</a>
+						<a class="mui-btn mui-btn-red delete">删除</a>
+						<a class="mui-btn mui-btn-yellow mui-icon mui-icon-compose edit"></a>
 					</div>
 					<div class="mui-slider-handle">
 						<div class="mui-input-row mui-checkbox mui-left">
@@ -40,9 +41,10 @@
 						</div>
 					</div>
 				</li>
-				<li class="mui-table-view-cell">
+				<li class="mui-table-view-cell" type_id="2">
 					<div class="mui-slider-right mui-disabled">
-						<a class="mui-btn mui-btn-red">删除</a>
+						<a class="mui-btn mui-btn-red delete">删除</a>
+						<a class="mui-btn mui-btn-yellow mui-icon mui-icon-compose edit"></a>
 					</div>
 					<div class="mui-slider-handle">
 						<div class="mui-input-row mui-checkbox mui-left">
@@ -51,9 +53,10 @@
 						</div>
 					</div>
 				</li>
-				<li class="mui-table-view-cell">
+				<li class="mui-table-view-cell" type_id="3">
 					<div class="mui-slider-right mui-disabled">
-						<a class="mui-btn mui-btn-red">删除</a>
+						<a class="mui-btn mui-btn-red delete">删除</a>
+						<a class="mui-btn mui-btn-yellow mui-icon mui-icon-compose edit"></a>
 					</div>
 					<div class="mui-slider-handle">
 						<div class="mui-input-row mui-checkbox mui-left">
@@ -70,10 +73,10 @@
 			(function($) {
 				//第一个demo，拖拽后显示操作图标，点击操作图标删除元素；
 				var btnArray = ['确认', '取消'];
-				$('#OA_task_1').on('tap', '.mui-btn', function(event) {
+				$('#OA_task_1').on('tap', '.delete', function(event) {
 					var elem = this;
 					var li = elem.parentNode.parentNode;
-					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
+					mui.confirm('确认删除当前被保人？', '警告！', btnArray, function(e) {
 						if(e.index == 0) {
 							li.parentNode.removeChild(li);
 						} else {
@@ -83,6 +86,32 @@
 						}
 					});
 				});
+				
+				$('#OA_task_1').on('tap', '.edit', function(event) {
+					var elem = this;
+					var li = elem.parentNode.parentNode;
+					var li_ids = li.getAttribute('type_id');
+					var options = {
+						styles: {
+							popGesture: "close"
+						},
+						extras: {
+							nums: li_ids
+						}
+					};
+					
+					mui.confirm('确认编辑该条记录？', '温馨提示', btnArray, function(e) {
+						if(e.index == 0) {
+							//li.parentNode.removeChild(li);
+							mui.openWindow('Newinsured.html','Newinsured.html',options)
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(li);
+							}, 0);
+						}
+					});
+				});
+				
 
 				if(window.plus) {
 					plusReady();
