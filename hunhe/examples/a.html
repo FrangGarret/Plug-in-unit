@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h3 id="a">跳转到a1页面</h3>
+	</body>
+</html>
+<script type="text/javascript">
+	document.getElementById('a').addEventListener('tap',function(){
+		mui.openWindow({
+			url:"a1.html",   
+      id:"a1" 
+		})
+	})
+</script>

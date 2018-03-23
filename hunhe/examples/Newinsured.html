@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/mui.picker.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar .mui-btn-block {
+				padding: 13px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">新增被保人</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-btn-primary mui-btn-block" id="yes">保存</button>
+		</nav>
+		<div class="mui-content">
+			<form class="mui-input-group forms_data">
+				<div class="mui-input-row">
+					<label>与被保人关系</label>
+					<input type="text" placeholder="请输入..." readonly="readonly" class="select" ids='1'>
+				</div>
+				<div class="mui-input-row">
+					<label>姓名</label>
+					<input type="text" placeholder="请输入...">
+				</div>
+				<div class="mui-input-row">
+					<label>性别</label>
+					<input type="text" placeholder="请输入...">
+				</div>
+				<div class="mui-input-row">
+					<label>证件类型</label>
+					<input type="text" placeholder="请输入..." readonly="readonly" class="select" ids='2'>
+				</div>
+				<div class="mui-input-row">
+					<label>证件号码</label>
+					<input type="text" placeholder="请输入...">
+				</div>
+				<div class="mui-input-row">
+					<label>手机号</label>
+					<input type="number" placeholder="请输入...">
+				</div>
+			</form>
+
+		</div>
+	</body>
+
+</html>
+<script src="../js/mui.min.js"></script>
+<script src="../js/mui.picker.js"></script>
+<script src="../js/mui.poppicker.js"></script>
+<script type="text/javascript">
+	(function($) {
+		mui.init()
+		$.ready(function() {
+
+			/**
+			 * 获取对象属性的值
+			 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+			 * @param {Object} obj 对象
+			 * @param {String} param 属性名
+			 */
+			var _getParam = function(obj, param) {
+				return obj[param] || '';
+			};
+			//普通示例
+			var jsons1 = [{
+				value: 'fz',
+				text: '父子'
+			}, {
+				value: 'mz',
+				text: '母子'
+			}, {
+				value: 'fn',
+				text: '父女'
+			}, {
+				value: 'mn',
+				text: '母女'
+			}]
+			
+			var jsons2 = [{
+				value: 'N',
+				text: '男'
+			}, {
+				value: 'N',
+				text: '女'
+			}]
+
+			var jsons2 = [{
+				value: 'sfz',
+				text: '身份证'
+			}, {
+				value: '士兵证',
+				text: '士兵证'
+			}, {
+				value: '港澳通行证',
+				text: '港澳通行证'
+			}, {
+				value: '海外侨胞证',
+				text: '海外侨胞证'
+			}, {
+				value: '军官证',
+				text: '军官证'
+			}]
+			var userPicker = new $.PopPicker();
+			mui('.mui-content').on('tap', '.select', function(event) {
+				var that = this
+				var that_id = this.getAttribute('ids')
+
+				if(that_id == 1) {
+					userPicker.setData(jsons1);
+				} else if(that_id == 2) {
+					userPicker.setData(jsons2);
+				}
+
+				userPicker.show(function(items) {
+					that.value = items[0].text;
+					//返回 false 可以阻止选择框的关闭
+					//return false;
+				});
+			}, false);
+			//-----------------------------------------
+
+		});
+
+		mui("body").on("tap", "#yes", function() {
+			var check = true;
+			mui(".forms_data input").each(function() {
+				//若当前input为空，则alert提醒
+				if(!this.value ||this.value.trim() == "") {
+					var label = this.previousElementSibling;
+					mui.alert(label.innerText + "不允许为空");
+					check = false;
+					return false;
+				}
+			});
+			//校验通过，继续执行业务逻辑
+			if(check) {
+				if(window.plus) {
+					plusReady();
+				} else {
+					document.addEventListener("plusready", plusReady, false);
+				}
+			}
+
+			
+		})
+
+		function plusReady() {
+			var view = plus.webview.getWebviewById("tableviews-with-swipe.html");
+			mui.fire(view, 'reLoad', {
+				inputVal: '我回来了'
+			});
+			mui.back()
+
+		}
+
+	})(mui);
+</script>

@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>被保人列表</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -11,139 +11,70 @@
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<!--App自定义的css-->
-		<link rel="stylesheet" type="text/css" href="../css/app.css" />
 	</head>
+	<style type="text/css">
+		.mui-bar .mui-btn-block {
+			padding: 13px 0;
+		}
+	</style>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">滑动触发列表项菜单</h1>
+			<h1 class="mui-title">被保人列表</h1>
+			<a class="mui-icon mui-icon-right-nav mui-pull-right mui-icon-plus-filled" href="Newinsured.html"></a>
 		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-btn-primary mui-btn-block" id="yes">确定</button>
+		</nav>
 		<div class="mui-content">
-			<h5 class="mui-content-padded" style="margin: 35px 10px 15px 10px;">拖拽(滑动)显示功能按钮，点击按钮触发事件</h5>
 			<ul id="OA_task_1" class="mui-table-view">
 				<li class="mui-table-view-cell">
 					<div class="mui-slider-right mui-disabled">
 						<a class="mui-btn mui-btn-red">删除</a>
 					</div>
 					<div class="mui-slider-handle">
-						左滑显示删除按钮
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					<div class="mui-slider-left mui-disabled">
-						<a class="mui-btn mui-btn-red">删除</a>
-					</div>
-					<div class="mui-slider-handle">
-						右滑显示删除按钮
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					<div class="mui-slider-left mui-disabled">
-						<a class="mui-btn mui-btn-red">删除</a>
-					</div>
-					<div class="mui-slider-right mui-disabled">
-						<a class="mui-btn mui-btn-red">删除</a>
-					</div>
-					<div class="mui-slider-handle">
-						左右滑动均可显示删除按钮
-					</div>
-				</li>
-			</ul>
-			<h5 class="mui-content-padded" style="margin: 15px 10px;">拖拽(滑动)显示操作图标，释放后还原，自动触发事件</h5>
-			<ul id="OA_task_2" class="mui-table-view">
-				<li class="mui-table-view-cell">
-					<div class="mui-slider-right mui-disabled">
-						<a class="mui-btn mui-btn-red">删除</a>
-					</div>
-					<div class="mui-slider-handle mui-table">
-						<div class="mui-table-cell">
-							左滑自动触发删除
-						</div>
-
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					<div class="mui-slider-left mui-disabled">
-						<a class="mui-btn mui-btn-red">删除</a>
-					</div>
-					<div class="mui-slider-handle">
-						右滑自动触发删除
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					<div class="mui-slider-left mui-disabled">
-						<a class="mui-btn mui-btn-red">删除</a>
-					</div>
-					<div class="mui-slider-right mui-disabled">
-						<a class="mui-btn mui-btn-red">删除</a>
-					</div>
-					<div class="mui-slider-handle">
-						左右滑动均可自动触发删除
-					</div>
-				</li>
-			</ul>
-			<h5 class="mui-content-padded" style="margin: 15px 10px;">拖拽(滑动)显示多功能菜单</h5>
-			<ul id="OA_task_2" class="mui-table-view">
-				<li class="mui-table-view-cell">
-					<div class="mui-slider-right mui-disabled">
-						<a class="mui-btn mui-btn-grey mui-icon mui-icon-person"></a>
-						<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone"></a>
-						<a class="mui-btn mui-btn-red mui-icon mui-icon-email"></a>
-					</div>
-					<div class="mui-slider-handle">
-						<div class="mui-table-cell">
-							左滑显示多功能菜单
+						<div class="mui-input-row mui-checkbox mui-left">
+							<label>父亲</label>
+							<input name="checkbox" value="Item 1" type="checkbox">
 						</div>
 					</div>
 				</li>
 				<li class="mui-table-view-cell">
-					<div class="mui-slider-left mui-disabled">
-						<a class="mui-btn mui-btn-red mui-icon mui-icon-email"></a>
-						<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone"></a>
-						<a class="mui-btn mui-btn-grey mui-icon mui-icon-person"></a>
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
 					</div>
 					<div class="mui-slider-handle">
-						右滑显示多功能菜单
+						<div class="mui-input-row mui-checkbox mui-left">
+							<label>父亲</label>
+							<input name="checkbox" value="Item 1" type="checkbox">
+						</div>
 					</div>
 				</li>
 				<li class="mui-table-view-cell">
-					<div class="mui-slider-left mui-disabled">
-						<a class="mui-btn mui-btn-red mui-icon mui-icon-email"></a>
-						<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone"></a>
-						<a class="mui-btn mui-btn-grey mui-icon mui-icon-person"></a>
-					</div>
 					<div class="mui-slider-right mui-disabled">
-						<a class="mui-btn mui-btn-grey mui-icon mui-icon-person"></a>
-						<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone"></a>
-						<a class="mui-btn mui-btn-red mui-icon mui-icon-email"></a>
+						<a class="mui-btn mui-btn-red">删除</a>
 					</div>
 					<div class="mui-slider-handle">
-						左右滑动均可显示多功能菜单
+						<div class="mui-input-row mui-checkbox mui-left">
+							<label>父亲</label>
+							<input name="checkbox" value="Item 1" type="checkbox">
+						</div>
 					</div>
-					
 				</li>
 			</ul>
-			<div class="mui-slider-handle" id="yes">确定</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script>
 			mui.init();
 			(function($) {
-				//$.swipeoutOpen(el,direction)//打开指定列的滑动菜单，el:指定列的dom对象，direction：取值left|right，指定打开的是左侧或右侧滑动菜单
-				//$.swipeoutClose(el);//关闭指定列的滑动菜单，el:指定列的dom对象
-				//				setTimeout(function() {
-				//					$.swipeoutOpen(document.getElementById("OA_task_1").querySelector('li:last-child'), 'left');
-				//					setTimeout(function() {
-				//						$.swipeoutClose(document.getElementById("OA_task_1").querySelector('li:last-child'));
-				//					}, 1000);
-				//				}, 1000);
 				//第一个demo，拖拽后显示操作图标，点击操作图标删除元素；
+				var btnArray = ['确认', '取消'];
 				$('#OA_task_1').on('tap', '.mui-btn', function(event) {
 					var elem = this;
 					var li = elem.parentNode.parentNode;
 					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
-						if (e.index == 0) {
+						if(e.index == 0) {
 							li.parentNode.removeChild(li);
 						} else {
 							setTimeout(function() {
@@ -152,53 +83,134 @@
 						}
 					});
 				});
-				var btnArray = ['确认', '取消'];
-				//第二个demo，向左拖拽后显示操作图标，释放后自动触发的业务逻辑
-				$('#OA_task_2').on('slideleft', '.mui-table-view-cell', function(event) {
-					var elem = this;
-					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
-						if (e.index == 0) {
-							elem.parentNode.removeChild(elem);
-						} else {
-							setTimeout(function() {
-								$.swipeoutClose(elem);
-							}, 0);
+
+				if(window.plus) {
+					plusReady();
+				} else {
+					document.addEventListener("plusready", plusReady, false);
+				}
+
+				function plusReady() {
+					mui("body").on("tap", "#yes", function() {
+						var view = plus.webview.getWebviewById("radio.html");
+						mui.fire(view, 'doit', {
+							inputVal: '我回来了'
+						});
+						mui.back()
+					})
+				}
+
+				mui('header').on('tap', 'a.mui-icon-plus-filled', function() {
+					var href = this.getAttribute('href');
+
+					//非plus环境，直接走href跳转
+					if(!mui.os.plus) {
+						location.href = href;
+						return;
+					}
+
+					var id = this.getAttribute("data-wid");
+					if(!id) {
+						id = href;
+						console.log('此时的ID是' + id)
+					}
+
+					if(href && ~href.indexOf('.html')) {
+						//打开窗口的相关参数
+						var options = {
+							styles: {
+								popGesture: "close"
+							},
+							extras: {}
+						};
+						//如下场景不适用下拉回弹：
+						//1、单webview下拉刷新；2、底部有fixed定位的div的页面
+						if(!~id.indexOf('pullrefresh.html') && !~href.indexOf("examples/tabbar.html") && !~href.indexOf("list-to-detail/listview.html")) {
+							options.styles.bounce = "vertical";
 						}
-					});
-				});
-				//第二个demo，向右拖拽后显示操作图标，释放后自动触发的业务逻辑
-				$('#OA_task_2').on('slideright', '.mui-table-view-cell', function(event) {
-					var elem = this;
-					mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
-						if (e.index == 0) {
-							elem.parentNode.removeChild(elem);
-						} else {
-							setTimeout(function() {
-								$.swipeoutClose(elem);
-							}, 0);
+						//图标页面需要启动硬件加速
+						if(~id.indexOf('icons.html') || ~id.indexOf("echarts.html")) {
+							options.styles.hardwareAccelerated = true;
 						}
-					});
-				});
-				
-				
-				if(window.plus){   
-        plusReady();   
-		    }else{   
-		        document.addEventListener("plusready",plusReady,false);   
-		    } 
-		    function plusReady(){   
-		           
-		            
-		         mui("body").on("tap","#yes",function(){   
-		            var view=plus.webview.getWebviewById("radio");   
-		            mui.fire(view,'doit',{   
-		                inputVal:'我回来了'   
-		            });   
-		            mui.back()
-		               
-		         })   
-		    }
-				
+						if(~id.indexOf('im-chat.html')) {
+							options.extras.acceleration = "none";
+						}
+
+						var titleType = this.getAttribute("data-title-type");
+						if(titleType && titleType.indexOf("native") > -1) { //原生导航
+							options.styles.titleNView = {
+								autoBackButton: true,
+								backgroundColor: '#f7f7f7',
+								titleText: this.innerHTML.trim(),
+								splitLine: {
+									color: '#cccccc'
+								}
+							};
+
+							options.show = {
+								event: 'loaded'
+							}
+							//有原生标题的情况下，就不需要waiting框了
+							options.waiting = {
+								autoShow: false
+							}
+
+							//透明渐变导航,增加类型设置
+							if(titleType == "transparent_native") {
+								options.styles.titleNView.type = "transparent";
+							}
+
+							//处理原生图片轮播
+							if(~id.indexOf("slider-native.html")) {
+								options.styles.subNViews = [{ //配置图片轮播
+									id: 'slider-native',
+									type: 'ImageSlider',
+									styles: {
+										left: 0,
+										right: 0,
+										top: 0,
+										height: '200px',
+										position: 'static',
+										loop: true,
+										images: [{
+											src: '_www/images/yuantiao.jpg',
+											width: '100%'
+										}, {
+											src: '_www/images/shuijiao.jpg',
+											width: '100%',
+										}, {
+											src: '_www/images/muwu.jpg',
+											width: '100%',
+										}, {
+											src: '_www/images/cbd.jpg',
+											width: '100%',
+										}]
+									}
+								}];
+							}
+						} else {
+							//非原生导航，需要设置顶部状态栏占位
+							options.styles.statusbar = {
+								background: "#f7f7f7"
+							}
+						}
+						if(id && id == "viewgroup") { //强制启用截屏
+							options.extras.acceleration = "capture";
+						}
+						//打开新窗口
+						mui.openWindow(href, id, options);
+
+					}
+				})
+
+				function fun1(e) {
+					//获取当前webview的名称
+					var views = plus.webview.currentWebview()
+					views.reload(true);
+				}
+				//自定义窗体事件  doit 要和b页面定义的 事件名称一致   
+				window.addEventListener('reLoad', fun1);
+
 			})(mui);
 		</script>
 	</body>
