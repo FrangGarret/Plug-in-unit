@@ -1,0 +1,139 @@
+{
+  "menuList": [
+    {
+      "menuId": 67,
+      "parentId": 0,
+      "parentName": null,
+      "name": "前台页面菜单",
+      "url": null,
+      "perms": null,
+      "type": 0,
+      "icon": null,
+      "orderNum": 0,
+      "open": null,
+      "list": [
+        {
+          "menuId": 68,
+          "parentId": 67,
+          "parentName": null,
+          "name": "运营服务",
+          "url": "",
+          "perms": "",
+          "type": 0,
+          "icon": "icon-yunyingfuwu",
+          "orderNum": 0,
+          "open": null,
+          "list": [
+            {
+              "menuId": 82,
+              "parentId": 68,
+              "parentName": null,
+              "name": "任务工作台",
+              "url": "New_index.html",
+              "perms": "",
+              "type": 1,
+              "icon": "icon-renwugongzuotai",
+              "orderNum": 0,
+              "open": null,
+              "list": null
+            },
+            {
+              "menuId": 83,
+              "parentId": 68,
+              "parentName": null,
+              "name": "保费溢缴",
+              "url": "x_overPolicy.html",
+              "perms": null,
+              "type": 1,
+              "icon": "icon-baofeiyijiao",
+              "orderNum": 0,
+              "open": null,
+              "list": null
+            },
+            {
+              "menuId": 84,
+              "parentId": 68,
+              "parentName": null,
+              "name": "综合查询",
+              "url": "ComprehensiveQuery.html",
+              "perms": null,
+              "type": 1,
+              "icon": "icon-zonghechaxun",
+              "orderNum": 0,
+              "open": null,
+              "list": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "menuId": 93,
+      "parentId": 0,
+      "parentName": null,
+      "name": "前台页面右侧菜单",
+      "url": null,
+      "perms": null,
+      "type": 0,
+      "icon": null,
+      "orderNum": 0,
+      "open": null,
+      "list": [
+        {
+          "menuId": 89,
+          "parentId": 93,
+          "parentName": null,
+          "name": "保单质检",
+          "url": null,
+          "perms": null,
+          "type": 0,
+          "icon": "icon-hetongzhijian",
+          "orderNum": 0,
+          "open": null,
+          "list": []
+        },
+        {
+          "menuId": 90,
+          "parentId": 93,
+          "parentName": null,
+          "name": "待核保任务",
+          "url": null,
+          "perms": null,
+          "type": 0,
+          "icon": "icon-daihebaorenwu2",
+          "orderNum": 0,
+          "open": null,
+          "list": []
+        },
+        {
+          "menuId": 91,
+          "parentId": 93,
+          "parentName": null,
+          "name": "待跟进事项",
+          "url": null,
+          "perms": null,
+          "type": 0,
+          "icon": "icon-daigenjinshixiang",
+          "orderNum": 0,
+          "open": null,
+          "list": []
+        },
+        {
+          "menuId": 92,
+          "parentId": 93,
+          "parentName": null,
+          "name": "合同质检",
+          "url": null,
+          "perms": null,
+          "type": 0,
+          "icon": "icon-hetongzhijian",
+          "orderNum": 0,
+          "open": null,
+          "list": []
+        }
+      ]
+    }
+  ],
+  "code": 0,
+  "permissions": []
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Test</title>
+<script type="text/javascript" language="javascript" >
+function get3MonthBefor(currentTime){
+    var resultDate,year,month,date;
+    var currDate = new Date(currentTime);
+    year = currDate.getFullYear();
+    month = currDate.getMonth()+1;
+    date = currDate.getDate();
+    switch(month)
+    {
+      case 1:
+      case 2:
+      case 3:
+        month += 9;
+        year--;
+        break;
+      default:
+        month -= 3;
+        break;
+    }
+    month = (month < 10) ? ('0' + month) : month;
+    resultDate = year + '-'+month+'-'+date;
+  return resultDate;
+}
+document.write(get3MonthBefor('2017-08-01'));
+</script>
+</head>
+<body>
+</body>
+</html>

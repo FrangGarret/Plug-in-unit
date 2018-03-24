@@ -10,7 +10,7 @@
 		<button id="btn">点击触发事件</button>
 		<button id="btn">点击触发事件</button>
 		<button id="btn">点击触发事件</button>
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 			var btn = document.querySelectorAll('button');
 			for(var i = 0; i < btn.length; i++) {
 				(function(i) {
@@ -19,7 +19,26 @@
 					}, false)
 				})(i)
 			}
-		</script>
+		</script>-->
 	</body>
 
 </html>
+<script type="text/javascript">
+	alert(a);
+	var a=1;
+	alert(a);
+	function a(){
+		alert(2)
+	}
+		alert(a);
+	var a=3;
+	function a(){
+		alert(4)
+	}
+	alert(a);
+	var a=function(){
+		alert(5)
+	}
+	alert(a); 
+	a()
+</script>

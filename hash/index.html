@@ -70,7 +70,7 @@
 		if( $(this).hasClass('nav_li') ){
 			createJson('target_li',$(this).index(),jsons);
 		}else{
-			createJson('target_li_te',$(this).attr('ft'),jsons);
+			createJson('target_li_parentNode_index',$(this).attr('parentNode_index'),jsons);
 		}
 		$('.con').load(load_html+'.html');
 		history.pushState(jsons,'','#'+load_html)
@@ -80,20 +80,20 @@
 		console.log(ev.state)
 		var obj = ev.state
 		if( obj ){
-			var qian=ev.state.data_url||''
+			var prev_page=ev.state.data_url||''
 			var li_click=ev.state.target_li || ''
-			var li_click_te = ev.state.target_li_te || ''
+			var li_click_parentNode_index = ev.state.target_li_parentNode_index || ''
 			if(li_click==''){
-				$('.nav_li').eq(li_click_te).addClass('active').siblings().removeClass('active')
-				console.log(qian+'.html')
-				$('.con').load(qian+'.html')
+				$('.nav_li').eq(li_click_parentNode_index).addClass('active').siblings().removeClass('active')
+				console.log(prev_page+'.html')
+				$('.con').load(prev_page+'.html')
 			}else{
 				$('.nav_li').eq(li_click).addClass('active').siblings().removeClass('active')
-				$('.con').load(qian+'.html')
+				$('.con').load(prev_page+'.html')
 			}
 		}
 		
-		obj=null
+		
 
 	};
 	
