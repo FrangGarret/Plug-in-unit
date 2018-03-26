@@ -16,6 +16,9 @@
 		.mui-bar .mui-btn-block {
 			padding: 13px 0;
 		}
+		#yes{
+			top: 0;
+		}
 	</style>
 
 	<body>
@@ -35,9 +38,9 @@
 						<a class="mui-btn mui-btn-yellow mui-icon mui-icon-compose edit" href="Newinsured.html"></a>
 					</div>
 					<div class="mui-slider-handle">
-						<div class="mui-input-row mui-checkbox mui-left">
-							<label>父亲</label>
-							<input name="checkbox" value="Item 1" type="checkbox">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>张三</label>
+							<input name="checkbox1" value="张三" type="radio" class="checkedRadios">
 						</div>
 					</div>
 				</li>
@@ -47,9 +50,9 @@
 						<a class="mui-btn mui-btn-yellow mui-icon mui-icon-compose edit" href="Newinsured.html"></a>
 					</div>
 					<div class="mui-slider-handle">
-						<div class="mui-input-row mui-checkbox mui-left">
-							<label>父亲</label>
-							<input name="checkbox" value="Item 1" type="checkbox">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>李四</label>
+							<input name="checkbox1" value="李四" type="radio" class="checkedRadios">
 						</div>
 					</div>
 				</li>
@@ -59,9 +62,9 @@
 						<a class="mui-btn mui-btn-yellow mui-icon mui-icon-compose edit" href="Newinsured.html"></a>
 					</div>
 					<div class="mui-slider-handle">
-						<div class="mui-input-row mui-checkbox mui-left">
-							<label>父亲</label>
-							<input name="checkbox" value="Item 1" type="checkbox">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>王五</label>
+							<input name="checkbox1" value="王五" type="radio" class="checkedRadios">
 						</div>
 					</div>
 				</li>
@@ -71,6 +74,17 @@
 		<script>
 			mui.init();
 			(function($) {
+				//判断前一个页面是否已经选择了被保人，如果已经选择了，则在本页面自动选中相应的被保人
+				var self = plus.webview.currentWebview();
+				var name = self.beibaorenChecked;
+				if(name){
+					mui('.checkedRadios').each(function(index,el){
+						if( this.value == name ){
+							this.checked = true
+						}
+					})
+				}
+				
 				//第一个demo，拖拽后显示操作图标，点击操作图标删除元素；
 				var btnArray = ['确认', '取消'];
 				$('#OA_task_1').on('tap', '.delete', function(event) {
@@ -207,8 +221,16 @@
 				function plusReady() {
 					mui("body").on("tap", "#yes", function() {
 						var view = plus.webview.getWebviewById("radio.html");
+						var checkPeople = ''
+						mui('.checkedRadios').each(function(index,el){
+							if(this.checked){
+								checkPeople=this.value
+							}
+						})
+						
+						//向上一个页面返回值
 						mui.fire(view, 'doit', {
-							inputVal: '我回来了'
+							inputVal: checkPeople
 						});
 						mui.back()
 					})

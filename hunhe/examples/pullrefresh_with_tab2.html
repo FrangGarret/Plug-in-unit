@@ -269,13 +269,6 @@
 						}
 
 						if(href && ~href.indexOf('.html')) {
-							//打开窗口的相关参数
-							var options = {
-								styles: {
-									popGesture: "close"
-								},
-								extras: {}
-							};
 							//如下场景不适用下拉回弹：
 							//1、单webview下拉刷新；2、底部有fixed定位的div的页面
 							if(!~id.indexOf('pullrefresh.html') && !~href.indexOf("examples/tabbar.html") && !~href.indexOf("list-to-detail/listview.html")) {

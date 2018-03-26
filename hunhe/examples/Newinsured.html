@@ -18,6 +18,9 @@
 			.mui-input-row label~input{
 				width: 60%;
 			}
+			#yes{
+				top: 0px;
+			}
 		</style>
 	</head>
 
@@ -41,11 +44,11 @@
 				</div>
 				<div class="mui-input-row">
 					<label>性别</label>
-					<input type="text" placeholder="请输入...">
+					<input type="text" placeholder="请输入..." class="select" ids='2'>
 				</div>
 				<div class="mui-input-row">
 					<label>证件类型</label>
-					<input type="text" placeholder="请输入..." readonly="readonly" class="select" ids='2'>
+					<input type="text" placeholder="请输入..." readonly="readonly" class="select" ids='3'>
 				</div>
 				<div class="mui-input-row">
 					<label>证件号码</label>
@@ -71,7 +74,7 @@
 			
 				var self = plus.webview.currentWebview();
 				var name = self.nums;
-				alert(name) //...
+				alert('选择的是'+name) //...
 			
 			
 			/**
@@ -106,7 +109,7 @@
 				text: '女'
 			}]
 
-			var jsons2 = [{
+			var jsons3 = [{
 				value: 'sfz',
 				text: '身份证'
 			}, {
@@ -131,6 +134,8 @@
 					userPicker.setData(jsons1);
 				} else if(that_id == 2) {
 					userPicker.setData(jsons2);
+				}else if(that_id == 3) {
+					userPicker.setData(jsons3);
 				}
 
 				userPicker.show(function(items) {

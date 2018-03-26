@@ -544,6 +544,10 @@
 		<script>
 			mui.init();
 			(function($) {
+				
+				
+				
+				
 				//阻尼系数
 				var deceleration = mui.os.ios?0.003:0.0009;
 				$('.mui-scroll-wrapper').scroll({
@@ -686,12 +690,6 @@
 						options.styles.statusbar = {
 							background: "#f7f7f7"
 						}
-					}
-					
-					//侧滑菜单需动态控制一下zindex值；
-					if(~id.indexOf('offcanvas-')) {
-						options.styles.zindex = 9998;
-						options.styles.popGesture = ~id.indexOf('offcanvas-with-right') ? "close" : "none";
 					}
 					
 					if(id && id == "viewgroup") { //强制启用截屏

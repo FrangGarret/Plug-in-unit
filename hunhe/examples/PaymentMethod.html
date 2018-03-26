@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">付款方式</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-btn-primary mui-btn-block" id="yes">确定</button>
+		</nav>
+	</body>
+
+</html>
+<script src="../js/mui.min.js"></script>
+<script type="text/javascript">
+	mui.init()
+	if(window.plus) {
+		plusReady();
+	} else {
+		document.addEventListener("plusready", plusReady, false);
+	}
+
+	function plusReady() {
+		mui("body").on("tap", "#yes", function() {
+			var view = plus.webview.getWebviewById("radio.html");
+			var checkPeople = '蚂蚁花呗'
+
+			//向上一个页面返回值
+			mui.fire(view, 'PayMent', {
+				inputVal: checkPeople
+			});
+			mui.back()
+		})
+	}
+</script>
