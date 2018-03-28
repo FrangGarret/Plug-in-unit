@@ -6,6 +6,14 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.addBankcard{
+				padding: 11px 15px;
+			}
+			#yes{
+				padding: 12px 0;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -13,6 +21,31 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">付款方式</h1>
 		</header>
+		<div class="mui-content">
+			<div class="addBankcard links" href="addBankcard.html">
+				添加银行卡
+			</div>
+			<ul class="mui-table-view mui-table-view-radio">
+				<li class="mui-table-view-cell mui-selected">
+					<a class="mui-navigate-right">
+						中国农业银行信用卡
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						工商银行借记卡
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						平安银行信用卡
+					</a>
+				</li>
+			</ul>
+			<div class="mui-content-padded">
+				<p id="info"></p>
+			</div>
+		</div>
 		<nav class="mui-bar mui-bar-tab">
 			<button type="button" class="mui-btn mui-btn-primary mui-btn-block" id="yes">确定</button>
 		</nav>
@@ -22,6 +55,14 @@
 <script src="../js/mui.min.js"></script>
 <script type="text/javascript">
 	mui.init()
+	
+	var info = document.getElementById("info");
+	var checkPeople = info.innerText
+		document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected',function(e){
+			info.innerHTML = e.detail.el.innerText;
+			checkPeople = e.detail.el.innerText
+		});
+	
 	if(window.plus) {
 		plusReady();
 	} else {
@@ -31,7 +72,7 @@
 	function plusReady() {
 		mui("body").on("tap", "#yes", function() {
 			var view = plus.webview.getWebviewById("radio.html");
-			var checkPeople = '蚂蚁花呗'
+			
 
 			//向上一个页面返回值
 			mui.fire(view, 'PayMent', {
@@ -40,4 +81,114 @@
 			mui.back()
 		})
 	}
+	
+	mui('.mui-content').on('tap', '.links', function() {
+			var href = this.getAttribute('href');
+			//非plus环境，直接走href跳转
+			if(!mui.os.plus) {
+				location.href = href;
+				return;
+			}
+
+			var id = this.getAttribute("data-wid");
+			if(!id) {
+				id = href;
+				console.log('此时的ID是' + id)
+			}
+
+			if(href && ~href.indexOf('.html')) {
+
+				
+					//打开窗口的相关参数
+					var options = {
+						styles: {
+							popGesture: "close"
+						},
+						extras: {
+						}
+					};
+				
+				//如下场景不适用下拉回弹：
+				//1、单webview下拉刷新；2、底部有fixed定位的div的页面
+				if(!~id.indexOf('pullrefresh.html') && !~href.indexOf("examples/tabbar.html") && !~href.indexOf("list-to-detail/listview.html")) {
+					options.styles.bounce = "vertical";
+				}
+				//图标页面需要启动硬件加速
+				if(~id.indexOf('icons.html') || ~id.indexOf("echarts.html")) {
+					options.styles.hardwareAccelerated = true;
+				}
+				if(~id.indexOf('im-chat.html')) {
+					options.extras.acceleration = "none";
+				}
+
+				var titleType = this.getAttribute("data-title-type");
+				if(titleType && titleType.indexOf("native") > -1) { //原生导航
+					options.styles.titleNView = {
+						autoBackButton: true,
+						backgroundColor: '#f7f7f7',
+						titleText: this.innerHTML.trim(),
+						splitLine: {
+							color: '#cccccc'
+						}
+					};
+
+					options.show = {
+						event: 'loaded'
+					}
+					//有原生标题的情况下，就不需要waiting框了
+					options.waiting = {
+						autoShow: false
+					}
+
+					//透明渐变导航,增加类型设置
+					if(titleType == "transparent_native") {
+						options.styles.titleNView.type = "transparent";
+					}
+
+					//处理原生图片轮播
+					if(~id.indexOf("slider-native.html")) {
+						options.styles.subNViews = [{ //配置图片轮播
+							id: 'slider-native',
+							type: 'ImageSlider',
+							styles: {
+								left: 0,
+								right: 0,
+								top: 0,
+								height: '200px',
+								position: 'static',
+								loop: true,
+								images: [{
+									src: '_www/images/yuantiao.jpg',
+									width: '100%'
+								}, {
+									src: '_www/images/shuijiao.jpg',
+									width: '100%',
+								}, {
+									src: '_www/images/muwu.jpg',
+									width: '100%',
+								}, {
+									src: '_www/images/cbd.jpg',
+									width: '100%',
+								}]
+							}
+						}];
+					}
+				} else {
+					//非原生导航，需要设置顶部状态栏占位
+					options.styles.statusbar = {
+						background: "#f7f7f7"
+					}
+				}
+
+
+				if(id && id == "viewgroup") { //强制启用截屏
+					options.extras.acceleration = "capture";
+				}
+				//打开新窗口
+				mui.openWindow(href, id, options);
+
+			}
+		})
+	
+	
 </script>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar .mui-btn-block{
+				padding: 12px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">添加银行卡</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>姓名</label>
+					<input type="text" placeholder="普通输入框" value="Frang" readonly="readonly">
+				</div>
+				<div class="mui-input-row mui-plus-visible">
+					<label>银行卡号</label>
+					<input type="text" class="mui-input-speech mui-input-clear" placeholder="使用语音输入">
+				</div>
+			</form>
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-btn-primary mui-btn-block">下一步</button>
+		</nav>
+	</body>
+
+</html>
+<script src="../js/mui.min.js"></script>
+<script type="text/javascript">
+	mui.init()
+	var nativeWebview, imm, InputMethodManager;
+	var initNativeObjects = function() {
+		if(mui.os.android) {
+			var main = plus.android.runtimeMainActivity();
+			var Context = plus.android.importClass("android.content.Context");
+			InputMethodManager = plus.android.importClass("android.view.inputmethod.InputMethodManager");
+			imm = main.getSystemService(Context.INPUT_METHOD_SERVICE);
+		} else {
+			nativeWebview = plus.webview.currentWebview().nativeInstanceObject();
+		}
+	};
+	var showSoftInput = function() {
+		if(mui.os.android) {
+			imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
+		} else {
+			nativeWebview.plusCallMethod({
+				"setKeyboardDisplayRequiresUserAction": false
+			});
+		}
+		setTimeout(function() {
+			var inputElem = document.querySelector('input');
+			inputElem.focus();
+			inputElem.parentNode.classList.add('mui-active'); //第一个是search，加上激活样式
+		}, 200);
+	};
+	mui.plusReady(function() {
+		initNativeObjects();
+		showSoftInput();
+	});
+</script>
