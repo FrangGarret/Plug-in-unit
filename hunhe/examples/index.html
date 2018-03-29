@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/icons-extra.css" />
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<style>
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+			
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			
+			.oa-contact-content {
+				width: 100%;
+			}
+			
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			
+			.oa-contact-name,
+			.oa-contact-position {
+				float: left;
+			}
+			
+			.mui-bar-tab {
+				display: flex;
+				flex-flow: row;
+			}
+			
+			.nav_bar {
+				flex: 1;
+				display: flex;
+				flex-flow: column;
+			}
+			
+			.nav_bar.current {
+				color: #ffc107;
+			}
+			
+			.mui-bar-tab .nav_bar span {
+				text-align: center;
+				flex: 1;
+				line-height: 25px;
+				font-size: 14px;
+			}
+			
+			.mui-bar-tab .nav_bar span.mui-icon {
+				font-size: 20px;
+				position: relative;
+				top: 4px;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+			
+			.mui-bar-tab .nav_bar span.mui-icon-extra-topic {
+				font-size: 16px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">首页</h1>
+		</header>-->
+
+		<nav class="mui-bar mui-bar-tab">
+			<span class="nav_bar links current" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+			</span>
+			<span class="nav_bar links" href="pullrefresh_with_tab.html">
+				<span class="mui-icon mui-icon-extra mui-icon-extra-topic"></span>
+			<span class="mui-tab-label">产品</span>
+			</span>
+			<span class="nav_bar links" href="setting.html">
+				<span class="mui-icon  mui-icon-contact"></span>
+			<span class="mui-tab-label">我的</span>
+			</span>
+		</nav>
+		<div class="mui-content">
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li id="switch" class="mui-table-view-cell">
+					定时轮播
+					<div class="mui-switch">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</li>
+			</ul>
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../images/yuantiao.jpg">
+						</a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/shuijiao.jpg">
+						</a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/muwu.jpg">
+						</a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/cbd.jpg">
+						</a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/yuantiao.jpg">
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../images/shuijiao.jpg">
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+
+		//主列表点击事件
+		mui('nav').on('tap', '.links', function() {
+			var href = this.getAttribute('href');
+
+			//非plus环境，直接走href跳转
+			if(!mui.os.plus) {
+				location.href = href;
+				return;
+			}
+
+			var id = this.getAttribute("data-wid");
+			if(!id) {
+				id = href;
+				console.log('此时的ID是' + id)
+			}
+
+			if(href && ~href.indexOf('.html')) {
+				//打开窗口的相关参数
+				var options = {
+					styles: {
+						popGesture: "close"
+					},
+					extras: {}
+				};
+				//如下场景不适用下拉回弹：
+				//1、单webview下拉刷新；2、底部有fixed定位的div的页面
+				if(!~id.indexOf('pullrefresh.html') && !~href.indexOf("examples/tabbar.html") && !~href.indexOf("list-to-detail/listview.html")) {
+					options.styles.bounce = "vertical";
+				}
+				//图标页面需要启动硬件加速
+				if(~id.indexOf('icons.html') || ~id.indexOf("echarts.html")) {
+					options.styles.hardwareAccelerated = true;
+				}
+				if(~id.indexOf('im-chat.html')) {
+					options.extras.acceleration = "none";
+				}
+
+				var titleType = this.getAttribute("data-title-type");
+				if(titleType && titleType.indexOf("native") > -1) { //原生导航
+					options.styles.titleNView = {
+						autoBackButton: true,
+						backgroundColor: '#f7f7f7',
+						titleText: this.innerHTML.trim(),
+						splitLine: {
+							color: '#cccccc'
+						}
+					};
+
+					options.show = {
+						event: 'loaded'
+					}
+					//有原生标题的情况下，就不需要waiting框了
+					options.waiting = {
+						autoShow: false
+					}
+
+					//透明渐变导航,增加类型设置
+					if(titleType == "transparent_native") {
+						options.styles.titleNView.type = "transparent";
+					}
+
+					//处理原生图片轮播
+					if(~id.indexOf("slider-native.html")) {
+						options.styles.subNViews = [{ //配置图片轮播
+							id: 'slider-native',
+							type: 'ImageSlider',
+							styles: {
+								left: 0,
+								right: 0,
+								top: 0,
+								height: '200px',
+								position: 'static',
+								loop: true,
+								images: [{
+									src: '_www/images/yuantiao.jpg',
+									width: '100%'
+								}, {
+									src: '_www/images/shuijiao.jpg',
+									width: '100%',
+								}, {
+									src: '_www/images/muwu.jpg',
+									width: '100%',
+								}, {
+									src: '_www/images/cbd.jpg',
+									width: '100%',
+								}]
+							}
+						}];
+					}
+				} else {
+					//非原生导航，需要设置顶部状态栏占位
+					options.styles.statusbar = {
+						background: "#f7f7f7"
+					}
+				}
+
+				if(id && id == "viewgroup") { //强制启用截屏
+					options.extras.acceleration = "capture";
+				}
+				//打开新窗口
+				mui.openWindow(href, id, options);
+
+			}
+		});
+		var _self;
+		var _toast = false;
+		_self = plus.webview.currentWebview();
+		mui.back = function() {
+			if(parseInt(_self.getStyle().left) > 0) {
+				closeMenu();
+				return;
+			}
+
+			if(!_toast || !_toast.isVisible()) {
+				_toast = mui.toast('再按一次返回键退出<br>点此可返回&nbsp;', {
+					duration: 'long',
+					type: 'div'
+				});
+			} else {
+				plus.runtime.quit();
+			}
+		}
+
+		var slider = mui("#slider");
+		document.getElementById("switch").addEventListener('toggle', function(e) {
+			if(e.detail.isActive) {
+				slider.slider({
+					interval: 2000
+				});
+			} else {
+				slider.slider({
+					interval: 0
+				});
+			}
+		});
+	</script>
+
+</html>

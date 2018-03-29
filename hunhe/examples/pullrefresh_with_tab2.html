@@ -76,6 +76,85 @@
 				border: none;
 				border-radius: 0;
 			}
+			
+			.justify {
+				text-align: justify;
+			}
+			
+			.nav-justified a {
+				border-radius: 0 !important;
+			}
+			
+			.bzDetail h4 {
+				font-weight: 400;
+				/*border-left:5px solid #ff7623;*/
+				/*padding-left:5px;*/
+				color: #242424;
+				font-size: 17px;
+				line-height: 17px;
+				margin-top: 15px;
+			}
+			
+			#container-table table {
+				width: 100%;
+				border: 1px solid black;
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			
+			.container {
+				padding-right: 15px;
+				padding-left: 15px;
+				margin-right: auto;
+				margin-left: auto;
+			}
+			
+			#container-table table caption {
+				height: 25px;
+			}
+			
+			#container-table table tr {
+				height: 30px;
+				text-align: center;
+				vertical-align: middle;
+			}
+			
+			#container-table table tr td {
+				border: 1px solid black;
+			}
+			
+			.textAlignCetner {
+				text-align: center
+			}
+			
+			.allColorStyle {
+				color: #FF7721;
+			}
+			
+			.list_ul {
+				list-style: none;
+				padding: 0;
+			}
+			
+			.justify h5 {
+				font-weight: 600;
+			}
+			
+			.p_title {
+				font-size: 16px;
+				color: #333;
+				padding: 5px 15px;
+			}
+			
+			.p_con {
+				font-size: 14px;
+				color: #999;
+				padding: 5px 15px;
+			}
+			
+			.p_img {
+				width: 100%;
+			}
 		</style>
 	</head>
 
@@ -83,7 +162,7 @@
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">产品详情</h1>
-			<a class="mui-icon mui-pull-right mui-icon-redo"></a>
+			<a class="mui-icon mui-pull-right mui-icon-redo" id="share"></a>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
 			<span class="money_warp">
@@ -165,30 +244,57 @@
 					</ul>
 				</div>
 				<div id="item3" class="mui-control-content">
-					<ul class="mui-table-view">
-						<li class="mui-table-view-cell">
-							第三个选项卡子项-1
-						</li>
-						<li class="mui-table-view-cell">
-							第三个选项卡子项-2
-						</li>
-						<li class="mui-table-view-cell">
-							第三个选项卡子项-3
-						</li>
-					</ul>
+					<div class="">
+						<p class="p_title">1.理赔报案</p>
+						<p class="p_con">报案人：投保人.被保险人.受益人，或是本公司的代理人。</p>
+						<p class="p_con">报案时间：知道或应该知道保险事故发生之日起五天内通知本公司，</p>
+						<p class="p_con">报案方式：书面报案（保险合同中印有保险事故通知书）</p>
+						<p class="p_con">口头报案（打电话至公司客服热线4008-211-211报案）</p>
+						<p class="p_con">微信报案（交银康联人寿官微→业务受理→在线办理→理赔报案）</p>
+						<p class="p_con">报案要求：出险人姓名.保单号码.事故原因与地点、联系方式。</p>
+						<p class="p_title">2.理赔申请人</p>
+						<p class="p_con">为合同条款规定的受益人；</p>
+						<p class="p_con">若无指定的受益人，申请人应为被保险人法定继承人；</p>
+						<p class="p_con">受益人或继承人无民事行为能力，申请人可以是其法定监护人。</p>
+						<p class="p_title">3.理赔申请方式</p>
+						<p class="p_con">受益人可以通过我公司代理人至公司办理手续；</p>
+						<p class="p_con">受益人可以亲自前往我公司办理理赔申请，也可以委托其他人为其办理理赔申请，委托他人需要有书面委托；</p>
+						<p class="p_con">受益人可以通过邮寄方式将理赔所需要的材料寄送公司的客户服务部。</p>
+						<p class="p_title">4.申请时效</p>
+						<p class="p_con">一般人寿保险：自受益人知道或应当知道保险事故发生之日起五年；</p>
+						<p class="p_con">人寿保险以外的意外伤害保险和健康保险：自受益人知道或应该知道保险事故发生之日起二年。</p>
+						<p class="p_title">5.理赔决定通知书</p>
+						<p class="p_con">公司理赔部在对理赔案件审核后，将作出理赔决定出具相应的通知书给受益人。</p>
+						<p class="p_title">6.领取规定</p>
+						<p class="p_con">保险金一般由银行转帐或领款凭证方式支付。</p>
+						<p class="p_con">转帐领取：本公司将在发出通知书10天内将理赔给付金划入受益人帐户中；</p>
+						<p class="p_con">领款凭证领取：受益人须凭保险金给付通知书及本人身份证明亲自前往银行领取。务必按领款凭证的时间要求领款，领款凭证过期或毁损的需要返回公司，由公司重新出具领款凭证；</p>
+						<p class="p_con">其它特殊情况发生的按合同和国家相关法律执行。</p>
+						<p class="p_title">7.理赔复议</p>
+						<p class="p_con">若对本公司的理赔决定存有异议，受益人可在收到通知书后15天内，以书面形式通知本公司。本公司在收到客户复议申请后15个工作日内给予书面答复。</p>
+						<img class="p_img" src="../images/1342688818045.gif" />
+
+						<p class="p_con">2) 理赔给付申请书的填写说明：</p>
+						<p class="p_con">A 按照申请书填写要求，填写理赔申请书；</p>
+						<p class="p_con">B 明确申请理赔的险种；</p>
+						<p class="p_con">C 申请书上签名的应为受益人本人。若受益人为二人以上的，所有受益人都需签名，并确定保险金领取人。若受益人不具体（如法定），则办理公证或律师见证书确定受益人；</p>
+						<p class="p_con">D 申请书上各项内容填写须客观、真实、全面。</p>
+					</div>
 				</div>
 				<div id="item4" class="mui-control-content">
-					<ul class="mui-table-view">
-						<li class="mui-table-view-cell">
-							第四个选项卡子项-1
-						</li>
-						<li class="mui-table-view-cell">
-							第四个选项卡子项-2
-						</li>
-						<li class="mui-table-view-cell">
-							第四个选项卡子项-3
-						</li>
-					</ul>
+					<div class="container bzDetail">
+						<h4>常见问题</h4>
+						<ul class="list_ul">
+							<li class="justify">
+								<h5>3年内与指定心上人领取结婚证能获得结婚祝福金吗？</h5>
+								<p>不能。购买时间的3年以后，13年以内，与保单上填写的心上人领取结婚证的方能领取婚礼祝福金。</p>
+							</li>
+							<li class="justify">
+								<h5>恋爱保险组成中，祝福金的申领期限是3年以后，13年以内，那么我购买三份支付了297元，以后每年还需要再缴费吗？</h5>
+								<p>不需要，一次性交完支付，以后无需每年缴费。</p>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -254,7 +360,7 @@
 						}
 					};
 
-					mui('.mui-content,.mui-bar-tab').on('tap','#pay_money,.links',function(){
+					mui('.mui-content,.mui-bar-tab').on('tap', '#pay_money,.links', function() {
 						var href = this.getAttribute('href');
 
 						//非plus环境，直接走href跳转
@@ -342,7 +448,6 @@
 								}
 							}
 
-
 							if(id && id == "viewgroup") { //强制启用截屏
 								options.extras.acceleration = "capture";
 							}
@@ -352,6 +457,100 @@
 						}
 
 					})
+
+					//分享操作
+					var shares = {};
+
+					mui.plusReady(function() {
+						plus.share.getServices(function(s) {
+							if(s && s.length > 0) {
+								for(var i = 0; i < s.length; i++) {
+									var t = s[i];
+									shares[t.id] = t;
+								}
+							}
+						}, function() {
+							console.log("获取分享服务列表失败");
+						});
+					});
+
+					setTimeout(function() {
+						defaultImg();
+						setTimeout(function() {
+							initImgPreview();
+						}, 300);
+					}, 500);
+
+					//分享链接点击事件
+					document.getElementById("share").addEventListener('tap', function() {
+						var ids = [{
+								id: "weixin",
+								ex: "WXSceneSession"
+							}, {
+								id: "weixin",
+								ex: "WXSceneTimeline"
+							}, {
+								id: "sinaweibo"
+							}, {
+								id: "tencentweibo"
+							}, {
+								id: "qq"
+							}],
+							bts = [{
+								title: "发送给微信好友"
+							}, {
+								title: "分享到微信朋友圈"
+							}, {
+								title: "分享到新浪微博"
+							}, {
+								title: "分享到腾讯微博"
+							}, {
+								title: "分享到QQ"
+							}];
+						plus.nativeUI.actionSheet({
+							cancel: "取消",
+							buttons: bts
+						}, function(e) {
+							var i = e.index;
+							if(i > 0) {
+								var s_id = ids[i - 1].id;
+								var share = shares[s_id];
+								if(share) {
+									if(share.authenticated) {
+										shareMessage(share, ids[i - 1].ex);
+									} else {
+										share.authorize(function() {
+											shareMessage(share, ids[i - 1].ex);
+										}, function(e) {
+											console.log("认证授权失败：" + e.code + " - " + e.message);
+										});
+									}
+								} else {
+									mui.toast("无法获取分享服务，请检查manifest.json中分享插件参数配置，并重新打包")
+								}
+							}
+						});
+					});
+
+					function shareMessage(share, ex) {
+						var msg = {
+							extra: {
+								scene: ex
+							}
+						};
+						msg.href = "http://www.fangjialiang.com/";
+						msg.title = "保险证券业务线上海交付部";
+						msg.content = "上海交付部第一个产品级应用孵化中";
+						if(~share.id.indexOf('weibo')) {
+							msg.content += "；体验地址：http://www.fangjialiang.com/";
+						}
+						msg.thumbs = ["_www/images/logo.png"];
+						share.send(msg, function() {
+							console.log("分享到\"" + share.description + "\"成功！ ");
+						}, function(e) {
+							console.log("分享到\"" + share.description + "\"失败: " + e.code + " - " + e.message);
+						});
+					}
 
 				});
 			})(mui, document);
