@@ -9,7 +9,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="../css/mui.min.css">
-		<link rel="stylesheet" type="text/css" href="../css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
 		<style>
 			html,
 			body {
@@ -248,7 +248,7 @@
 			<span class="mui-tab-label">首页</span>
 			</span>
 			<span class="nav_bar links" href="pullrefresh_with_tab.html">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-topic"></span>
+				<span class="mui-icon iconfont icon-anquan"></span>
 			<span class="mui-tab-label">产品</span>
 			</span>
 			<span class="nav_bar links current" href="">
@@ -745,7 +745,7 @@
 			if(~share.id.indexOf('weibo')) {
 				msg.content += "；体验地址：http://www.fangjialiang.com/";
 			}
-			msg.thumbs = ["_www/images/logo.png"];
+			msg.thumbs = ["_www/images/logoyin.png"];
 			share.send(msg, function() {
 				console.log("分享到\"" + share.description + "\"成功！ ");
 			}, function(e) {
@@ -767,9 +767,9 @@
 		//客服电话
 		document.getElementById("tel").addEventListener('tap', function() {
 			if(mui.os.plus) {
-				plus.device.dial("114");
+				plus.device.dial("17621074660");
 			} else {
-				location.href = 'tel:114';
+				location.href = 'tel:17621074660';
 			}
 
 		});
@@ -788,7 +788,7 @@
 						}
 					}, data.title, ["立即更新", "取　　消"]);
 				} else {
-					mui.toast('Hello App 已是最新版本~')
+					mui.toast('App 已是最新版本~')
 				}
 			});
 		});
