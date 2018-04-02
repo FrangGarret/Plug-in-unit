@@ -60,6 +60,7 @@
 			//监听自定义事件，获取新闻详情
 			document.addEventListener('get_detail', function(event) {
 				var guid = event.detail.guid;
+				alert(guid)
 				if(!guid) {
 					return;
 				}
