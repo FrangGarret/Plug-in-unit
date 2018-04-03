@@ -101,32 +101,38 @@
 				max-width: 66px;
 				height: 66px;
 			}
-			.mui-bar-tab{
+			
+			.mui-bar-tab {
 				display: flex;
-				flex-flow:row ;
+				flex-flow: row;
 			}
-			.nav_bar{
+			
+			.nav_bar {
 				flex: 1;
 				display: flex;
 				flex-flow: column;
 			}
-			.nav_bar.current{
+			
+			.nav_bar.current {
 				color: #ffc107;
 			}
-			.mui-bar-tab .nav_bar span{
+			
+			.mui-bar-tab .nav_bar span {
 				text-align: center;
 				flex: 1;
 				line-height: 25px;
 				font-size: 14px;
 			}
-			.mui-bar-tab .nav_bar span.mui-icon{
+			
+			.mui-bar-tab .nav_bar span.mui-icon {
 				font-size: 20px;
 				position: relative;
 				top: 4px;
-				padding-top:0 ;
+				padding-top: 0;
 				padding-bottom: 0;
 			}
-			.mui-bar-tab .nav_bar span.mui-icon-extra-topic{
+			
+			.mui-bar-tab .nav_bar span.mui-icon-extra-topic {
 				font-size: 16px;
 			}
 		</style>
@@ -137,22 +143,22 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">产品列表</h1>
 		</header>
-		
+
 		<nav class="mui-bar mui-bar-tab">
 			<span class="nav_bar links" href="index.html">
 				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">首页</span>
+			<span class="mui-tab-label">首页</span>
 			</span>
 			<span class="nav_bar links current" href="pullrefresh_with_tab.html">
 				<span class="mui-icon iconfont icon-anquan"></span>
-				<span class="mui-tab-label">产品</span>
+			<span class="mui-tab-label">产品</span>
 			</span>
 			<span class="nav_bar links" href="setting.html">
 				<span class="mui-icon  mui-icon-contact"></span>
-				<span class="mui-tab-label">我的</span>
+			<span class="mui-tab-label">我的</span>
 			</span>
 		</nav>
-		
+
 		<div class="mui-content">
 			<div id="slider" class="mui-slider mui-fullscreen">
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
@@ -398,27 +404,44 @@
 									var self = this;
 									setTimeout(function() {
 										var ul = self.element.querySelector('.mui-table-view');
-										ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+										ul.insertBefore(createFragment(ul, index, 3, true), ul.firstChild);
 										self.endPullDownToRefresh();
-									}, 1000);
-								}
-							},
-							up: {
-								callback: function() {
-									var self = this;
-									setTimeout(function() {
-										var ul = self.element.querySelector('.mui-table-view');
-										ul.appendChild(createFragment(ul, index, 5));
-										self.endPullUpToRefresh();
 									}, 1000);
 								}
 							}
 						});
 					});
-					var createFragment = function(ul, index, count, reverse) {
-						var length = ul.querySelectorAll('li').length;
-						var fragment = document.createDocumentFragment();
-						var li,a,imgs,divs,h4,p1,p2,span1,span2,span3,textNode;
+					var createFragment = function(ul, index, count, reverse,currentUrl) {
+						
+						var length = ul.querySelectorAll('li').length;	//获取当前类目下的产品数量
+						var fragment = document.createDocumentFragment();	//创建DOM碎片
+						var li,a,imgs,divs,h4,p1,p2,span1,span2,span3,textNode,textNode1;
+						
+						if(currentUrl){
+							mui.ajax(currentUrl,{
+							data: {
+								listId: '',
+								counts: count,
+								lengths	:length
+								
+							},
+							dataType: 'json', //服务器返回json格式数据
+							type: 'post', //HTTP请求类型
+							success: function(data) {
+								//获得服务器响应
+								console.log(data.userName)
+							},
+							error: function(e) {
+				
+								alert('链接失败' + e)
+							}
+						})
+						}
+						
+						
+						
+						
+						
 						for (var i = 0; i < count; i++) {
 							li = document.createElement('li');
 							li.className = 'mui-table-view-cell';
@@ -445,9 +468,11 @@
 							span2.className = 'mui-pull-right'
 							span3 = document.createElement('span');
 							span3.innerText = '￥33.00';
-							textNode = document.createTextNode('年')
+							textNode = document.createTextNode('年');
+							textNode1 = document.createTextNode( length + (reverse ? (count - i) : (i + 1) ) );
 							span2.appendChild(span3);
 							span2.appendChild(textNode);
+							span2.appendChild(textNode1);
 							p2.appendChild(span1);
 							p2.appendChild(span2);
 							divs.appendChild(h4);
@@ -460,6 +485,7 @@
 							//li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
 							fragment.appendChild(li);
 						}
+						//alert(length+count)
 						return fragment;
 					};
 				});
