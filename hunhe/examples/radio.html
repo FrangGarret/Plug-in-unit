@@ -79,19 +79,22 @@
 				margin-right: 20px;
 				color: #333333;
 			}
-			.goPayment{
+			
+			.goPayment {
 				width: 100%;
 				text-align: center;
 				padding: 12px 0;
 				font-size: 16px;
 			}
-			.paymentTitle{
+			
+			.paymentTitle {
 				text-align: center;
 				font-size: 16px;
 				height: 30px;
 				line-height: 30px;
 			}
-			.payment_closed{
+			
+			.payment_closed {
 				font-size: 30px;
 				margin-left: 15px;
 			}
@@ -205,211 +208,113 @@
 			</ul>
 		</div>
 
-
 	</body>
 	<script src="../js/mui.min.js"></script>
+	<script src="../js/commonlinks.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		mui.init({
 			swipeBack: true //启用右滑关闭功能
 		});
-//		mui.plusReady(function() {
-			//判断在plus5+环境下还是浏览器环境下，取值方式不同
-			if(mui.os.ios || (mui.os.android)) {
-				var self = plus.webview.currentWebview();
-				var name = self.name;
-				//alert(name) //...
-				//alert(localStorage.getItem('a'))
-			} else {
-				console.log(localStorage.getItem('a'))
-			}
 
-			mui('body').on('tap', '.mui-popover-action li>a', function() {
-				var a = this,
-					parent;
-				//根据点击按钮，反推当前是哪个actionsheet
-				for(parent = a.parentNode; parent != document.body; parent = parent.parentNode) {
-					if(parent.classList.contains('mui-popover-action')) {
-						break;
-					}
+		if(mui.os.plus) { //判断是否是app端
+			mui.plusReady(function() {
+				//判断在plus5+环境下还是浏览器环境下，取值方式不同
+				if(mui.os.ios || (mui.os.android)) {
+					var self = plus.webview.currentWebview();
+					var name = self.name;
+				} else {
+					console.log(localStorage.getItem('a'))
 				}
-				//关闭actionsheet
-				//mui('#' + parent.id).popover('toggle');
-			})
+				//选择被保人页面返回回来要执行的方法   
+				function fun1(e) {
+					var val = e.detail.inputVal
+					document.getElementById('showUserPicker1').innerText = val;
+				}
+				//自定义窗体事件  doit 要和b页面定义的 事件名称一致   
+				window.addEventListener('doit', fun1);
 
-			mui('.mui-bar').on('tap', '#pay_money', function() {
-				var check = true; //设置全局变量判断必选条件是否全部填写和选中
-				var agreeId = document.getElementById('agree').checked
-				//判断输入框的选项是否已经填写值
-				mui(".mui-navigate-right button").each(function() {
-					//若当前input为空，则alert提醒
-					if(!this.innerText || this.innerText == "") {
-						var label = this.previousElementSibling;
-						mui.alert(label.innerText + "不允许为空");
-						check = false;
-						return false;
-					}
-				});
-				//判断相关条款是否已经同意
-				if(agreeId == false) {
-					mui.alert('请同意相关条款');
+				//mui('#InsurersList').popover('show');
+
+				//选择付款方式页面返回回来要执行的方法
+				function fun2(e) {
+					var val = e.detail.inputVal
+					document.getElementById('PaymentMethod').innerText = val
+				}
+				window.addEventListener('PayMent', fun2);
+
+				//选择优惠券页面返回回来要执行的方法
+				function fun3(e) {
+					var val = e.detail.inputVal
+					document.getElementById('Coupon').innerText = val
+				}
+				window.addEventListener('Coupon', fun3);
+			})
+		} else { //浏览器端
+
+		}
+
+		mui('body').on('tap', '.mui-popover-action li>a', function() {
+			var a = this,
+				parent;
+			//根据点击按钮，反推当前是哪个actionsheet
+			for(parent = a.parentNode; parent != document.body; parent = parent.parentNode) {
+				if(parent.classList.contains('mui-popover-action')) {
+					break;
+				}
+			}
+			//关闭actionsheet
+			//mui('#' + parent.id).popover('toggle');
+		})
+
+		mui('.mui-bar').on('tap', '#pay_money', function() {
+			var check = true; //设置全局变量判断必选条件是否全部填写和选中
+			var agreeId = document.getElementById('agree').checked
+			//判断输入框的选项是否已经填写值
+			mui(".mui-navigate-right button").each(function() {
+				//若当前input为空，则alert提醒
+				if(!this.innerText || this.innerText == "") {
+					var label = this.previousElementSibling;
+					mui.alert(label.innerText + "不允许为空");
 					check = false;
-					return false
+					return false;
 				}
-
-				if(check) {
-					mui('#picture').popover('show');
-					check = null;
-				}
-
-			})
-
-			mui('.mui-navigate-right,.files,#picture').on('tap', '.links', function() {
-				var href = this.getAttribute('href');
-				var beibaorenChecked = document.getElementById('showUserPicker1').innerText
-				//非plus环境，直接走href跳转
-				if(!mui.os.plus) {
-					location.href = href;
-					return;
-				}
-
-				var id = this.getAttribute("data-wid");
-				if(!id) {
-					id = href;
-					console.log('此时的ID是' + id)
-				}
-
-				if(href && ~href.indexOf('.html')) {
-
-					if(beibaorenChecked && beibaorenChecked.trim() != '') {
-						//打开窗口的相关参数
-						var options = {
-							styles: {
-								popGesture: "close"
-							},
-							extras: {
-								beibaorenChecked: beibaorenChecked
-							}
-						};
-					} else {
-						var options = {
-							styles: {
-								popGesture: "close"
-							},
-							extras: {}
-						};
-					}
-
-					//如下场景不适用下拉回弹：
-					//1、单webview下拉刷新；2、底部有fixed定位的div的页面
-					if(!~id.indexOf('pullrefresh.html') && !~href.indexOf("examples/tabbar.html") && !~href.indexOf("list-to-detail/listview.html")) {
-						options.styles.bounce = "vertical";
-					}
-					//图标页面需要启动硬件加速
-					if(~id.indexOf('icons.html') || ~id.indexOf("echarts.html")) {
-						options.styles.hardwareAccelerated = true;
-					}
-					if(~id.indexOf('im-chat.html')) {
-						options.extras.acceleration = "none";
-					}
-
-					var titleType = this.getAttribute("data-title-type");
-					if(titleType && titleType.indexOf("native") > -1) { //原生导航
-						options.styles.titleNView = {
-							autoBackButton: true,
-							backgroundColor: '#f7f7f7',
-							titleText: this.innerHTML.trim(),
-							splitLine: {
-								color: '#cccccc'
-							}
-						};
-
-						options.show = {
-							event: 'loaded'
-						}
-						//有原生标题的情况下，就不需要waiting框了
-						options.waiting = {
-							autoShow: false
-						}
-
-						//透明渐变导航,增加类型设置
-						if(titleType == "transparent_native") {
-							options.styles.titleNView.type = "transparent";
-						}
-
-						//处理原生图片轮播
-						if(~id.indexOf("slider-native.html")) {
-							options.styles.subNViews = [{ //配置图片轮播
-								id: 'slider-native',
-								type: 'ImageSlider',
-								styles: {
-									left: 0,
-									right: 0,
-									top: 0,
-									height: '200px',
-									position: 'static',
-									loop: true,
-									images: [{
-										src: '_www/images/yuantiao.jpg',
-										width: '100%'
-									}, {
-										src: '_www/images/shuijiao.jpg',
-										width: '100%',
-									}, {
-										src: '_www/images/muwu.jpg',
-										width: '100%',
-									}, {
-										src: '_www/images/cbd.jpg',
-										width: '100%',
-									}]
-								}
-							}];
-						}
-					} else {
-						//非原生导航，需要设置顶部状态栏占位
-						options.styles.statusbar = {
-							background: "#f7f7f7"
-						}
-					}
-
-					//侧滑菜单需动态控制一下zindex值；
-					if(~id.indexOf('offcanvas-')) {
-						options.styles.zindex = 9998;
-						options.styles.popGesture = ~id.indexOf('offcanvas-with-right') ? "close" : "none";
-					}
-
-					if(id && id == "viewgroup") { //强制启用截屏
-						options.extras.acceleration = "capture";
-					}
-					//打开新窗口
-					mui.openWindow(href, id, options);
-
-				}
-			})
-
-			//选择被保人页面返回回来要执行的方法   
-			function fun1(e) {
-				var val = e.detail.inputVal
-				document.getElementById('showUserPicker1').innerText = val
+			});
+			//判断相关条款是否已经同意
+			if(agreeId == false) {
+				mui.alert('请同意相关条款');
+				check = false;
+				return false
 			}
-			//自定义窗体事件  doit 要和b页面定义的 事件名称一致   
-			window.addEventListener('doit', fun1);
 
-			//mui('#InsurersList').popover('show');
-
-			//选择付款方式页面返回回来要执行的方法
-			function fun2(e) {
-				var val = e.detail.inputVal
-				document.getElementById('PaymentMethod').innerText = val
+			if(check) {
+				mui('#picture').popover('show');
+				check = null;
 			}
-			window.addEventListener('PayMent', fun2);
 
-			//选择优惠券页面返回回来要执行的方法
-			function fun3(e) {
-				var val = e.detail.inputVal
-				document.getElementById('Coupon').innerText = val
+		})
+
+		mui('.mui-navigate-right,.files,#picture').on('tap', '.links', function() {
+			var beibaorenChecked = document.getElementById('showUserPicker1').innerText;
+			if(beibaorenChecked && beibaorenChecked.trim() != '') {
+				//打开窗口的相关参数
+				var options = {
+					styles: {
+						popGesture: "close"
+					},
+					extras: {
+						beibaorenChecked: beibaorenChecked
+					}
+				};
+			} else {
+				var options = {
+					styles: {
+						popGesture: "close"
+					},
+					extras: {}
+				};
 			}
-			window.addEventListener('Coupon', fun3);
-//		})
+			commonLinks(this,options)
+		})
 	</script>
 
 </html>

@@ -4,8 +4,8 @@
 		"iPhone",
 		"iPad"
 	],
-	"id": "H5C3E5D30",/*必选，应用的标识*/
-	"name": "product2",/*必选，应用名称*/
+	"id": "H59C6080E",/*必选，应用的标识*/
+	"name": "product",/*必选，应用名称*/
 	"version": {
 		"name": "1.0",/*必选，版本名称*/
 		"code": ""
@@ -14,8 +14,8 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"fullscreen": true,
-	"launch_path": "index.html",/*必选，应用的入口页面，默认为根目录下的index.html；也可以是网络地址，网络地址必须以http://或https://开头*/
+	"fullscreen": false,
+	"launch_path": "examples/index.html",/*必选，应用的入口页面，默认为根目录下的index.html；也可以是网络地址，网络地址必须以http://或https://开头*/
 	"developer": {
 		"email": "",/*可选，开发者名称*/
 		"name": "",/*可选，开发者邮箱地址*/
@@ -26,30 +26,24 @@
 		"Events": {
 			"description": "应用扩展事件"
 		},
-		"Speech": {
-			"description": "管理语音识别插件"
-		},
-		"Payment": {},
-		"Share": {},
-		"Push": {},
+		"Speech": {},
+		
+		
+		
 		"Maps": {},
 		"OAuth": {},
 		"Contacts": {},
-		"Statistic": {},
+		
 		"Messaging": {}
 	},
 	"plus": {
-		"launchwebview": {
-			"titleNView": {
-				"backgroundcolor": "#f7f7f7",
-				"titletext": "首页",
-				"titlecolor": "#000000"
-			}
-		},
 		"statusbar": {
-			"immersed": "supportedDevice",
-			"style": "dark"
+			"immersed": false,
+			"style": "dark",
+			"background":"#f7f7f7"
+			
 		},
+		"fullscreen":false,
 		"popGesture": "close",/*设置应用默认侧滑返回关闭Webview窗口，none为无侧滑返回功能，hide为侧滑隐藏Webview窗口。参考ask.dcloud.net.cn/article/102*/
 		"splashscreen": {
 			"autoclose": false,/*如果为true，程序启动的图片可以自动关闭，如果为false，开发者需要手动关闭*/
@@ -60,6 +54,7 @@
 		"distribute": {
 			"debug": "",/*可选，是否为debug模式，可取值：true表示debug模式运行，false表示release模式运行，默认值为false*/
 			"apple": {
+				"UIReserveStatusbarOffset":true,
 				"appid": "",/*iOS必选，苹果开发网站申请的appid，如io.dcloud.HelloMUI*/
 				"mobileprovision": "",/*iOS必选，打包配置文件*/
 				"password": "",/*iOS必选，导入配置文件密码*/
@@ -72,7 +67,7 @@
 				"keystore": "",/*Android必选，打包证书文件*/
 				"password": "",/*Android必选，打包证书密码*/
 				"aliasname": "",/*Android必选，打包证书别名*/
-				"permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.SEND_SMS\"/>","<uses-permission android:name=\"android.permission.INTERNET\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"android.permission.WRITE_SMS\"/>","<uses-permission android:name=\"android.permission.READ_SMS\"/>"]
+				"permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_SURFACE_FLINGER\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission  android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_CHECKIN_PROPERTIES\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.WRITE_GSERVICES\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.ACCESS_LOCATION_EXTRA_COMMANDS\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.SEND_SMS\"/>","<uses-permission android:name=\"android.permission.INTERNET\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"android.permission.WRITE_SMS\"/>","<uses-permission android:name=\"android.permission.READ_SMS\"/>"]
 			},
 			"orientation": [
 				"portrait-primary",
@@ -155,7 +150,14 @@
 					"list.html"
 				],
 				"refer": [
-					"index-menu.html"
+					"index-menu.html",
+					"examples/guide.html",
+					"examples/pullrefresh_with_tab.html",
+					"examples/media-list.html",
+					"examples/tableviews-with-swipe.html",
+					"examples/index.html",
+					"examples/index1.html",
+					"examples/pullrefresh_with_tab0.html"
 				],
 				"priority": 0
 			},
@@ -673,7 +675,9 @@
 					"js/mui.view.js",
 					"images/iconfont-tianjia.png"
 				],
-				"refer": [],
+				"refer": [
+					"examples/index.html"
+				],
 				"priority": 0
 			},
 			"examples/offcanvas-drag-right-plus-main.html": {
@@ -786,7 +790,11 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css"
 				],
-				"refer": [],
+				"refer": [
+					"examples/pullrefresh_with_tab2.html",
+					"examples/setting.html",
+					"examples/index.html"
+				],
 				"priority": 0
 			},
 			"examples/radio.html": {
@@ -796,7 +804,12 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css"
 				],
-				"refer": [],
+				"refer": [
+					"examples/tableviews-with-swipe.html",
+					"examples/PaymentMethod.html",
+					"examples/clause.html",
+					"examples/Notice.html"
+				],
 				"priority": 0
 			},
 			"examples/range.html": {
@@ -965,7 +978,9 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css"
 				],
-				"refer": [],
+				"refer": [
+					"examples/Newinsured.html"
+				],
 				"priority": 0
 			},
 			"examples/media-list.html": {
@@ -999,6 +1014,51 @@
 				],
 				"refer": [],
 				"priority": 0
+			},
+			"examples/pullrefresh_with_tab2.html": {
+				"resources": [],
+				"refer": [
+					"examples/radio.html",
+					"examples/clause.html",
+					"examples/Notice.html"
+				],
+				"priority": 0
+			},
+			"examples/Newinsured.html": {
+				"resources": [],
+				"refer": [
+					"examples/tableviews-with-swipe.html"
+				],
+				"priority": 0
+			},
+			"examples/index.html": {
+				"resources": [],
+				"refer": [
+					"examples/pullrefresh_with_tab.html",
+					"examples/setting.html"
+				],
+				"priority": 0
+			},
+			"examples/Notice.html": {
+				"resources": [],
+				"refer": [
+					"examples/radio.html"
+				],
+				"priority": 0
+			},
+			"examples/clause.html": {
+				"resources": [],
+				"refer": [
+					"examples/radio.html"
+				],
+				"priority": 0
+			},
+			"examples/pullrefresh_with_tab0.html": {
+				"resources": [],
+				"refer": [
+					"examples/pullrefresh_with_tab.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -1014,5 +1074,13 @@
 				"js/mui.picker.all.js"
 			]
 		}
-	}
+	},
+	"unpackage":[
+	  "css/mui.dtpicker.css",
+	  "css/mui.listpicker.css",
+	  "css/mui.picker.all.css",
+	  "js/mui.dtpicker.js",
+	  "js/mui.listpicker.js",
+	  "js/mui.picker.all.js"
+	]
 }

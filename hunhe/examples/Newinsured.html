@@ -12,13 +12,16 @@
 			.mui-bar .mui-btn-block {
 				padding: 13px 0;
 			}
-			.mui-input-row label{
-				width:40%;
+			
+			.mui-input-row label {
+				width: 40%;
 			}
-			.mui-input-row label~input{
+			
+			.mui-input-row label~input {
 				width: 60%;
 			}
-			#yes{
+			
+			#yes {
 				top: 0px;
 			}
 		</style>
@@ -71,12 +74,13 @@
 	(function($) {
 		mui.init()
 		$.ready(function() {
-			
+
+			if(mui.os.plus) {
 				var self = plus.webview.currentWebview();
 				var name = self.nums;
-				alert('选择的是'+name) //...
-			
-			
+				alert('选择的是' + name) //...
+			}
+
 			/**
 			 * 获取对象属性的值
 			 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
@@ -100,7 +104,7 @@
 				value: 'mn',
 				text: '母女'
 			}]
-			
+
 			var jsons2 = [{
 				value: 'N',
 				text: '男'
@@ -134,7 +138,7 @@
 					userPicker.setData(jsons1);
 				} else if(that_id == 2) {
 					userPicker.setData(jsons2);
-				}else if(that_id == 3) {
+				} else if(that_id == 3) {
 					userPicker.setData(jsons3);
 				}
 
@@ -152,7 +156,7 @@
 			var check = true;
 			mui(".forms_data input").each(function() {
 				//若当前input为空，则alert提醒
-				if(!this.value ||this.value.trim() == "") {
+				if(!this.value || this.value.trim() == "") {
 					var label = this.previousElementSibling;
 					mui.alert(label.innerText + "不允许为空");
 					check = false;
@@ -165,10 +169,10 @@
 					plusReady();
 				} else {
 					document.addEventListener("plusready", plusReady, false);
+					mui.back()
 				}
 			}
 
-			
 		})
 
 		function plusReady() {
