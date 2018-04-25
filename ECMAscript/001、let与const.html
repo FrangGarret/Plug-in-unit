@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+//let声明变量在预解析的时候不会被提升
+
+//console.log(b)//undefind
+//console.log(a)//报错
+//let a = 0;
+//var b = 0;
+
+
+
+let	f = 10;
+function fn(){
+	f = 7;		//暂时性死区，会报错
+	let  f = 2;
+}
+fn()
+
+
+
+
+</script>
