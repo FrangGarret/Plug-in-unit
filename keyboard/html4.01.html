@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>demo</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/softkeys-0.0.1.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+		<div class="pages">
+			<div class="box_form">
+				<div class="form_titles">
+					请选择您本次业务批单的接收方式：
+				</div>
+				<div class="form_content">
+					<!--短信 s-->
+					<div class="form_line">
+						<input class="checkbox" type="checkbox" id="message">
+						<label class="checkbox_label" for="message"></label>
+						<span class="form_text">短信</span>
+						<input type="number" class="text_input">
+					</div>
+					<!--短信 e-->
+
+					<!--邮箱 s-->
+					<div class="form_line">
+						<input class="checkbox" type="checkbox" id="email">
+						<label class="checkbox_label" for="email"></label>
+						<span class="form_text">邮箱</span>
+						<input type="text" class="text_input" name="code" id="setEmail" readonly="readonly">
+					</div>
+					<!--邮箱 e-->
+
+					<!--太平洋寿险微信公众号 s-->
+					<div class="form_line">
+						<input class="checkbox" type="checkbox" id="mark">
+						<label class="checkbox_label" for="mark"></label>
+						<span class="form_text">太平洋寿险微信公众号</span>
+					</div>
+					<!--太平洋寿险微信公众号 e-->
+
+					<!--太平洋寿险APP s-->
+					<div class="form_line">
+						<input class="checkbox" type="checkbox" id="app">
+						<label class="checkbox_label" for="app"></label>
+						<span class="form_text">太平洋寿险APP</span>
+					</div>
+					<!--太平洋寿险APP e-->
+
+					<!--box_btn s-->
+					<div class="box_btn">
+						<button class="button" onclick="location.href='pages/evaluate.html'">确定</button>
+						<button class="button btn_stroke">取消</button>
+					</div>
+					<!--box_btn e-->
+				</div>
+			</div>
+
+			<!--屏保开始 s-->
+			<div class="box_img" id="boxImg"></div>
+			<!--屏保开始 e-->
+		</div>
+		<div class="softkeys" data-target="input[name='code']"></div>
+
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/softkeys-0.0.1.js"></script>
+		<script type="text/javascript" src="js/global.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('.softkeys').softkeys({
+					target: $('.softkeys').data('target'),
+					layout: [
+						[
+							['`', '~'],
+							['1', '!'],
+							['2', '@'],
+							['3', '#'],
+							['4', '$'],
+							['5', '%'],
+							['6', '^'],
+							['7', '&amp;'],
+							['8', '*'],
+							['9', '('],
+							['0', ')'],
+							['-', '_'],
+							['=', '+'],
+							'delete'
+						],
+						[
+							'tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', ['[', '{'],
+							[']', '}']
+						],
+						[
+							'capslock',
+							'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', [';', ':'],
+							["'", '&quot;'],
+							['\\', '|']
+						],
+						[
+							'shift',
+							'z', 'x', 'c', 'v', 'b', 'n', 'm', [',', '&lt;'],
+							['.', '&gt;'],
+							['/', '?']
+						],
+						['space']
+					]
+				});
+
+				//点击输入框显示键盘，并阻止冒泡
+				$("#setEmail").on("click", function(e) {
+					e.stopPropagation();
+					var thisH = $(".softkeys").height();
+					var pagesH = $(".pages").height();
+					$(".softkeys").animate({
+						"top": pagesH - thisH + "px"
+					}, 100);
+				});
+
+				//点击页面隐藏键盘
+				$(".pages").on("click", function() {
+					$(".softkeys").animate({
+						"top": "100%"
+					}, 100);
+				});
+
+				$(".checkbox_label").on("click", function() {
+					if($(this).hasClass("checkbox_label_checked")) {
+						$(this).removeClass("checkbox_label_checked");
+					} else {
+						$(this).addClass("checkbox_label_checked");
+					};
+				});
+				//初始化页面添加屏保图片
+				$.each(screenImg, function(i) {
+					html += '<div class="imgs"><img src="img/' + screenImg[i] + '"></div>';
+					$("#boxImg").html(html);
+				});
+
+				//调用定时器
+				loading();
+			});
+		</script>
+	</body>
+
+</html>
