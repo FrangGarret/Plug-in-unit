@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#container{
+			widows: 300px;
+			height: 300px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+<div id="container"></div>
+<script src="js/echarts.min.js"></script>
+<script type="text/javascript">
+	var myChart = echarts.init(document.getElementById('container'));
+	var myChartData = [
+		{
+			value: 5,
+			name: '40min 均处理时间/件'
+		}
+	];
+	var colorData = [
+		[0.1, '#eceff4'],
+		[0.2, '#eceff4'],
+		[0.3, '#eceff4'],
+		[0.4, '#eceff4'],
+		[0.5, '#eceff4'],
+		[0.6, '#eceff4'],
+		[0.7, '#eceff4'],
+		[0.8, '#eceff4'],
+		[0.9, '#eceff4'],
+		[1.0, '#eceff4']
+	];
+	for(var i = 0; i < myChartData[0].value; i++){
+		colorData[i][1] = '#289bed'
+	};
+	option1 = {
+		tooltip: {
+			show:false,
+			formatter: "{a} <br/>{b} : {c}%"
+			
+		},
+		series: [{
+			name: '件均处理时间',
+			type: 'gauge',
+			min: 0,
+			max: 10, 
+			startAngle: 180,
+            endAngle: 0,
+			axisLine: {
+				show: true,
+				lineStyle: {
+					width: 25,
+					shadowBlur: 0,
+					color: colorData
+				}
+			},
+			axisLabel: {
+				textStyle: {
+					fontSize: 12,
+					color:'#333',
+					fontWeight: ""
+				}
+			},
+			title:{
+				offsetCenter:['0%',"60%"]
+			},
+			axisTick: {
+				splitNumber: 5
+			},
+			detail: {
+				formatter: 'min/件',
+				offsetCenter:['0%',"30%"],
+				textStyle: {
+					fontSize: 14,
+					fontWeight: "",
+					color: "#999"
+				}
+			},
+			data: myChartData
+		}]
+	};
+	myChart.setOption(option1, true);
+	window.onresize = myChart.resize()
+</script>
+</body>
+</html>

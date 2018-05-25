@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>饼图</title>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		#container{
+			height: 280px
+		}
+		.highcharts-point{
+			rx: 0;
+    		ry: 0;
+		}
+	</style>
+</head>
+<body>
+<div id="container"></div>
+<script src="js/highcharts.js"></script>
+<script src="js/highcharts-3d.js"></script>
+<script src="js/exporting.js"></script>
+<script src="js/export-data.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var chartsDatas = [
+            {
+                name: '已处理',
+                y: 80,//占用比例
+                color:'#48d8c7',
+                sliced: false, // 突出显示某个扇区，表示强调
+                selected: false,
+            },
+            {
+                name: '未处理',
+                y: 20,//占用比例
+                color:'#1295f3',
+                sliced: true, // 突出显示某个扇区，表示强调
+                selected: true,
+            }
+        ]
+		Highcharts.chart('container', {
+		    chart: {
+		        type: 'pie',
+		        options3d: {
+		            enabled: true,//显示图表是否设置为3D， 我们将其设置为 true
+		            alpha: 65,//图表视图旋转角度
+		            beta: 0 //图表视图旋转角度
+		        }
+		    },
+		    title: {
+		        text: ''
+		    },
+		    credits:{
+	              enabled:false // 禁用版权信息
+	        },
+	        exporting:{
+				enabled:false //用来设置是否显示‘打印’,'导出'等功能按钮，不设置时默认为显示
+			},
+		    tooltip: {
+		        pointFormat: '{point.percentage:.1f}%'
+		    },
+		    plotOptions: {
+		        pie: {
+		            allowPointSelect: true,
+		            cursor: 'pointer',
+	               	showInLegend: true,
+		            depth: 25,//饼图的厚度
+		            slicedOffset: 20,         // 突出间距
+		            point: {   // 每个扇区是数据点对象，所以事件应该写在 point 下面
+						events: {
+								// 鼠标滑过是，突出当前扇区
+								mouseOver: function() {
+									this.slice();
+								},
+								// 鼠标移出时，收回突出显示
+								mouseOut: function() {
+									this.slice();
+								},
+								// 默认是点击突出，这里屏蔽掉
+								click: function() {
+									return false;
+								}
+						}
+					},
+		            dataLabels: {
+		                enabled: true,
+		                format: '{point.y}%'
+		            }
+		        }
+		    },
+		     legend: {
+		     	itemMarginTop:-100,
+	            align: 'center', //水平方向位置
+            	verticalAlign: 'bottom', //垂直方向位置
+	            x: 0, //距离x轴的距离
+	            y: 0 //距离Y轴的距离
+	        },
+		    series: [{
+		        type: 'pie',
+		        name: 'Browser share',
+		        startAngle: 180,//调整饼图的角度   方向：顺时针
+		        size: '100%',
+		        data: chartsDatas
+		    }]
+		});
+	}
+</script>
+</body>
+</html>

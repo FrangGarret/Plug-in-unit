@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+
+</html>
+<script type="text/javascript">
+	function accMul(arg1, arg2) {
+		var m = 0,
+			s1 = arg1.toString(),
+			s2 = arg2.toString();
+		try {
+			m += s1.split(".")[1].length;
+		} catch(e) {}
+		try {
+			m += s2.split(".")[1].length;
+		} catch(e) {}
+		return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+	}
+console.log(accMul(0.99,3))
+//	// 给Number类型增加一个mul方法，调用起来更加方便。
+	Number.prototype.mul = function(arg) {
+		return accMul(arg, this);
+	};
+	//console.log(Number(0.99)*Number(3))
+	//console.log(Number(0.99*3))
+</script>
