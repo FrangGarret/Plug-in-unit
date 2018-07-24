@@ -23,11 +23,13 @@
 		} catch(e) {}
 		return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
 	}
-console.log(accMul(0.99,3))
+//console.log(accMul(0.99,3))
 //	// 给Number类型增加一个mul方法，调用起来更加方便。
 	Number.prototype.mul = function(arg) {
 		return accMul(arg, this);
 	};
 	//console.log(Number(0.99)*Number(3))
-	//console.log(Number(0.99*3))
+	console.log(Number(0.012345).mul(3))
+	console.log(0.019*3)
+
 </script>
