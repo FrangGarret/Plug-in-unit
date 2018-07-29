@@ -30,19 +30,22 @@ window.onload = function(){
 			var a = ev.clientY - y;
 			
 			var c = Math.sqrt(Math.pow(b,2) + Math.pow(a,2));
-			
-			var scale =1- c/300;
+		
+			var scale1 = c;
+			var scale =1- c/100; 
 			
 			if(scale<0.5){
 				scale = 0.5;
 			}
 			
-			aInput[i].value = scale;
+			aInput[i].value = scale1;
 			
 			aImg[i].style.width = scale * 128 + 'px';
+			
 			aImg[i].style.height = scale * 128 + 'px';
 			
-		}
+			
+		} 
 		
 	};
 	
