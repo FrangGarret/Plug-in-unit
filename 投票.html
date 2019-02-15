@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#wrap {
+				margin: 0 auto;
+				text-align: center;
+			}
+			
+			.person {
+				position: relative;
+				margin: 20px;
+				float: left;
+			}
+			
+			.person h4,
+			.person p,
+			.person button {
+				margin-bottom: 5px;
+			}
+			
+			.person h4 {
+				color: blue;
+			}
+			
+			.person span {
+				color: red;
+			}
+			
+			.person button:hover {
+				cursor: pointer;
+				font-weight: bold;
+			}
+			
+			.clear {
+				clear: both;
+			}
+		</style>
+		<script type="text/javascript">
+			function getElemensByClassName(className) {  // 通过class获取
+				  
+				var classArr = new Array();  
+				var tags = document.getElementsByTagName("*"); //获取所有节点
+				  
+				for(var item in tags) {    
+					if(tags[item].nodeType == 1) {      
+						if(tags[item].getAttribute("class") == className) {        
+							classArr.push(tags[item]); //收集class匹配的节点
+						}    
+					}  
+				}  
+				return classArr;
+			}   
+			function delete_FF(element) {  // 在FireFox中删除子节点为空的元素
+				  
+				var childs = element.childNodes;  
+				for(var i = 0; i < childs.length; i++) {    
+					var pattern = /\s/; //模式匹配，内容为空
+					    
+					if(childs[i].nodeName == "#text" && pattern.test(childs[i].nodeValue)) {  //处理
+						      
+						element.removeChild(childs[i]); //删除FF中获取的空节点
+						    
+					}  
+				}
+			}   
+			window.onload = function() {  
+				var start = 10,
+					preDiff = 0;
+				var startTime = Date.now();
+				var t1 = setInterval(function() {
+					var tempTime = Date.now();
+					var diff = (tempTime - startTime) / 1000 >> 0;
+					if(diff >= start) {
+						clearInterval(t1);
+						show(0);
+						document.getElementById('wrap').innerHTML = '时间已到'
+						return;
+					}
+					if(preDiff === diff) return;
+					preDiff = diff;
+					show(start - diff);
+				}, 1);
+
+				function show(n) {
+					var hundredPalce = n / 100 >> 0;
+					var tenPalce = (n - hundredPalce * 100) / 10 >> 0;
+					var singlePalce = n % 10;
+					var spans = document.querySelectorAll("span");
+					spans[0].innerHTML = hundredPalce;
+					spans[1].innerHTML = tenPalce;
+					spans[2].innerHTML = singlePalce;
+				}
+				var persons = getElemensByClassName("person");  
+				for(var item in persons) {  //遍历所有person，为它们绑定投票事件
+					    
+					(function(_item) {    //匿名函数传入item, 防止因作用域问题导致item总为最后一个
+						      
+						delete_FF(persons[_item]); //出去FF中空行代表的子节点
+						      
+						persons[_item].setAttribute("id", "person" + (parseInt(_item) + 1)); //赋上id
+						         
+						var childs = persons[_item].childNodes;      
+						for(var i = 0; i < childs.length; i++) {         //alert(childs<i>.nodeName);
+							        
+							if(childs[i].nodeName == "BUTTON") { //点击按钮投票
+								          
+								var oButton = childs[i];        
+							}        
+							if(childs[i].nodeName == "P") {  //投票结果更新
+								          
+								var oP = childs[i];          
+								var oSpan = oP.getElementsByTagName("span")[0];        
+							}      
+						}      
+						if(oButton != null) {        
+							oButton.onclick = function() { //事件绑定
+
+								var this_frequency   =  oButton.getAttribute('can_vote');  
+								this_frequency++
+
+								if(this_frequency < 3) {
+									oButton.setAttribute('can_vote', this_frequency);
+								} else {
+									this.setAttribute("disabled", "true"); // 一般只能投票一次的吧
+								}
+								var num = oSpan.innerHTML; //获取票数
+								          
+								oSpan.innerHTML = (++num); //票数更新
+								alert("投票成功，谢谢您的支持");        
+							};      
+						}    
+					})(item); // 传入各项person
+					  
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<p>投票倒计时</p>
+		<div class="codeTime"><span>0</span><span>0</span><span>0</span>秒后消失</div>
+		<div id="wrap">
+			<div class="person">
+				<h4>太平洋保险</h4>
+				<p>总票数：<span>0</span> 票</p>
+				<button Can_vote="0">给它投票</button>
+			</div>
+
+			<div class="person">
+				<h4>平安保险</h4>
+				<p>总票数：<span>0</span> 票</p>
+				<button Can_vote="0">给它投票</button>
+			</div>
+
+			<div class="person">
+				<h4>友邦保险</h4>
+				<p>总票数：<span>0</span> 票</p>
+				<button Can_vote="0">给它投票</button>
+			</div>
+
+			<div class="person">
+				<h4>太平保险</h4>
+				<p>总票数：<span>0</span> 票</p>
+				<button Can_vote="0">给它投票</button>
+			</div>
+
+			<div class="clear"></div>
+		</div>
+	</body>
+
+</HTML>

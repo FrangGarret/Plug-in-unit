@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="telephone=no" name="format-detection" />
+
+    <title>我的财神节</title>
+    <link rel="stylesheet" media="screen" title="no title" href="./index.html-aio.css" />
+</head>
+<body style="display:none" ontouchstart>
+    <main></main>
+
+    <div class="loading-mask">
+        <div class="loading-icon"></div>
+    </div>
+    <script src="https://m.health.pingan.com/share/script/services/all.js"></script>
+
+<script src="./index.html-aio.js"></script>
+<script src="./hooks.js"></script>
+<script src="./index.html-aio_2.js"></script>
+    <script type="text/javascript">
+    window.document.body.style.display = 'block'
+    </script>
+</body>
+</html>
+<script>
+        if (window.IsPAH) {
+            var share = {
+                title: '一吨黄金等你来挖，还有爆款险种大促哦~',
+                desc: '洁牙卡、最高20万意外险花式赠送，史无前例，超强力度，错过再等一年',
+                imgUrl: location.origin + '/ehis-hm/wealth-game/img/share.jpg',
+                link: 'https://mobile.health.pingan.com/ehis-hm/wealth-game/index.html?re_from=caishenjie&order_from=caishenjie'
+            }
+            PinganHealth.isOpenWebViewShare('true');
+
+            //调用分享方法
+            function webviewShareCallback(){
+                PinganHealth.goShare(share.title,
+                            share.desc,
+                            share.link,
+                            share.imgUrl,
+                            '');
+            }
+            WIN['webview_share_callback'] = webviewShareCallback;
+        }
+    </script>

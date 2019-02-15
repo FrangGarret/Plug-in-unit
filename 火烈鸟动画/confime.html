@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function FWD_confirm(message, callback) {
+
+        var create = function () {
+
+            return document.createElement.apply(document, arguments);
+
+        }
+
+        var bgDialog = create("div"), //创建半透明背景层
+            dialog = create("div"), //创建弹出框
+            //提示信息栏
+            look = create("p"),
+
+            messageBox = create("ul"),
+
+            totalButton = create("div"),
+
+            okBubbton = create("button"),
+
+            cancelButton = create("button");
+
+        dialog.className = "FWD_confirm";
+        look.className = "FWD_confirm_tips";
+
+        //添加背景层样式
+        bgDialog.className = "FWD_background";
+        messageBox.className = "FWD_confirm_info_Warp";
+        okBubbton.className = "enter_btn";
+        cancelButton.className = "cancel_btn";
+        totalButton.className = "FWD_confirm_btns_warp";
+
+        look.innerHTML = "温馨提示";
+        if (typeof message == 'string') {
+            var messageLi = create("li");
+            messageLi.className = 'FWD_confirm_info_one'
+            messageLi.innerHTML = message.replace(/\[|]/g, '');
+            messageLi.className = "alignCenter";
+            messageBox.appendChild(messageLi);
+        } else {
+            var messageJson = JSON.parse(message)
+            for (var i = 0; i < messageJson.length; i++) {
+                var messageLi = create("li");
+                messageLi.className = 'FWD_confirm_info_more'
+                messageLi.innerHTML = messageJson[i];
+                messageBox.appendChild(messageLi);
+            }
+        }
+
+        okBubbton.innerHTML = "確定";
+
+        cancelButton.innerHTML = "取消";
+
+        okBubbton.onclick = function () {
+            if (callback) {
+                callback(true);
+            }
+            bgDialog.parentNode.removeChild(bgDialog);
+
+        };
+
+        cancelButton.onclick = function () {
+            if (callback) {
+                callback(false);
+            }
+            bgDialog.parentNode.removeChild(bgDialog);
+        }
+
+        dialog.appendChild(look);
+        dialog.appendChild(messageBox);
+        dialog.appendChild(totalButton);
+        bgDialog.appendChild(dialog);
+        totalButton.appendChild(okBubbton);
+        totalButton.appendChild(cancelButton);
+        document.body.appendChild(bgDialog);
+
+    }
+    FWD_confirm('你好',function(e){
+      if(e){
+          alert(0)
+      }else{
+          alert(1)
+      }
+    })
+</script>
