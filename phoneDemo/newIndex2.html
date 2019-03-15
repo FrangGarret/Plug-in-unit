@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/com.css">
+	<link rel="stylesheet" href="./css/border.css">
+	<link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header headerInfo">
+			<div class="header-box">
+				<div class="headerL"><span class="back" id="back"></span></div>
+				<div class="headerR"><span id="title">客户经营指标看板</span></div>
+			</div>
+		</div>
+		<div class="content list-item">
+			<div class="list-title">
+				<h3>短险综合赔付率</h3>
+				<span>2019-01</span>
+			</div>
+			<div class="list-table">
+				<table id="table">
+					<thead>
+						<tr></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>四川</td>
+							<td>12%</td>
+							<td>16%</td>
+							<td class="last">17%</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>重庆</td>
+							<td>12%</td>
+							<td>123%</td>
+							<td class="last">21%</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>浙江</td>
+							<td>12%</td>
+							<td>11%</td>
+							<td class="last">19%</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>山东</td>
+							<td>12%</td>
+							<td>22%</td>
+							<td class="last">90%</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>深圳</td>
+							<td>12%</td>
+							<td>18%</td>
+							<td class="last">31%</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>四川</td>
+							<td>12%</td>
+							<td>19%</td>
+							<td class="last">45%</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>重庆</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">30%</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>浙江</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">91%</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>山东</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">60%</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>深圳</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">16%</td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td>四川</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">61%</td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td>重庆</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">8%</td>
+						</tr>
+						<tr>
+							<td>13</td>
+							<td>浙江</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">66%</td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td>山东</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">22%</td>
+						</tr>
+						<tr>
+							<td>15</td>
+							<td>深圳</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">33%</td>
+						</tr>
+						<tr>
+							<td>16</td>
+							<td>四川</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">45%</td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td>重庆</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">31%</td>
+						</tr>
+						<tr>
+							<td>18</td>
+							<td>浙江</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">33%</td>
+						</tr>
+						<tr>
+							<td>19</td>
+							<td>山东</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">77%</td>
+						</tr>
+						<tr>
+							<td>20</td>
+							<td>深圳</td>
+							<td>12%</td>
+							<td>12%</td>
+							<td class="last">11%</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<script src="./js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			// $(window).resize(function(){
+			// 		location.reload();/*  页面自动刷新 */
+			// });
+			var arr = [];
+			var gets = sessionStorage.getItem('data');
+			switch (gets) {
+				case 'cxpfl':    	//长险赔付率
+					$('.list-title h3').text('长险赔付率');
+					$('.last').show();
+					arr.push('<th>排名</th><th>机构</th><th>赔付率</th><th>重疾</th><th>寿险</th>')
+					$('#table thead tr').html(arr.join(' '))
+					break;
+				case 'dxzhpfl':  //短险综合赔付率
+					$('.list-title h3').text('短险综合赔付率');
+					$('.last').show();
+					arr.push('<th>排名</th><th>机构</th><th>赔付率</th><th>个人业务</th><th>团险业务</th>')
+					$('#table thead tr').html(arr.join(' '))
+					break;
+				case 'jbl':   //加保率
+					$('.list-title h3').text('加保率');
+					$('.last').show();
+					arr.push('<th>排名</th><th>机构</th><th>加保率</th><th>理赔后</th><th>临柜客户</th>')
+					$('#table thead tr').html(arr.join(' '))
+					break;
+				case 'hkzzl':    //获客增长率
+					$('.list-title h3').text('获客增长率');
+					$('.last').hide();
+					arr.push('<th>排名</th><th>机构</th><th>获客数</th><th>增长率</th>')
+					$('#table thead tr').html(arr.join(' '))
+				break;
+				case 'cxjpjyycb':   	//长险件平均营运成本
+					$('.list-title h3').text('长险件平均营运成本');
+					$('.last').show();
+					arr.push('<th>排名</th><th>机构</th><th>当前值</th><th>同比</th><th>目标值</th>')
+					$('#table thead tr').html(arr.join(' '))
+					break;
+				default:
+					break;
+			}
+			
+			
+			$('#table tbody tr:odd').css('background-color','#f5f5f5');
+			// $('#table tbody tr:odd td').addClass('border-bottom'); // 1px边框问题
+			$('#table tbody tr:odd td').css('border-bottom','1px solid #d5d5d5');
+			$('#back').click(function(){
+				window.location.href = './newIndex.html';
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+	<meta name="format-detection" content="telephone=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/com.css">
+	<link rel="stylesheet" href="./css/border.css">
+	<link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="header-box">
+				<div class="headerL"><span class="back" id="back"></span></div>
+				<div class="headerR"><span>客户BI看板</span></div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="box-item" style="    margin-top: 0;">
+				<div class="longIns" style="position: relative;">
+					<p class="title">长险赔付率</p>
+					<p class="subtext">最新数据如期<span>2019-06</span></p>
+						<div id="bar" style="width: 100%;height: 4rem"></div>
+						<div id="barClick" style="height: 60%;
+						width: 100%;
+						position: absolute;
+						top: 65px;"></div>
+				</div>
+			</div>
+			<div class="box-item">
+				<div class="shotIns">
+					<p class="title">短险综合赔付率</p>
+					<p class="subtext">最新数据如期<span>2019-06</span></p>
+					<div class="duanxian-box" style="   
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					margin-top: -0.6rem;">
+						<!-- canvas 手机上模糊的解决方法，放大2倍，再缩小 -->
+						<canvas style="transform: scale(0.5,0.5);	margin: 0 -1rem;" id="daunxian1" width="200" height="170"></canvas>
+						<canvas style="transform: scale(0.5,0.5);	margin: 0 -1rem;" id="daunxian2" width="200" height="170"></canvas>
+						<canvas style="transform: scale(0.5,0.5);	margin: 0 -1rem;" id="daunxian3" width="200" height="170"></canvas>
+						<!-- <canvas  id="daunxian2" width="100%" height="85%"></canvas>
+							<canvas  id="daunxian3" width="100%" height="85%"></canvas> -->
+					</div>
+				</div>
+			</div>
+			<div class="box-item">
+				<div class="shotIns">
+					<p class="title">加保率</p>
+					<p class="subtext">最新数据如期<span>2019-06</span></p>
+					<div class="duanxian-box" style="
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					margin-top: -0.6rem;">
+						<canvas style="transform: scale(0.5,0.5);	margin: 0 -1rem;" id="daunxian4" width="200" height="170"></canvas>
+						<canvas style="transform: scale(0.5,0.5);	margin: 0 -1rem;" id="daunxian5" width="200" height="170"></canvas>
+						<canvas style="transform: scale(0.5,0.5);	margin: 0 -1rem;" id="daunxian6" width="200" height="170"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="box-item">
+				<div class="passGrow">
+					<p class="title">获客增长率</p>
+					<p class="subtext">最新数据如期<span>2019-06</span></p>
+					<div id="line" style="width: 100%;height: 70%"></div>
+				</div>
+			</div>
+			<div class="box-item">
+				<div class="passGrow">
+					<p class="title">长险件平均营运成本</p>
+					<p class="subtext">最新数据如期<span>2019-06</span></p>
+					<div style="display: block;
+				    text-decoration: none;
+				    color: #ccc;
+				    width: 100%;
+						height: 70%;
+						margin-top: 0.3rem;">
+						<div class="barX-text" style="width: 20%;float: left">
+							<ul>
+								<li style="margin: .10rem 0;color: #666">
+									<p style="color: #999">全司</p><span style="font-size:.26rem;">12.7元/件</span>
+								</li>
+								<li style="margin: .10rem 0;color: #666">
+									<p style="color: #999">总部营运</p><span style="font-size:.26rem;">10元/件</span>
+								</li>
+								<li style="margin: .10rem 0;color: #666">
+									<p style="color: #999">机构营运</p><span style="font-size:.26rem;">14元/件</span>
+								</li>
+							</ul>
+						</div>
+						<div id="barX" style="width: 80%;height: 90%;float: left"></div>
+					</div>
+				</div>
+			</div>
+			<div class="box-item">
+				<div class="ranking">
+					<p class="title">排行榜</p>
+					<p class="subtext">最新数据如期<span>2019-06</span></p>
+					<div class="rank">
+						<ul class="rankToggle">
+							<li class="active border-right bL">昨日之星</li>
+							<li class="border-right">本周之星</li>
+							<li class="bR">本月之星</li>
+						</ul>
+						<div id="start">
+							<!-- 昨日之星 -->
+							<div class="rank-yestoday" style="display: block">
+								<ul class="rank-img">
+									<li>
+										<img src="./images/user.png" alt="">
+									</li>
+									<li style="height: 1.4rem">
+										<img src="./images/user.png" alt="">
+									</li>
+									<li>
+										<img src="./images/user.png" alt="">
+									</li>
+								</ul>
+								<ul class="rank-text">
+									<li>
+										<p class="rank-img-text">上海聚宝盆</p>
+										<p class="rank-img-num">1300</p>
+									</li>
+									<li>
+										<p class="rank-img-text">山西-金优人生</p>
+										<p class="rank-img-num">1500</p>
+									</li>
+									<li>
+										<p class="rank-img-text">深证-聚宝盆</p>
+										<p class="rank-img-num">1000</p>
+									</li>
+								</ul>
+							</div>
+							<!-- 本周之星 -->
+							<div class="rank-week" style="display: none">
+								<ul class="week-item">
+									<li>
+										<div class="week-text">
+											<img src="./images/user.png" alt="">
+											<p>深证-聚宝盆2</p>
+										</div>
+										<span>1300</span>
+									</li>
+									<li>
+										<div class="week-text">
+											<img src="./images/user.png" alt="">
+											<p>深证-聚宝盆2</p>
+										</div>
+										<span>1300</span>
+									</li>
+									<li>
+										<div class="week-text">
+											<img src="./images/user.png" alt="">
+											<p>深证-聚宝盆2</p>
+										</div>
+										<span>1300</span>
+									</li>
+								</ul>
+							</div>
+							<!-- 本月之星 -->
+							<div class="rank-month" style="display: none">
+								<ul class="week-item">
+									<li>
+										<div class="week-text">
+											<img src="./images/user.png" alt="">
+											<p>上海-聚宝盆3</p>
+										</div>
+										<span>1300</span>
+									</li>
+									<li>
+										<div class="week-text">
+											<img src="./images/user.png" alt="">
+											<p>上海-聚宝盆3</p>
+										</div>
+										<span>1300</span>
+									</li>
+									<li>
+										<div class="week-text">
+											<img src="./images/user.png" alt="">
+											<p>上海-聚宝盆3</p>
+										</div>
+										<span>1300</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="./js/jquery.min.js"></script>
+	<script src='./js/echarts.min.js'></script>
+	<script src='./js/index.js'></script>
+	<script>
+		// $(window).resize(function(){
+    //     location.reload();/*  页面自动刷新 */
+    // });
+		var barEchart = creatEcharts('bar');
+		barEchart.setOption(zhbarOption())
+
+		var lineEchart = creatEcharts('line');
+		lineEchart.setOption(getLine())
+
+		var barxEchart = creatEcharts('barX');
+		barxEchart.setOption(getBarX())
+
+		function creatEcharts(selector) {
+			return echarts.init(document.getElementById(selector));
+		}
+
+		window.onload = function () {
+			var offset = sessionStorage.getItem('offsetTop');
+			$(document).scrollTop(offset);
+		}
+
+		$(window).scroll(function () {
+			if ($(document).scrollTop() != 0) {
+				sessionStorage.setItem('offsetTop', $(window).scrollTop())
+				console.log($(window).scrollTop())
+			}
+		})
+		//长险赔付率
+		$('#barClick').click(function (e) {
+			e.stopPropagation();
+			sessionStorage.setItem('data','cxpfl')
+			window.location.href = "./newIndex2.html"
+		})
+
+		//短险综合赔付率
+		$('#daunxian1,#daunxian2,#daunxian3').click(function (e) {
+			e.stopPropagation();
+			sessionStorage.setItem('data','dxzhpfl')
+			window.location.href = "./newIndex2.html"
+		})
+		//加保率
+		$('#daunxian4,#daunxian5,#daunxian6').click(function (e) {
+			e.stopPropagation();
+			sessionStorage.setItem('data','jbl')
+			window.location.href = "./newIndex2.html"
+		})
+		//获客增长率
+		$('#line').click(function (e) {
+			e.stopPropagation();
+			sessionStorage.setItem('data','hkzzl')
+			window.location.href = "./newIndex2.html"
+		})
+		//长险件平均营运成本
+		$('#barX').click(function (e) {
+			e.stopPropagation();
+			sessionStorage.setItem('data','cxjpjyycb')
+			window.location.href = "./newIndex2.html"
+		})
+
+		// 点击事件
+		$('.rankToggle').on('click', 'li', function () {
+			$(this).addClass('active').siblings('li').removeClass('active');
+			var $index = $(this).index();
+			$('#start div:nth-child(' + ($index + 1) + ')').show().siblings('div').hide()
+		})
+
+		getCircle('daunxian1', '#d6e0ff', '#7fa0fe', '46.12', 1.3, '综合业务');
+		getCircle('daunxian2', '#c7ecfd', '#50c4fa', '76.82', 1.8, '个人业务');
+		getCircle('daunxian3', '#add4ff', '#007aff', '38.31', 1.2, '重疾保险');
+
+		getCircle('daunxian4', '#d6e0ff', '#7fa0fe', '46.12', 1.3, '综合');
+		getCircle('daunxian5', '#c7ecfd', '#50c4fa', '76.82', 1.8, '综合');
+		getCircle('daunxian6', '#add4ff', '#007aff', '38.31', 1.2, '综合');
+
+
+		function getCircle(selector, color1, color2, value, nums, text) {
+			// 每次执行canvas之前都先清楚定时器
+			clearInterval(timer)
+			var canvas = document.getElementById(selector),
+				context = canvas.getContext('2d'),
+				centerX = canvas.width / 4,
+				centerY = canvas.height / 4,
+				// 将圆环分成100份
+				rad = (Math.PI * 2.15 - Math.PI * 0.85) / 100,
+				speed = 0.1,
+				timer;
+
+
+			function bgCircle() {
+				// 绘制5像素的运动外圈
+				context.save();
+				context.strokeStyle = color1; //边描颜色
+				context.lineWidth = 5;
+				context.beginPath(); // 开始路径
+				context.scale(2, 2);//绘制也放大两倍 
+				context.arc(centerX, centerY, 40, Math.PI * 0.85, Math.PI * 2.15, false); // 用于绘制圆弧arc(x坐标，y坐标，半径，起始角度，终止角度，顺时针/逆时针)
+				context.lineCap = 'round';
+				context.stroke(); //绘制
+				context.closePath(); // 路径结束
+				context.restore();
+			}
+
+
+			function banCircle(speed) {
+				// 圆弧
+				context.save();
+				context.lineWidth = 5; // 线宽
+				context.scale(2, 2);//绘制也放大两倍
+				context.beginPath(); // 开始路径
+				context.strokeStyle = color2; //边描颜色
+				context.lineCap = 'round';
+				context.arc(centerX, centerY, 40, Math.PI * 0.85, Math.PI * 0.85 + rad * speed, false); // 用于绘制圆弧arc(x坐标，y坐标，半径，起始角度，终止角度，顺时针/逆时针)
+				context.stroke(); //绘制
+				context.closePath(); // 路径结束
+				context.restore();
+			}
+			function dian(){
+					// 绘制一个点
+				context.save();
+				context.lineWidth = 5; // 线宽
+				context.scale(2, 2);//绘制也放大两倍
+				context.beginPath(); // 开始路径
+				context.strokeStyle = '#fff'; //边描颜色
+				context.lineCap = 'round';
+				// speed 最后要和Number(value)一样，因为Number(value)*rad+Math.PI*0.85就是终点的位置
+				context.arc(centerX, centerY, 40, Math.PI * 0.85 + rad * speed - 0.06, Math.PI * 0.85 + rad * speed - 0.05, false); // 用于绘制圆弧arc(; // 用于绘制圆弧arc(x坐标，y坐标，半径，起始角度，终止角度，顺时针/逆时针)
+				context.stroke(); //绘制
+				context.closePath(); // 路径结束
+				context.restore();
+			}
+
+
+
+			// 绘制文字
+
+			function textZH() {
+				var X;
+				if (text.length == 4) {
+					X = centerX / 2 + 40;
+				} else if (text.length == 2) {
+					X = centerX / 2 + 60;
+				}
+				context.save();
+				context.beginPath(); // 开始路径
+				context.fillStyle = '#999';
+				// 设置像素不然苹果无法显示 
+				context.font = '18px Arial';
+				context.fillText(text, X, centerY / 2 + 40);
+				context.fill()
+				context.stroke(); //绘制
+				context.restore();
+			}
+
+
+
+			function bfb() {
+				//百分比
+				context.save();
+				context.fillStyle = '#333';
+				context.font = '24px Arial';
+				context.beginPath(); // 开始路径
+				context.fillText(value + '%', centerX + 15, centerY + 60);
+				context.fill();
+				context.stroke(); //绘制
+				context.restore();
+
+			}
+
+
+
+			(function drawFrame() {
+
+				if (speed <= Number(value)) {
+					window.requestAnimationFrame(drawFrame, canvas);
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					bgCircle();
+					bfb();
+					banCircle(speed);
+					dian(speed);
+					textZH();
+					timer = setInterval(function () {
+						speed += 0.1
+					}, 1)
+				}
+			}())
+		}
+
+	</script>
+</body>
+
+</html>
